@@ -1,4 +1,4 @@
 ---
-title: maxoieglglglglglglgl
-address: 'ortachala fsadfsa fdsaf afdsaf sadfdsafsa '
+title: Malxaz Gelashvili
+address: 'Kote Abkhazi Str, Tbilisi'
 ---
