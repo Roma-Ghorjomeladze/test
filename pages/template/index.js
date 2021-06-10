@@ -43,7 +43,6 @@ Contacts.getInitialProps = async function() {
   const content = await import('../../data/contacts/config.json')
   let contactDetails = (context => {
     const keys = context.keys()
-    console.log(keys)
     const values = keys.map(context)
     const data = keys.map((key, index) => {
       const slug = key

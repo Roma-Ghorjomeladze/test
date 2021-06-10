@@ -20,10 +20,12 @@ export default function Header(props) {
           </InnerCont>
         </FlexCont>
       </Container>
-      <Cover
-        src={props.data?.frontmatter.image}
-        title={props.data?.frontmatter.title}
-      />
+      {props.data && (
+        <Cover
+          src={props.data?.frontmatter.image}
+          title={props.data?.frontmatter.title}
+        />
+      )}
     </>
   )
 }

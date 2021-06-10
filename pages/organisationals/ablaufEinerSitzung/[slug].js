@@ -2,7 +2,7 @@ import matter from 'gray-matter'
 import { Contact } from '../../components/Contact'
 import { usePlugin } from 'tinacms'
 import { useMarkdownForm } from 'next-tinacms-markdown'
-import Wrapper from '../../components/wrapper'
+import Wrapper from '../../components/Wrapper'
 
 export default function AblaufEinerSitzung(props) {
   const formOptions = {
@@ -14,6 +14,12 @@ export default function AblaufEinerSitzung(props) {
         component: 'text',
       },
       {
+        label: 'Date',
+        name: 'frontmatter.date',
+        component: 'date',
+        description: 'The articles will be sorted accordint to this date',
+      },
+      {
         name: 'frontmatter.address',
         label: 'Address',
         component: 'text',
@@ -23,7 +29,6 @@ export default function AblaufEinerSitzung(props) {
 
   const [contact, form] = useMarkdownForm(props.markdownFile, formOptions)
   usePlugin(form)
-  console.log({ contact })
   return (
     <Wrapper data={props.config}>
       <Contact contact={contact.frontmatter} />

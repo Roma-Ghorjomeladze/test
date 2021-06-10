@@ -14,6 +14,12 @@ export default function KostenUndKrankenkasse(props) {
         component: 'text',
       },
       {
+        label: 'Date',
+        name: 'frontmatter.date',
+        component: 'date',
+        description: 'The articles will be sorted accordint to this date',
+      },
+      {
         name: 'frontmatter.address',
         label: 'Address',
         component: 'text',
@@ -23,7 +29,6 @@ export default function KostenUndKrankenkasse(props) {
 
   const [contact, form] = useMarkdownForm(props.markdownFile, formOptions)
   usePlugin(form)
-  console.log({ contact })
   return (
     <Wrapper data={props.config}>
       <h2>KostenUndKrankenkasse</h2>

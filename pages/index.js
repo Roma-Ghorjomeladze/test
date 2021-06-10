@@ -2,53 +2,58 @@ import matter from 'gray-matter'
 import { useJsonForm } from 'next-tinacms-json'
 import { usePlugin } from 'tinacms'
 
-import Layout from '../components/Layout'
-import BlogList from '../components/BlogList'
+import Wrapper from '../components/Wrapper'
+import { HomePost } from '../components/HomePost'
 
-const Index = ({ jsonFile, allBlogs }) => {
+const Index = ({ jsonFile, homeArticles }) => {
   const formOptions = {
     label: 'Site Config',
     fields: [
       {
-        name: 'title',
+        name: 'frontmatter.title',
         label: 'Site Title',
         component: 'text',
       },
       {
-        name: 'description',
-        label: 'Site Description',
-        component: 'text',
-      },
-      {
-        name: 'repositoryUrl',
-        label: 'Repository Url',
-        component: 'text',
+        label: 'Cover Image',
+        name: 'frontmatter.image',
+        component: 'image',
+        // Generate the frontmatter value based on the filename
+        parse: media => `/static/${media.filename}`,
+
+        // Decide the file upload directory for the post
+        uploadDir: () => '/public/static',
+
+        // Generate the src attribute for the preview image.
+        previewSrc: fullSrc => fullSrc.replace('/public', ''),
       },
     ],
   }
   const [data, form] = useJsonForm(jsonFile, formOptions)
   usePlugin(form)
-
   return (
-    <Layout
-      pathname="/"
-      siteTitle={data.title}
-      siteDescription={data.description}
-    >
-      <section>
-        <BlogList allBlogs={allBlogs} />
-      </section>
-    </Layout>
+    <Wrapper data={data}>
+      {homeArticles.length &&
+        homeArticles.map(article => (
+          <HomePost
+            article={{
+              ...article.document.data,
+              slug: article.slug,
+              content: article.document.content,
+            }}
+            isLink
+          />
+        ))}
+    </Wrapper>
   )
 }
 
 export default Index
 
 Index.getInitialProps = async function() {
-  const content = await import(`../data/config.json`)
+  const content = await import(`../data/home/config.json`)
   // get all blog data for list
   const posts = (context => {
-    console.log({ context })
     const keys = context.keys()
     const values = keys.map(context)
     const data = keys.map((key, index) => {
@@ -67,14 +72,14 @@ Index.getInitialProps = async function() {
       }
     })
     return data
-  })(require.context('../data/posts', true, /\.md$/))
+  })(require.context('../data/home', true, /\.md$/))
 
   return {
     jsonFile: {
-      fileRelativePath: `data/config.json`,
+      fileRelativePath: `data/home/config.json`,
       data: content.default,
     },
 
-    allBlogs: posts,
+    homeArticles: posts.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
   }
 }

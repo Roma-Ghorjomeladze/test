@@ -68,6 +68,6 @@ Fachliteratur.getInitialProps = async function() {
       fileRelativePath: `data/organisationals/fachliteratur/config.json`,
       data: content.default,
     },
-    records,
+    records: records.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
   }
 }

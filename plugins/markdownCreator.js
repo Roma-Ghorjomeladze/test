@@ -120,14 +120,111 @@ export const CreateContactPlugin = new MarkdownCreatorPlugin({
       required: true,
     },
     {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+    {
       label: 'Address',
       name: 'address',
       component: 'text',
       required: true,
-    }
+    },
   ],
   frontmatter: contactInfo => ({
     title: contactInfo.title,
     address: contactInfo.address,
-  })
+    date: postInfo.date || new Date(),
+  }),
+})
+
+export const CreateProfileArticlePlugin = new MarkdownCreatorPlugin({
+  label: 'Add new profile article',
+  filename: form => {
+    const slug = form.title.replace(/\s+/g, '-').toLowerCase()
+    return `data/andrea/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+  ],
+  frontmatter: contactInfo => ({
+    title: contactInfo.title,
+    date: postInfo.date || new Date(),
+  }),
+})
+
+export const CreateHomePostPlugin = new MarkdownCreatorPlugin({
+  label: 'Add new post on home page',
+  filename: form => {
+    const slug = form.title.replace(/\s+/g, '-').toLowerCase()
+    return `data/home/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+    {
+      label: 'Hero Image',
+      name: 'image',
+      component: 'image',
+      // Generate the frontmatter value based on the filename
+      parse: media => `/static/${media.filename}`,
+
+      // Decide the file upload directory for the post
+      uploadDir: () => '/public/static/',
+
+      // Generate the src attribute for the preview image.
+      previewSrc: fullSrc => fullSrc.replace('/public', ''),
+    },
+    {
+      name: 'order',
+      description: 'choose alignment of your content',
+      label: 'order',
+      component: 'toggle',
+      toggleLabels: {
+        true: 'Right',
+        false: 'Left',
+      },
+    },
+    {
+      name: 'button',
+      description: 'Choose show the button or not',
+      label: 'Show button',
+      component: 'toggle',
+      toggleLabels: {
+        true: 'Show',
+        false: 'Hide',
+      },
+    },
+  ],
+  frontmatter: postInfo => ({
+    title: postInfo.title,
+    date: postInfo.date || new Date(),
+    image: postInfo.image,
+    order: postInfo.order == true ? true : false,
+    button: postInfo.button == true ? true : false,
+  }),
+  body: () =>
+    `When you add the details for your article, than you will be able to update content of it.`,
 })

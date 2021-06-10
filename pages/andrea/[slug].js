@@ -1,8 +1,9 @@
 import matter from 'gray-matter'
-import { Contact } from '../../components/Contact'
 import { usePlugin } from 'tinacms'
 import { useMarkdownForm } from 'next-tinacms-markdown'
 import Wrapper from '../../components/Wrapper'
+import { Article } from '../../components/Article'
+import styled from 'styled-components'
 
 export default function Gutschine(props) {
   const formOptions = {
@@ -14,37 +15,39 @@ export default function Gutschine(props) {
         component: 'text',
       },
       {
-        label: 'Date',
-        name: 'frontmatter.date',
-        component: 'date',
-        description: 'The articles will be sorted accordint to this date',
-      },
-      {
-        name: 'frontmatter.address',
-        label: 'Address',
-        component: 'text',
+        name: 'markdownBody',
+        label: 'Blog Body',
+        component: 'markdown',
       },
     ],
   }
 
-  const [contact, form] = useMarkdownForm(props.markdownFile, formOptions)
+  const [record, form] = useMarkdownForm(props.markdownFile, formOptions)
   usePlugin(form)
   return (
     <Wrapper data={props.config}>
-      <div>Gutscheine</div>
+      <ArticleCont>
+        <Article
+          record={{
+            slug: '',
+            title: record.frontmatter.title,
+            content: record.markdownBody,
+          }}
+        />
+      </ArticleCont>
     </Wrapper>
   )
 }
 
 Gutschine.getInitialProps = async function(ctx) {
   const { slug } = ctx.query
-  const content = await import(`../../data/contacts/${slug}.md`)
-  const config = await import(`../../data/contacts/config.json`)
+  const content = await import(`../../data/andrea/${slug}.md`)
+  const config = await import(`../../data/andrea/config.json`)
   const data = matter(content.default)
 
   return {
     markdownFile: {
-      fileRelativePath: `data/contacts/${slug}.md`,
+      fileRelativePath: `data/andrea/${slug}.md`,
       frontmatter: data.data,
       markdownBody: data.content,
     },
@@ -52,3 +55,8 @@ Gutschine.getInitialProps = async function(ctx) {
     config: config,
   }
 }
+
+const ArticleCont = styled.div`
+  margin-top: 100px;
+  margin-bottom: 60px;
+`

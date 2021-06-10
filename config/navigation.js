@@ -77,14 +77,14 @@ export const navigation = {
   andrea: {
     default: {
       label: 'Andrea Schuppli',
-      href: 'andrea/',
+      href: '/andrea',
       index: 1,
     },
     index: 3,
     options: [
       {
         label: 'Vita',
-        href: 'andrea/vita',
+        href: '/andrea/vita',
         index: 1,
       },
     ],
@@ -92,7 +92,7 @@ export const navigation = {
   other: {
     default: {
       label: 'Sonstiges',
-      href: 'other/',
+      href: '/other',
       index: 1,
     },
     index: 4,
@@ -104,7 +104,7 @@ export const navigation = {
       },
       {
         label: 'Kunst',
-        href: 'other/kunst',
+        href: '/other/kunst',
         index: 2,
       },
     ],
@@ -112,24 +112,24 @@ export const navigation = {
   contacts: {
     default: {
       label: 'Kontakt',
-      href: 'contacts/',
+      href: '/contacts',
       index: 1,
     },
     index: 5,
     options: [
       {
         label: 'Praxis Schaffhausen',
-        href: 'contacts/praxisSchaffhausen',
+        href: '/contacts/praxisSchaffhausen',
         index: 1,
       },
       {
         label: 'Praxis Frauenfeld',
-        href: 'contacts/praxisFrauenfeld',
+        href: '/contacts/praxisFrauenfeld',
         index: 2,
       },
       {
         label: 'Termin vereinbaren',
-        href: 'contacts/terminVereinbaren',
+        href: '/contacts/terminVereinbaren',
         index: 3,
       },
     ],

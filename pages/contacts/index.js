@@ -46,7 +46,6 @@ Contacts.getInitialProps = async function() {
   const content = await import('../../data/contacts/config.json')
   let contactDetails = (context => {
     const keys = context.keys()
-    console.log(keys)
     const values = keys.map(context)
     const data = keys.map((key, index) => {
       const slug = key
@@ -65,6 +64,8 @@ Contacts.getInitialProps = async function() {
       fileRelativePath: `data/contacts/config.json`,
       data: content.default,
     },
-    contactDetails: contactDetails,
+    contactDetails: contactDetails.sort((p1, p2) =>
+      p1.date > p2.date ? 1 : -1
+    ),
   }
 }
