@@ -48,6 +48,7 @@ Index.getInitialProps = async function() {
   const content = await import(`../data/config.json`)
   // get all blog data for list
   const posts = (context => {
+    console.log({ context })
     const keys = context.keys()
     const values = keys.map(context)
     const data = keys.map((key, index) => {
@@ -66,7 +67,7 @@ Index.getInitialProps = async function() {
       }
     })
     return data
-  })(require.context('../posts', true, /\.md$/))
+  })(require.context('../data/posts', true, /\.md$/))
 
   return {
     jsonFile: {

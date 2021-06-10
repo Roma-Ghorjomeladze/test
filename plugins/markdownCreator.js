@@ -67,6 +67,7 @@ export class MarkdownCreatorPlugin {
         markdownBody,
       }),
     })
+    cms.alerts.success('saved successfully')
   }
 }
 
@@ -74,7 +75,7 @@ export const CreateBlogPlugin = new MarkdownCreatorPlugin({
   label: 'Add New Post',
   filename: form => {
     const slug = form.title.replace(/\s+/g, '-').toLowerCase()
-    return `posts/${slug}.md`
+    return `data/posts/${slug}.md`
   },
   fields: [
     {
@@ -103,4 +104,30 @@ export const CreateBlogPlugin = new MarkdownCreatorPlugin({
     hero_image: '/static/alfons-taekema-bali.jpg',
   }),
   body: () => `New post, who dis?`,
+})
+
+export const CreateContactPlugin = new MarkdownCreatorPlugin({
+  label: 'Add new contact',
+  filename: form => {
+    const slug = form.title.replace(/\s+/g, '-').toLowerCase()
+    return `data/contacts/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Address',
+      name: 'address',
+      component: 'text',
+      required: true,
+    }
+  ],
+  frontmatter: contactInfo => ({
+    title: contactInfo.title,
+    address: contactInfo.address,
+  })
 })

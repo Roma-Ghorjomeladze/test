@@ -4,8 +4,9 @@ import { TinaProvider, TinaCMS } from 'tinacms'
 import { GitClient, GitMediaStore } from '@tinacms/git-client'
 import { MarkdownFieldPlugin } from 'react-tinacms-editor'
 import { DateFieldPlugin } from 'react-tinacms-date'
+import '../styles/global.css'
 
-import { CreateBlogPlugin } from '../plugins/markdownCreator'
+import { CreateBlogPlugin, CreateContactPlugin } from '../plugins/markdownCreator'
 
 class MyApp extends App {
   constructor() {
@@ -25,6 +26,7 @@ class MyApp extends App {
     this.cms.plugins.add(MarkdownFieldPlugin)
     this.cms.plugins.add(DateFieldPlugin)
     this.cms.plugins.add(CreateBlogPlugin)
+    this.cms.plugins.add(CreateContactPlugin)
   }
 
   render() {

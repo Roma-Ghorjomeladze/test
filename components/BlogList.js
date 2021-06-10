@@ -30,9 +30,9 @@ const BlogList = (props) => {
               <div className="blog__info">
                 <h2>{post.document.data.title}</h2>
                 <h3> {reformatDate(post.document.data.date)}</h3>
-                <p>
+                <div>
                   <ReactMarkdown source={truncateSummary(post.document.content)} />
-                </p>
+                </div>
               </div>
             </li>
             </a>
