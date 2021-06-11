@@ -74,7 +74,10 @@ export class MarkdownCreatorPlugin {
 export const CreateBlogPlugin = new MarkdownCreatorPlugin({
   label: 'Add New Post',
   filename: form => {
-    const slug = form.title.replace(/\s+/g, '-').toLowerCase()
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .toLowerCase()
     return `data/posts/${slug}.md`
   },
   fields: [
@@ -109,7 +112,10 @@ export const CreateBlogPlugin = new MarkdownCreatorPlugin({
 export const CreateContactPlugin = new MarkdownCreatorPlugin({
   label: 'Add new contact',
   filename: form => {
-    const slug = form.title.replace(/\s+/g, '-').toLowerCase()
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .toLowerCase()
     return `data/contacts/${slug}.md`
   },
   fields: [
@@ -142,7 +148,10 @@ export const CreateContactPlugin = new MarkdownCreatorPlugin({
 export const CreateProfileArticlePlugin = new MarkdownCreatorPlugin({
   label: 'Add new profile article',
   filename: form => {
-    const slug = form.title.replace(/\s+/g, '-').toLowerCase()
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .toLowerCase()
     return `data/andrea/${slug}.md`
   },
   fields: [
@@ -168,7 +177,10 @@ export const CreateProfileArticlePlugin = new MarkdownCreatorPlugin({
 export const CreateHomePostPlugin = new MarkdownCreatorPlugin({
   label: 'Add new post on home page',
   filename: form => {
-    const slug = form.title.replace(/\s+/g, '-').toLowerCase()
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .toLowerCase()
     return `data/home/${slug}.md`
   },
   fields: [

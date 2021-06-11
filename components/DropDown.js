@@ -2,6 +2,48 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 
+export const DropDown = ({ nav }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const show = () => setIsOpen(true)
+  const hide = () => setIsOpen(false)
+
+  return (
+    <DropDownContainer onMouseLeave={hide} onMouseOver={show}>
+      <DropDownHeader>
+        <Link className="link" href={nav.default.href}>
+          <A>{nav.default.label}</A>
+        </Link>
+      </DropDownHeader>
+      {isOpen && (
+        <DropDownListContainer>
+          {nav.options.map(option => (
+            <div>
+              <LinkCont>
+                <Link className="link" href={option.href}>
+                  <ChildNavs>{option.label}</ChildNavs>
+                </Link>
+              </LinkCont>
+              {option.options &&
+                option.options.map(subNav => {
+                  return (
+                    <SubLinkCont>
+                      <Link
+                        key={subNav.href}
+                        href={{ pathname: subNav.href, path: subNav.href }}
+                      >
+                        <A>- {subNav.label}</A>
+                      </Link>
+                    </SubLinkCont>
+                  )
+                })}
+            </div>
+          ))}
+        </DropDownListContainer>
+      )}
+    </DropDownContainer>
+  )
+}
+
 const DropDownContainer = styled('div')`
   position: relative;
 `
@@ -44,30 +86,8 @@ let ChildNavs = styled.a`
 let LinkCont = styled.div`
   padding: 10px 0;
 `
-
-export const DropDown = ({ nav }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const show = () => setIsOpen(true)
-  const hide = () => setIsOpen(false)
-
-  return (
-    <DropDownContainer onMouseLeave={hide} onMouseOver={show}>
-      <DropDownHeader>
-        <Link className="link" href={nav.default.href}>
-          <A>{nav.default.label}</A>
-        </Link>
-      </DropDownHeader>
-      {isOpen && (
-        <DropDownListContainer>
-          {nav.options.map(option => (
-            <LinkCont>
-              <Link className="link" href={option.href}>
-                <ChildNavs>{option.label}</ChildNavs>
-              </Link>
-            </LinkCont>
-          ))}
-        </DropDownListContainer>
-      )}
-    </DropDownContainer>
-  )
-}
+let SubLinkCont = styled.div`
+  padding: 5px 0;
+  margin-left: 15px;
+  white-space: nowrap;
+`

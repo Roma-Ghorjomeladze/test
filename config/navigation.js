@@ -10,6 +10,29 @@ export const navigation = {
         label: 'Craniosacral Therapie',
         href: 'angebot/craniosacralTherapie',
         index: 1,
+        options: [
+          {
+            label: 'Schwangerschaft',
+            href: 'angebot/schwangerschaft',
+            index: 'a',
+          },
+          {
+            label: 'Nach Der Geburt',
+            href: 'angebot/nachDerGeburt',
+            index: 'b',
+          },
+          {
+            label: 'Kinder und Familien',
+            href: 'angebot/kinderUndFamilien',
+            index: 'c',
+          },
+
+          {
+            label: 'Anwendungsbereiche',
+            href: 'angebot/anwendungsbereiche',
+            index: 'd',
+          },
+        ],
       },
       {
         label: 'Pränataltherapie',

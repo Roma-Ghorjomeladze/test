@@ -14,18 +14,35 @@ export default function Footer() {
             <NavBody>
               {nav.options.map(subNav => {
                 return (
-                  <SubNavContainer>
-                    <NavIndexSmall>
-                      {nav.index}.{subNav.index}
-                    </NavIndexSmall>
-                    <SubNavTitle>{subNav.label}</SubNavTitle>
-                  </SubNavContainer>
+                  <div>
+                    <SubNavContainer>
+                      <NavIndexSmall>
+                        {nav.index}.{subNav.index}
+                      </NavIndexSmall>
+                      <SubNavTitle>{subNav.label}</SubNavTitle>
+                    </SubNavContainer>
+                    {subNav.options &&
+                      subNav.options.map(sn => {
+                        return (
+                          <SubNavContainer>
+                            <NavIndexSmall>
+                              {nav.index}.{subNav.index}
+                              {sn.index}
+                            </NavIndexSmall>
+                            <SubNavTitle>{sn.label}</SubNavTitle>
+                          </SubNavContainer>
+                        )
+                      })}
+                  </div>
                 )
               })}
             </NavBody>
           </NavItem>
         )
       })}
+      <NavItem>
+        <img className="logo" src={'/static/logos/logo.svg'} alt="Logo" />
+      </NavItem>
     </Footer_>
   )
 }
@@ -37,6 +54,7 @@ const Footer_ = styled.div`
   min-height: 50px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `
 
 const NavHeader = styled.h2`
@@ -60,7 +78,12 @@ const NavHeaderCont = styled.div`
   display: flex;
   margin-bottom: 10px;
 `
-const NavItem = styled.div``
+const NavItem = styled.div`
+  &:last-child {
+    align-self: flex-end;
+    margin-bottom: -20px;
+  }
+`
 const NavBody = styled.div``
 const NavIndexSmall = styled.span`
   font-weight: 500;
