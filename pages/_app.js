@@ -11,6 +11,15 @@ import {
   CreateContactPlugin,
   CreateHomePostPlugin,
   CreateProfileArticlePlugin,
+  CreateAnwendungsbereicheArticlePlugin,
+  CreateKinderUndFamilienArticlePlugin,
+  CreateNachDerGeburtArticlePlugin,
+  CreateSchwangerschaftArticlePlugin,
+  CreatePrantalTherapyArticlePlugin,
+  CreateProzessbegleitungArticlePlugin,
+  CreatesyStemischeArbeitArticlePlugin,
+  CreateTraumaArbeitArticlePlugin,
+  CreateAstrologyArticlePlugin,
 } from '../plugins/markdownCreator'
 
 class MyApp extends App {
@@ -30,6 +39,15 @@ class MyApp extends App {
 
     this.cms.plugins.add(MarkdownFieldPlugin)
     this.cms.plugins.add(DateFieldPlugin)
+    this.cms.plugins.add(CreateAnwendungsbereicheArticlePlugin)
+    this.cms.plugins.add(CreateKinderUndFamilienArticlePlugin)
+    this.cms.plugins.add(CreateNachDerGeburtArticlePlugin)
+    this.cms.plugins.add(CreateSchwangerschaftArticlePlugin)
+    this.cms.plugins.add(CreatePrantalTherapyArticlePlugin)
+    this.cms.plugins.add(CreateProzessbegleitungArticlePlugin)
+    this.cms.plugins.add(CreatesyStemischeArbeitArticlePlugin)
+    this.cms.plugins.add(CreateAstrologyArticlePlugin)
+    this.cms.plugins.add(CreateTraumaArbeitArticlePlugin)
     this.cms.plugins.add(CreateHomePostPlugin)
     this.cms.plugins.add(CreateProfileArticlePlugin)
     this.cms.plugins.add(CreateContactPlugin)

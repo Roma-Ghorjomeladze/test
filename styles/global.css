@@ -4,10 +4,3 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
-.logo {
-  transition: width 1s, height 1s, transform 2s;
-}
-
-.logo:hover {
-  transform: rotate(360deg);
-}

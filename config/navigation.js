@@ -4,6 +4,7 @@ export const navigation = {
     default: {
       label: 'Angebot',
       href: 'angebot',
+      isNotLink: true,
     },
     options: [
       {
@@ -13,51 +14,51 @@ export const navigation = {
         options: [
           {
             label: 'Schwangerschaft',
-            href: 'angebot/schwangerschaft',
+            href: '/angebot/craniosacralTherapie/schwangerschaft',
             index: 'a',
           },
           {
             label: 'Nach Der Geburt',
-            href: 'angebot/nachDerGeburt',
+            href: '/angebot/craniosacralTherapie/nachDerGeburt',
             index: 'b',
           },
           {
             label: 'Kinder und Familien',
-            href: 'angebot/kinderUndFamilien',
+            href: '/angebot/craniosacralTherapie/kinderUndFamilien',
             index: 'c',
           },
 
           {
             label: 'Anwendungsbereiche',
-            href: 'angebot/anwendungsbereiche',
+            href: '/angebot/craniosacralTherapie/anwendungsbereiche',
             index: 'd',
           },
         ],
       },
       {
         label: 'Pränataltherapie',
-        href: 'angebot/pranataltherapie',
+        href: '/angebot/prantalTherapie',
         index: 2,
       },
       {
         label: 'Prozessbegleitung',
-        href: 'angebot/prozessbegleitung',
+        href: '/angebot/prozessbegleitung',
         index: 3,
       },
       {
         label: 'Systemische-Arbeit',
-        href: 'angebot/systemischeArbeit',
+        href: '/angebot/systemischeArbeit',
         index: 4,
       },
 
       {
         label: 'Trauma-Arbeit',
-        href: 'angebot/traumaArbeit',
+        href: '/angebot/traumaArbeit',
         index: 5,
       },
       {
         label: 'Astrologische Psychologie',
-        href: 'angebot/astrologischePsychologie',
+        href: '/angebot/astrologischePsychologie',
         index: 6,
       },
     ],
@@ -67,6 +68,7 @@ export const navigation = {
       label: 'Organisatorisches',
       href: '/organisationals',
       index: 1,
+      isNotLink: true,
     },
     index: 2,
     options: [
@@ -122,7 +124,7 @@ export const navigation = {
     options: [
       {
         label: 'Wasserfilter',
-        href: 'other/wasserfilter',
+        href: '/other/wasserfilter',
         index: 1,
       },
       {

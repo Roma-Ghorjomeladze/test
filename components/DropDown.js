@@ -10,7 +10,10 @@ export const DropDown = ({ nav }) => {
   return (
     <DropDownContainer onMouseLeave={hide} onMouseOver={show}>
       <DropDownHeader>
-        <Link className="link" href={nav.default.href}>
+        <Link
+          className="link"
+          href={nav.default.isNotLink ? '' : nav.default.href}
+        >
           <A>{nav.default.label}</A>
         </Link>
       </DropDownHeader>

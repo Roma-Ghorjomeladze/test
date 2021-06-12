@@ -21,8 +21,6 @@ export const HomePost = ({ article, isLink }) => {
   )
 }
 let Btn = styled.button`
-  font-family: Mulish;
-  font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
@@ -37,8 +35,14 @@ let Btn = styled.button`
   cursor: pointer;
   text-align: center;
   vertical-align: center;
+  margin-top: 50px;
   &:active {
     transform: translateY(2px);
+  }
+  &:hover {
+    background: linear-gradient(0deg, #6380ba, #6380ba), #fff5f5;
+    border: 2px solid #6380ba;
+    color: #fff;
   }
 `
 

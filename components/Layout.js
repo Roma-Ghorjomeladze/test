@@ -12,7 +12,6 @@ export default function Layout(props) {
       <style jsx>
         {`
           .layout {
-            overflow-x: hidden;
             display: flex;
             flex-direction: column;
           }

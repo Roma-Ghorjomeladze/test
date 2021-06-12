@@ -1,8 +1,8 @@
 import matter from 'gray-matter'
 import { usePlugin } from 'tinacms'
 import { useMarkdownForm } from 'next-tinacms-markdown'
-import Wrapper from '../../components/Wrapper'
-import { Article } from '../../components/Article'
+import Wrapper from '../../../../components/Wrapper'
+import { Article } from '../../../../components/Article'
 import styled from 'styled-components'
 
 export default function Gutschine(props) {
@@ -47,13 +47,17 @@ export default function Gutschine(props) {
 
 Gutschine.getInitialProps = async function(ctx) {
   const { slug } = ctx.query
-  const content = await import(`../../data/andrea/${slug}.md`)
-  const config = await import(`../../data/andrea/config.json`)
+  const content = await import(
+    `../../../../data/angebot/craniosacralTherapie/anwendungsbereiche/${slug}.md`
+  )
+  const config = await import(
+    `../../../../data/angebot/craniosacralTherapie/anwendungsbereiche/config.json`
+  )
   const data = matter(content.default)
 
   return {
     markdownFile: {
-      fileRelativePath: `data/andrea/${slug}.md`,
+      fileRelativePath: `data/angebot/craniosacralTherapie/anwendungsbereiche/${slug}.md`,
       frontmatter: data.data,
       markdownBody: data.content,
     },

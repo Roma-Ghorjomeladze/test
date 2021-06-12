@@ -81,7 +81,7 @@ export const Article = props => {
             font-size: 16px;
             line-height: 19px;
             letter-spacing: 0.02em;
-            color: #000000;
+            color: #3a4b6d;
           }
           .blog__body a {
             padding-bottom: 1.5rem;
@@ -91,9 +91,10 @@ export const Article = props => {
           }
           .blog__body h1 h2 h3 h4 h5 h6 p {
             font-weight: normal;
+            color: #3a4b6d;
           }
           .blog__body p {
-            color: inherit;
+            color: #3a4b6d;
           }
           .blog__body ul {
             list-style: initial;
@@ -132,6 +133,7 @@ export const Article = props => {
             }
             .blog__body {
               max-width: 800px;
+              color: #3a4b6d;
             }
             .blog__body span {
               width: 100%;
@@ -149,7 +151,6 @@ export const Article = props => {
               text-align: center;
             }
             .blog__info h1 {
-              max-width: 500px;
             }
             .blog__footer {
               padding: 2.25rem;
@@ -176,13 +177,13 @@ export const Article = props => {
 let A = styled.a`
   text-decoration: none;
   text-align: left;
+  font-weight: 400;
   cursor: pointer;
-  font-weight: bolder !important;
   &:hover {
     color: #00008b;
   }
 `
 const Span = styled.span`
-  font-weight: bolder;
   letter-spacing: 1.5px;
+  font-family: 'Roboto' sans-serif;
 `

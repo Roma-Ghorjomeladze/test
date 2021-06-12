@@ -72,11 +72,12 @@ export class MarkdownCreatorPlugin {
 }
 
 export const CreateBlogPlugin = new MarkdownCreatorPlugin({
-  label: 'Add New Post',
+  label: 'Add new post on home page',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
       .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
       .toLowerCase()
     return `data/posts/${slug}.md`
   },
@@ -115,6 +116,7 @@ export const CreateContactPlugin = new MarkdownCreatorPlugin({
     const slug = form.title
       .replace(/\s+/g, '-')
       .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
       .toLowerCase()
     return `data/contacts/${slug}.md`
   },
@@ -151,6 +153,7 @@ export const CreateProfileArticlePlugin = new MarkdownCreatorPlugin({
     const slug = form.title
       .replace(/\s+/g, '-')
       .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
       .toLowerCase()
     return `data/andrea/${slug}.md`
   },
@@ -172,6 +175,7 @@ export const CreateProfileArticlePlugin = new MarkdownCreatorPlugin({
     title: contactInfo.title,
     date: postInfo.date || new Date(),
   }),
+  body: () => 'update this article',
 })
 
 export const CreateHomePostPlugin = new MarkdownCreatorPlugin({
@@ -180,6 +184,7 @@ export const CreateHomePostPlugin = new MarkdownCreatorPlugin({
     const slug = form.title
       .replace(/\s+/g, '-')
       .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
       .toLowerCase()
     return `data/home/${slug}.md`
   },
@@ -239,4 +244,327 @@ export const CreateHomePostPlugin = new MarkdownCreatorPlugin({
   }),
   body: () =>
     `When you add the details for your article, than you will be able to update content of it.`,
+})
+
+export const CreateAnwendungsbereicheArticlePlugin = new MarkdownCreatorPlugin({
+  label: 'Add new anwendungsbereiche article',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/angebot/craniosacralTherapie/anwendungsbereiche/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+  }),
+  body: () => 'update this article',
+})
+
+export const CreateKinderUndFamilienArticlePlugin = new MarkdownCreatorPlugin({
+  label: 'Add new kinder Und Familien article',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/angebot/craniosacralTherapie/kinderUndFamilien/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+  }),
+  body: () => 'update this article',
+})
+
+export const CreateNachDerGeburtArticlePlugin = new MarkdownCreatorPlugin({
+  label: 'Add new nach der geburt article',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/angebot/craniosacralTherapie/nachDerGeburt/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+  }),
+  body: () => 'update this article',
+})
+
+export const CreateSchwangerschaftArticlePlugin = new MarkdownCreatorPlugin({
+  label: 'Add new schwangerschaft article',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/angebot/craniosacralTherapie/schwangerschaft/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+  }),
+  body: () => 'update this article',
+})
+
+export const CreatePrantalTherapyArticlePlugin = new MarkdownCreatorPlugin({
+  label: 'Add new prantal therapy article',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/angebot/prantalTherapie/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+  }),
+  body: () => 'update this article',
+})
+
+export const CreateProzessbegleitungArticlePlugin = new MarkdownCreatorPlugin({
+  label: 'Add new prozessbegleitung article',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/angebot/prozessbegleitung/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+    {
+      name: 'button',
+      description: 'Choose show the button or not',
+      label: 'Show button',
+      component: 'toggle',
+      toggleLabels: {
+        true: 'Show',
+        false: 'Hide',
+      },
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+    button: article.button == true ? true : false,
+  }),
+  body: () => 'update this article',
+})
+
+export const CreatesyStemischeArbeitArticlePlugin = new MarkdownCreatorPlugin({
+  label: 'Add new systemischeArbeit article',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/angebot/systemischeArbeit/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+    {
+      name: 'button',
+      description: 'Choose show the button or not',
+      label: 'Show button',
+      component: 'toggle',
+      toggleLabels: {
+        true: 'Show',
+        false: 'Hide',
+      },
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+    button: article.button == true ? true : false,
+  }),
+  body: () => 'update this article',
+})
+
+export const CreateTraumaArbeitArticlePlugin = new MarkdownCreatorPlugin({
+  label: 'Add new traumaArbeit article',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/angebot/traumaArbeit/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+    {
+      name: 'button',
+      description: 'Choose show the button or not',
+      label: 'Show button',
+      component: 'toggle',
+      toggleLabels: {
+        true: 'Show',
+        false: 'Hide',
+      },
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+    button: article.button == true ? true : false,
+  }),
+  body: () => 'update this article',
+})
+
+export const CreateAstrologyArticlePlugin = new MarkdownCreatorPlugin({
+  label: 'Add new astrology article',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/angebot/astrologischePsychologie/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+    {
+      name: 'button',
+      description: 'Choose show the button or not',
+      label: 'Show button',
+      component: 'toggle',
+      toggleLabels: {
+        true: 'Show',
+        false: 'Hide',
+      },
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+    button: article.button == true ? true : false,
+  }),
+  body: () => 'update this article',
 })
