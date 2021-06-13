@@ -1,10 +1,15 @@
 import Header from './Header'
 import Footer from './Footer'
 import styled from 'styled-components'
+import Meta from './Meta'
 
 export default function Wrapper(props) {
   return (
     <Container>
+      <Meta
+        siteTitle={props.data?.frontmatter.title}
+        siteDescription=""
+      />
       <Header data={props.data} />
 
       <Main>{props.children}</Main>

@@ -1,10 +1,11 @@
 import matter from 'gray-matter'
-import { Contact } from '../../components/Contact'
 import { usePlugin } from 'tinacms'
 import { useMarkdownForm } from 'next-tinacms-markdown'
-import Wrapper from '../../components/wrapper'
+import Wrapper from '../../../components/Wrapper'
+import { Article } from '../../../components/Article'
+import styled from 'styled-components'
 
-export default function KostenUndKrankenkasse(props) {
+export default function Gutschine(props) {
   const formOptions = {
     label: `Update ${props.markdownFile.frontmatter.title}`,
     fields: [
@@ -20,23 +21,31 @@ export default function KostenUndKrankenkasse(props) {
         description: 'The articles will be sorted accordint to this date',
       },
       {
-        name: 'frontmatter.address',
-        label: 'Address',
-        component: 'text',
+        name: 'markdownBody',
+        label: 'Blog Body',
+        component: 'markdown',
       },
     ],
   }
 
-  const [contact, form] = useMarkdownForm(props.markdownFile, formOptions)
+  const [record, form] = useMarkdownForm(props.markdownFile, formOptions)
   usePlugin(form)
   return (
     <Wrapper data={props.config}>
-      <h2>KostenUndKrankenkasse</h2>
+      <ArticleCont>
+        <Article
+          record={{
+            slug: '',
+            title: record.frontmatter.title,
+            content: record.markdownBody,
+          }}
+        />
+      </ArticleCont>
     </Wrapper>
   )
 }
 
-KostenUndKrankenkasse.getInitialProps = async function(ctx) {
+Gutschine.getInitialProps = async function(ctx) {
   const { slug } = ctx.query
   const content = await import(
     `../../../data/organisationals/kostenUndKrankenkasse/${slug}.md`
@@ -56,3 +65,8 @@ KostenUndKrankenkasse.getInitialProps = async function(ctx) {
     config: config,
   }
 }
+
+const ArticleCont = styled.div`
+  margin-top: 100px;
+  margin-bottom: 60px;
+`

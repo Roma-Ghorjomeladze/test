@@ -2,8 +2,12 @@ import matter from 'gray-matter'
 import { usePlugin } from 'tinacms'
 import { useJsonForm } from 'next-tinacms-json'
 import Wrapper from '../../../components/Wrapper'
+import { Article } from '../../../components/Article'
+import styled from 'styled-components'
+import Meta from '../../../components/Meta'
 
-const KostenUndKrankenkasse = ({ jsonFile, records }) => {
+
+const Andrea = ({ jsonFile, records }) => {
   const formOptions = {
     label: 'Site Config',
     fields: [
@@ -31,14 +35,28 @@ const KostenUndKrankenkasse = ({ jsonFile, records }) => {
   usePlugin(form)
   return (
     <Wrapper data={data}>
-      <h2>kostenUndKrankenkasse</h2>
+      <Meta />
+      {records.length &&
+        records.map(record => (
+          <ArticleCont>
+            <Article
+              isLink
+              record={{
+                slug: record.slug,
+                content: record.document.content,
+                title: record.document.data.title,
+                dir: 'organisationals/kostenUndKrankenkasse',
+              }}
+            />
+          </ArticleCont>
+        ))}
     </Wrapper>
   )
 }
 
-export default KostenUndKrankenkasse
+export default Andrea
 
-KostenUndKrankenkasse.getInitialProps = async function() {
+Andrea.getInitialProps = async function() {
   const content = await import(
     '../../../data/organisationals/kostenUndKrankenkasse/config.json'
   )
@@ -68,6 +86,13 @@ KostenUndKrankenkasse.getInitialProps = async function() {
       fileRelativePath: `data/organisationals/kostenUndKrankenkasse/config.json`,
       data: content.default,
     },
-    records,
+    records: records.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
   }
 }
+
+const ArticleCont = styled.div`
+  &:first-child {
+    margin-top: 130px;
+  }
+  margin-bottom: 60px;
+`

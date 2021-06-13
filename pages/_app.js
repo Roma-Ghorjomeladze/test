@@ -20,6 +20,11 @@ import {
   CreatesyStemischeArbeitArticlePlugin,
   CreateTraumaArbeitArticlePlugin,
   CreateAstrologyArticlePlugin,
+  CreateAblaufEinerSitzungArticlePlugin,
+CreateGutschineArticlePlugin,
+CreateKlientestimmenArticlePlugin,
+CreateKostenArticlePlugin,
+CreateKostenUndKrankenkasseArticlePlugin,
 } from '../plugins/markdownCreator'
 
 class MyApp extends App {
@@ -52,6 +57,12 @@ class MyApp extends App {
     this.cms.plugins.add(CreateProfileArticlePlugin)
     this.cms.plugins.add(CreateContactPlugin)
     this.cms.plugins.add(CreateBlogPlugin)
+    this.cms.plugins.add(CreateAblaufEinerSitzungArticlePlugin)
+    this.cms.plugins.add(CreateGutschineArticlePlugin)
+    this.cms.plugins.add(CreateKlientestimmenArticlePlugin)
+    this.cms.plugins.add(CreateKostenArticlePlugin)
+    this.cms.plugins.add(CreateKostenUndKrankenkasseArticlePlugin)
+
   }
 
   render() {

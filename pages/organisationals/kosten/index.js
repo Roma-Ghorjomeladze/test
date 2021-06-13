@@ -2,8 +2,11 @@ import matter from 'gray-matter'
 import { usePlugin } from 'tinacms'
 import { useJsonForm } from 'next-tinacms-json'
 import Wrapper from '../../../components/Wrapper'
+import { Article } from '../../../components/Article'
+import styled from 'styled-components'
+import Meta from '../../../components/Meta'
 
-const Fachliteratur = ({ jsonFile, records }) => {
+const Andrea = ({ jsonFile, records }) => {
   const formOptions = {
     label: 'Site Config',
     fields: [
@@ -31,16 +34,30 @@ const Fachliteratur = ({ jsonFile, records }) => {
   usePlugin(form)
   return (
     <Wrapper data={data}>
-      <h2>Fachliteratur</h2>
+      <Meta />
+      {records.length &&
+        records.map(record => (
+          <ArticleCont>
+            <Article
+              isLink
+              record={{
+                slug: record.slug,
+                content: record.document.content,
+                title: record.document.data.title,
+                dir: 'organisationals/kosten',
+              }}
+            />
+          </ArticleCont>
+        ))}
     </Wrapper>
   )
 }
 
-export default Fachliteratur
+export default Andrea
 
-Fachliteratur.getInitialProps = async function() {
+Andrea.getInitialProps = async function() {
   const content = await import(
-    '../../../data/organisationals/fachliteratur/config.json'
+    '../../../data/organisationals/kosten/config.json'
   )
   let records = (context => {
     const keys = context.keys()
@@ -58,16 +75,23 @@ Fachliteratur.getInitialProps = async function() {
     return data
   })(
     require.context(
-      '../../../data/organisationals/fachliteratur',
+      '../../../data/organisationals/kosten',
       true,
       /\.md$/
     )
   )
   return {
     jsonFile: {
-      fileRelativePath: `data/organisationals/fachliteratur/config.json`,
+      fileRelativePath: `data/organisationals/kosten/config.json`,
       data: content.default,
     },
     records: records.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
   }
 }
+
+const ArticleCont = styled.div`
+  &:first-child {
+    margin-top: 130px;
+  }
+  margin-bottom: 60px;
+`

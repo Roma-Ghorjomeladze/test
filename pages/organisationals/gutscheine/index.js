@@ -2,8 +2,11 @@ import matter from 'gray-matter'
 import { usePlugin } from 'tinacms'
 import { useJsonForm } from 'next-tinacms-json'
 import Wrapper from '../../../components/Wrapper'
+import { Article } from '../../../components/Article'
+import styled from 'styled-components'
+import Meta from '../../../components/Meta'
 
-const Gutscheine = ({ jsonFile, records }) => {
+const Andrea = ({ jsonFile, records }) => {
   const formOptions = {
     label: 'Site Config',
     fields: [
@@ -31,16 +34,30 @@ const Gutscheine = ({ jsonFile, records }) => {
   usePlugin(form)
   return (
     <Wrapper data={data}>
-      <h2>Gutscheine</h2>
+      <Meta />
+      {records.length &&
+        records.map(record => (
+          <ArticleCont>
+            <Article
+              isLink
+              record={{
+                slug: record.slug,
+                content: record.document.content,
+                title: record.document.data.title,
+                dir: 'organisationals/gutscheine',
+              }}
+            />
+          </ArticleCont>
+        ))}
     </Wrapper>
   )
 }
 
-export default Gutscheine
+export default Andrea
 
-Gutscheine.getInitialProps = async function() {
+Andrea.getInitialProps = async function() {
   const content = await import(
-    '../../../data/organisationals/gutschine/config.json'
+    '../../../data/organisationals/gutscheine/config.json'
   )
   let records = (context => {
     const keys = context.keys()
@@ -56,12 +73,25 @@ Gutscheine.getInitialProps = async function() {
       return { document, slug }
     })
     return data
-  })(require.context('../../../data/organisationals/gutschine', true, /\.md$/))
+  })(
+    require.context(
+      '../../../data/organisationals/gutscheine',
+      true,
+      /\.md$/
+    )
+  )
   return {
     jsonFile: {
-      fileRelativePath: `data/organisationals/gutschine/config.json`,
+      fileRelativePath: `data/organisationals/gutscheine/config.json`,
       data: content.default,
     },
     records: records.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
   }
 }
+
+const ArticleCont = styled.div`
+  &:first-child {
+    margin-top: 130px;
+  }
+  margin-bottom: 60px;
+`

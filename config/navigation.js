@@ -3,13 +3,13 @@ export const navigation = {
     index: 1,
     default: {
       label: 'Angebot',
-      href: 'angebot',
+      href: '/angebot',
       isNotLink: true,
     },
     options: [
       {
         label: 'Craniosacral Therapie',
-        href: 'angebot/craniosacralTherapie',
+        href: '/angebot/craniosacralTherapie',
         index: 1,
         options: [
           {
@@ -78,45 +78,45 @@ export const navigation = {
         index: 1,
       },
       {
+        label: 'Kosten',
+        href: '/organisationals/kosten',
+        index: 3,
+      },
+      {
         label: 'Kosten und Krankenkasse',
         href: '/organisationals/kostenUndKrankenkasse',
-        index: 2,
+        index: 4,
       },
       {
         label: 'Gutscheine',
         href: '/organisationals/gutscheine',
-        index: 3,
+        index: 5,
       },
       {
         label: 'Klientenstimmen',
         href: '/organisationals/klientenstimmen',
-        index: 4,
-      },
-      {
-        label: 'Fachliteratur',
-        href: '/organisationals/fachliteratur',
-        index: 5,
+        index: 6,
       },
     ],
   },
   andrea: {
     default: {
-      label: 'Andrea Schuppli',
+      label: 'Andrea S.',
       href: '/andrea',
       index: 1,
     },
     index: 3,
     options: [
-      {
-        label: 'Vita',
-        href: '/andrea/vita',
-        index: 1,
-      },
+      // {
+      //   label: 'Vita',
+      //   href: '/andrea/vita',
+      //   index: 1,
+      // },
     ],
   },
   other: {
     default: {
-      label: 'Sonstiges',
+      label: 'Wissenswertes',
       href: '/other',
       index: 1,
     },
@@ -142,21 +142,21 @@ export const navigation = {
     },
     index: 5,
     options: [
-      {
-        label: 'Praxis Schaffhausen',
-        href: '/contacts/praxisSchaffhausen',
-        index: 1,
-      },
-      {
-        label: 'Praxis Frauenfeld',
-        href: '/contacts/praxisFrauenfeld',
-        index: 2,
-      },
-      {
-        label: 'Termin vereinbaren',
-        href: '/contacts/terminVereinbaren',
-        index: 3,
-      },
+      // {
+      //   label: 'Praxis Schaffhausen',
+      //   href: '/contacts/praxisSchaffhausen',
+      //   index: 1,
+      // },
+      // {
+      //   label: 'Praxis Frauenfeld',
+      //   href: '/contacts/praxisFrauenfeld',
+      //   index: 2,
+      // },
+      // {
+      //   label: 'Termin vereinbaren',
+      //   href: '/contacts/terminVereinbaren',
+      //   index: 3,
+      // },
     ],
   },
 }
