@@ -39,7 +39,6 @@ export default function Gutschine(props) {
       //     markdownBody,
       //   }),
       // })
-      console.log({ form })
       cms.alerts.success('saved successfully')
     },
   }

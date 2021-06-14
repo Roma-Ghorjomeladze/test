@@ -117,19 +117,19 @@ export const navigation = {
   other: {
     default: {
       label: 'Wissenswertes',
-      href: '/other',
+      href: '/wissenswertes',
       index: 1,
     },
     index: 4,
     options: [
       {
         label: 'Wasserfilter',
-        href: '/other/wasserfilter',
+        href: '/wissenswertes/wasserfilter',
         index: 1,
       },
       {
         label: 'Kunst',
-        href: '/other/kunst',
+        href: '/wissenswertes/kunst',
         index: 2,
       },
     ],

@@ -693,15 +693,48 @@ export const CreateKostenArticlePlugin = new MarkdownCreatorPlugin({
   body: () => 'update this article',
 })
 
-export const CreateKostenUndKrankenkasseArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new kosten und krankenkasse article',
+export const CreateKostenUndKrankenkasseArticlePlugin = new MarkdownCreatorPlugin(
+  {
+    label: 'Add new kosten und krankenkasse article',
+    filename: form => {
+      const slug = form.title
+        .replace(/\s+/g, '-')
+        .replace(/\[^a-zA-Z0-9]/, '')
+        .replace('?', '')
+        .toLowerCase()
+      return `data/organisationals/kostenUndKrankenkasse/${slug}.md`
+    },
+    fields: [
+      {
+        label: 'Title',
+        name: 'title',
+        component: 'text',
+        required: true,
+      },
+      {
+        label: 'Date',
+        name: 'date',
+        component: 'date',
+        description: 'The default will be today',
+      },
+    ],
+    frontmatter: article => ({
+      title: article.title,
+      date: article.date || new Date(),
+    }),
+    body: () => 'update this article',
+  }
+)
+
+export const CreateCraniosacralArticlePlugin = new MarkdownCreatorPlugin({
+  label: 'Add new article on craniosacral page',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
       .replace(/\[^a-zA-Z0-9]/, '')
       .replace('?', '')
       .toLowerCase()
-    return `data/organisationals/kostenUndKrankenkasse/${slug}.md`
+    return `data/angebot/craniosacralTherapie/self/${slug}.md`
   },
   fields: [
     {
@@ -723,3 +756,151 @@ export const CreateKostenUndKrankenkasseArticlePlugin = new MarkdownCreatorPlugi
   }),
   body: () => 'update this article',
 })
+
+export const CreateWissenswertesKunstArticlePlugin = new MarkdownCreatorPlugin({
+  label: 'Add new article on wissenswertes kunst',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/wissenswertes/kunst/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+  }),
+  body: () => 'update this article',
+})
+
+export const CreateWissenswertesWasserfilterArticlePlugin = new MarkdownCreatorPlugin(
+  {
+    label: 'Add new article on wissenswertes wasserfilter',
+    filename: form => {
+      const slug = form.title
+        .replace(/\s+/g, '-')
+        .replace(/\[^a-zA-Z0-9]/, '')
+        .replace('?', '')
+        .toLowerCase()
+      return `data/wissenswertes/wasserfilter/${slug}.md`
+    },
+    fields: [
+      {
+        label: 'Title',
+        name: 'title',
+        component: 'text',
+        required: true,
+      },
+      {
+        label: 'Date',
+        name: 'date',
+        component: 'date',
+        description: 'The default will be today',
+      },
+    ],
+    frontmatter: article => ({
+      title: article.title,
+      date: article.date || new Date(),
+    }),
+    body: () => 'update this article',
+  }
+)
+// export const CreateCraniosacralSlidePlugin = new MarkdownCreatorPlugin({
+//   label: 'Add new slide on craniosacral page',
+//   filename: form => {
+//     const slug = form.title
+//       .replace(/\s+/g, '-')
+//       .replace(/\[^a-zA-Z0-9]/, '')
+//       .replace('?', '')
+//       .toLowerCase()
+//     return `data/angebot/craniosacralTherapie/self/${slug}.md`
+//   },
+//   fields: [
+//     {
+//       label: 'Title',
+//       name: 'title',
+//       component: 'text',
+//       required: true,
+//     },
+//     {
+//       label: 'Title',
+//       name: 'title_left',
+//       component: 'text',
+//     },
+//     {
+//       label: 'Left image',
+//       name: 'image_left',
+//       component: 'image',
+//       // Generate the frontmatter value based on the filename
+//       parse: media => `/static/${media.filename}`,
+
+//       // Decide the file upload directory for the post
+//       uploadDir: () => '/public/static',
+
+//       // Generate the src attribute for the preview image.
+//       previewSrc: fullSrc => fullSrc.replace('/public', ''),
+//     },
+//     {
+//       label: 'Title',
+//       name: 'title_mid',
+//       component: 'text',
+//     },
+//     {
+//       label: 'Middle image',
+//       name: 'image_mid',
+//       component: 'image',
+//       // Generate the frontmatter value based on the filename
+//       parse: media => `/static/${media.filename}`,
+
+//       // Decide the file upload directory for the post
+//       uploadDir: () => '/public/static',
+
+//       // Generate the src attribute for the preview image.
+//       previewSrc: fullSrc => fullSrc.replace('/public', ''),
+//     },
+//     {
+//       label: 'Title',
+//       name: 'title_right',
+//       component: 'text',
+//     },
+//     {
+//       label: 'Right image',
+//       name: 'image_right',
+//       component: 'image',
+//       // Generate the frontmatter value based on the filename
+//       parse: media => `/static/${media.filename}`,
+
+//       // Decide the file upload directory for the post
+//       uploadDir: () => '/public/static',
+
+//       // Generate the src attribute for the preview image.
+//       previewSrc: fullSrc => fullSrc.replace('/public', ''),
+//     },
+//   ],
+//   frontmatter: article => ({
+//     title: article.title,
+//     date: article.date || new Date(),
+//     type: 'slide',
+//     title_left: article.title_left,
+//     image_left: article.image_left,
+//     title_mid: article.title_mid,
+//     image_mid: article.image_mid,
+//     title_right: article.title_right,
+//     image_right: article.image_right,
+//   }),
+// })

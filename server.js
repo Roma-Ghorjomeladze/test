@@ -19,6 +19,10 @@ app.prepare().then(() => {
     gitApi.router({
       pathToRepo: process.cwd(),
       pathToContent: '',
+      defaultCommitMessage: 'Edited with TinaCMS',
+      defaultCommitName: 'TinaCMS',
+      defaultCommitEmail: 'ghorjomeladzeroma@gmail.com',
+      pushOnCommit: false,
     })
   )
 

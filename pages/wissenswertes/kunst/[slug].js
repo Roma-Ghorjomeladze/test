@@ -6,7 +6,7 @@ import { Article } from '../../../components/Article'
 import styled from 'styled-components'
 
 export default function Gutschine(props) {
-  let formOptions = {
+  const formOptions = {
     label: `Update ${props.markdownFile.frontmatter.title}`,
     fields: [
       {
@@ -15,28 +15,15 @@ export default function Gutschine(props) {
         component: 'text',
       },
       {
-        name: 'markdownBody',
-        label: 'Blog Body',
-        component: 'markdown',
-      },
-      {
         label: 'Date',
         name: 'frontmatter.date',
         component: 'date',
         description: 'The articles will be sorted accordint to this date',
       },
       {
-        label: 'Cover Image',
-        name: 'frontmatter.image',
-        component: 'image',
-        // Generate the frontmatter value based on the filename
-        parse: media => `/static/${media.filename}`,
-
-        // Decide the file upload directory for the post
-        uploadDir: () => '/public/static',
-
-        // Generate the src attribute for the preview image.
-        previewSrc: fullSrc => fullSrc.replace('/public', ''),
+        name: 'markdownBody',
+        label: 'Blog Body',
+        component: 'markdown',
       },
     ],
   }
@@ -48,8 +35,8 @@ export default function Gutschine(props) {
       <ArticleCont>
         <Article
           record={{
-            ...record.frontmatter,
             slug: '',
+            title: record.frontmatter.title,
             content: record.markdownBody,
           }}
         />
@@ -60,17 +47,13 @@ export default function Gutschine(props) {
 
 Gutschine.getInitialProps = async function(ctx) {
   const { slug } = ctx.query
-  const content = await import(
-    `../../../data/angebot/craniosacralTherapie/self/${slug}.md`
-  )
-  const config = await import(
-    `../../../data/angebot/craniosacralTherapie/self/config.json`
-  )
+  const content = await import(`../../../data/wissenswertes/kunst/${slug}.md`)
+  const config = await import(`../../../data/wissenswertes/kunst/config.json`)
   const data = matter(content.default)
 
   return {
     markdownFile: {
-      fileRelativePath: `data/angebot/craniosacralTherapie/self/${slug}.md`,
+      fileRelativePath: `data/wissenswertes/kunst/${slug}.md`,
       frontmatter: data.data,
       markdownBody: data.content,
     },

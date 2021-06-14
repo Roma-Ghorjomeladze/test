@@ -4,6 +4,7 @@ import { usePlugin } from 'tinacms'
 
 import Wrapper from '../components/Wrapper'
 import { HomePost } from '../components/HomePost'
+import { getGithubPreviewProps } from 'next-tinacms-github'
 
 const Index = ({ jsonFile, homeArticles }) => {
   const formOptions = {
@@ -51,7 +52,10 @@ const Index = ({ jsonFile, homeArticles }) => {
 
 export default Index
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function({ preview, previewData }) {
+  if (preview) {
+    return getGithubPreviewProps({ ...previewData })
+  }
   const content = await import(`../data/home/config.json`)
   // get all blog data for list
   const posts = (context => {
@@ -82,5 +86,8 @@ Index.getInitialProps = async function() {
     },
 
     homeArticles: posts.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
+    sourceProvider: null,
+    preview: false,
+    error: null,
   }
 }

@@ -1,7 +1,10 @@
 import styled from 'styled-components'
+import { useCMS } from 'tinacms'
 import { navigation } from '../config/navigation'
+import { EditLink } from './EditLink'
 
 export default function Footer() {
+  const cms = useCMS()
   return (
     <Footer_>
       {Object.values(navigation).map(nav => {
@@ -43,6 +46,7 @@ export default function Footer() {
       <NavItem>
         <img className="logo" src={'/static/logos/logo.svg'} alt="Logo" />
       </NavItem>
+      <EditLink cms={cms} />
     </Footer_>
   )
 }
@@ -55,6 +59,7 @@ const Footer_ = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  position: relative;
 `
 
 const NavHeader = styled.h2`
@@ -79,6 +84,8 @@ const NavHeaderCont = styled.div`
   margin-bottom: 10px;
 `
 const NavItem = styled.div`
+  display: flex;
+  flex-direction: column;
   &:last-child {
     align-self: flex-end;
     margin-bottom: -20px;

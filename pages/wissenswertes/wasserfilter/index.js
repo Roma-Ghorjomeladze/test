@@ -32,7 +32,6 @@ const Andrea = ({ jsonFile, records }) => {
   }
   const [data, form] = useJsonForm(jsonFile, formOptions)
   usePlugin(form)
-  console.log({ records })
   return (
     <Wrapper data={data}>
       <Meta />
@@ -42,12 +41,10 @@ const Andrea = ({ jsonFile, records }) => {
             <Article
               isLink
               record={{
-                ...record.document.data,
                 slug: record.slug,
                 content: record.document.content,
                 title: record.document.data.title,
-                dir: 'angebot/craniosacralTherapie',
-                type: record.document.data.type,
+                dir: 'wissenswertes/wasserfilter',
               }}
             />
           </ArticleCont>
@@ -60,7 +57,7 @@ export default Andrea
 
 Andrea.getInitialProps = async function() {
   const content = await import(
-    '../../../data/angebot/craniosacralTherapie/self/config.json'
+    '../../../data/wissenswertes/wasserfilter/config.json'
   )
   let records = (context => {
     const keys = context.keys()
@@ -76,17 +73,10 @@ Andrea.getInitialProps = async function() {
       return { document, slug }
     })
     return data
-  })(
-    require.context(
-      '../../../data/angebot/craniosacralTherapie/self',
-      true,
-      /\.md$/
-    )
-  )
-  console.log('fdsadfafd', records)
+  })(require.context('../../../data/wissenswertes/wasserfilter', true, /\.md$/))
   return {
     jsonFile: {
-      fileRelativePath: `data/angebot/craniosacralTherapie/self/config.json`,
+      fileRelativePath: `data/wissenswertes/wasserfilter/config.json`,
       data: content.default,
     },
     records: records.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
