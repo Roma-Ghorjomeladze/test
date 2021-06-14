@@ -21,10 +21,10 @@ import {
   CreateTraumaArbeitArticlePlugin,
   CreateAstrologyArticlePlugin,
   CreateAblaufEinerSitzungArticlePlugin,
-CreateGutschineArticlePlugin,
-CreateKlientestimmenArticlePlugin,
-CreateKostenArticlePlugin,
-CreateKostenUndKrankenkasseArticlePlugin,
+  CreateGutschineArticlePlugin,
+  CreateKlientestimmenArticlePlugin,
+  CreateKostenArticlePlugin,
+  CreateKostenUndKrankenkasseArticlePlugin,
 } from '../plugins/markdownCreator'
 
 class MyApp extends App {
@@ -62,7 +62,6 @@ class MyApp extends App {
     this.cms.plugins.add(CreateKlientestimmenArticlePlugin)
     this.cms.plugins.add(CreateKostenArticlePlugin)
     this.cms.plugins.add(CreateKostenUndKrankenkasseArticlePlugin)
-
   }
 
   render() {

@@ -26,6 +26,22 @@ export default function Gutschine(props) {
         component: 'markdown',
       },
     ],
+    async onSubmit(form, cms) {
+      // const fileRelativePath = await this.filename(form)
+      // const frontmatter = await this.frontmatter(form)
+      // const markdownBody = await this.body(form)
+
+      // cms.api.git.onChange({
+      //   fileRelativePath,
+      //   content: toMarkdownString({
+      //     fileRelativePath,
+      //     frontmatter,
+      //     markdownBody,
+      //   }),
+      // })
+      console.log({ form })
+      cms.alerts.success('saved successfully')
+    },
   }
 
   const [record, form] = useMarkdownForm(props.markdownFile, formOptions)

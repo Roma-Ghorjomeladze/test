@@ -36,6 +36,7 @@ const Index = ({ jsonFile, homeArticles }) => {
       {homeArticles.length &&
         homeArticles.map(article => (
           <HomePost
+            key={article.slug}
             article={{
               ...article.document.data,
               slug: article.slug,

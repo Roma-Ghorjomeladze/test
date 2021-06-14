@@ -10,10 +10,7 @@ export const DropDown = ({ nav }) => {
   return (
     <DropDownContainer onMouseLeave={hide} onMouseOver={show}>
       <DropDownHeader>
-        <Link
-          className="link"
-          href={nav.default.isNotLink ? '' : nav.default.href}
-        >
+        <Link href={nav.default.isNotLink ? '' : nav.default.href}>
           <A>{nav.default.label}</A>
         </Link>
       </DropDownHeader>
@@ -22,7 +19,7 @@ export const DropDown = ({ nav }) => {
           {nav.options.map(option => (
             <div>
               <LinkCont>
-                <Link className="link" href={option.href}>
+                <Link href={option.href}>
                   <ChildNavs>{option.label}</ChildNavs>
                 </Link>
               </LinkCont>
