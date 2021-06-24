@@ -18,6 +18,7 @@
   "dependencies": {
     "@tinacms/api-git": "^0.39.0",
     "@tinacms/git-client": "^0.31.0-alpha.5",
+    "airtable": "^0.11.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",

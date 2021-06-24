@@ -1,8 +1,8 @@
 import matter from 'gray-matter'
 import { usePlugin } from 'tinacms'
 import { useMarkdownForm } from 'next-tinacms-markdown'
-import Wrapper from '../../components/Wrapper'
-import { Article } from '../../components/Article'
+import Wrapper from '../../../../components/Wrapper'
+import { Article } from '../../../../components/Article'
 import styled from 'styled-components'
 
 export default function Gutschine(props) {
