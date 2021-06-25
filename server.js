@@ -22,7 +22,7 @@ app.prepare().then(() => {
       defaultCommitMessage: 'Edited with TinaCMS',
       defaultCommitName: 'TinaCMS',
       defaultCommitEmail: 'ghorjomeladzeroma@gmail.com',
-      pushOnCommit: false,
+      pushOnCommit: true,
     })
   )
 
