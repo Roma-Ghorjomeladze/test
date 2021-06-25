@@ -9,4 +9,4 @@ Die Biodynamische Craniosacral-Therapie ist eine sanfte und zugleich tiefgreifen
 
 Die Körperwahrnehmung wird verbessert. Der Organismus wird eingeladen, in sein natürliches Gleichgewicht zurückzukehren. Blockierte Energie kann sich schrittweise auflösen.
 
-nonea
+entdaaa
