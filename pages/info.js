@@ -37,6 +37,7 @@ export default function Info(props) {
         .info_blurb {
           max-width: 800px;
           padding: 1.5rem 1.25rem;
+          background: 'red';
         }
 
         @media (min-width: 768px) {

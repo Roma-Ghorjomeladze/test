@@ -119,6 +119,7 @@ export const navigation = {
       label: 'Wissenswertes',
       href: '/wissenswertes',
       index: 1,
+      isNotLink: true,
     },
     index: 4,
     options: [

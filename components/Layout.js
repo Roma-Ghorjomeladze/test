@@ -3,7 +3,7 @@ import Meta from './Meta'
 
 export default function Layout(props) {
   return (
-    <section className={`layout `}>
+    <div className={`layout `}>
       <Meta
         siteTitle={props.siteTitle}
         siteDescription={props.siteDescription}
@@ -25,11 +25,10 @@ export default function Layout(props) {
               display: block;
             }
             .content {
-              flex-grow: none;
             }
           }
         `}
       </style>
-    </section>
+    </div>
   )
 }

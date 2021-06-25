@@ -184,6 +184,7 @@ let A = styled.a`
   text-align: left;
   font-weight: 400;
   cursor: pointer;
+  margin-top: 30px !important;
   &:hover {
     color: #00008b;
   }

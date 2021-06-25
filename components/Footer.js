@@ -2,54 +2,60 @@ import styled from 'styled-components'
 import { useCMS } from 'tinacms'
 import { navigation } from '../config/navigation'
 import { EditLink } from './EditLink'
+import Link from 'next/link'
 
 export default function Footer() {
   const cms = useCMS()
+  let date = new Date()
+
   return (
     <Footer_>
-      {Object.values(navigation).map(nav => {
-        return (
-          <NavItem>
-            <NavHeaderCont>
-              <NavIndex>{nav.index}</NavIndex>
-              <NavHeader>{nav.default.label}</NavHeader>
-            </NavHeaderCont>
-            <NavBody>
-              {nav.options.map(subNav => {
-                return (
-                  <div>
-                    <SubNavContainer>
-                      <NavIndexSmall>
-                        {nav.index}.{subNav.index}
-                      </NavIndexSmall>
-                      <SubNavTitle>{subNav.label}</SubNavTitle>
-                    </SubNavContainer>
-                    {subNav.options &&
-                      subNav.options.map(sn => {
-                        return (
-                          <SubNavContainer>
-                            <NavIndexSmall>
-                              {nav.index}.{subNav.index}
-                              {sn.index}
-                            </NavIndexSmall>
-                            <SubNavTitle>{sn.label}</SubNavTitle>
-                          </SubNavContainer>
-                        )
-                      })}
-                  </div>
-                )
-              })}
-            </NavBody>
-          </NavItem>
-        )
-      })}
-      <NavItem>
-        <img className="logo" src={'/static/logos/logo.svg'} alt="Logo" />
-      </NavItem>
+      <Cont>
+        {Object.values(navigation).map(nav => {
+          return (
+            <NavItem>
+              <NavHeaderCont>
+                <Link href={nav.default.isNotLink ? '' : nav.default.href}>
+                  <NavHeader>{nav.default.label}</NavHeader>
+                </Link>
+              </NavHeaderCont>
+              <NavBody>
+                {nav.options.map(subNav => {
+                  return (
+                    <div>
+                      <SubNavContainer>
+                        <Link href={subNav.isNotLink ? '' : subNav.href}>
+                          <A>{subNav.label}</A>
+                        </Link>
+                      </SubNavContainer>
+                      {subNav.options &&
+                        subNav.options.map(sn => {
+                          return (
+                            <SubNavContainer>
+                              <Link href={sn.isNotLink ? '' : sn.href}>
+                                <A>- {sn.label}</A>
+                              </Link>
+                            </SubNavContainer>
+                          )
+                        })}
+                    </div>
+                  )
+                })}
+              </NavBody>
+            </NavItem>
+          )
+        })}
+        <Img className="logo" src={'/static/logos/logo.svg'} alt="Logo" />
+      </Cont>
+      <CopyRight>{`Copyright © ${date.getFullYear()} Entdeckungsraum`}</CopyRight>
       <EditLink cms={cms} />
     </Footer_>
   )
 }
+const Cont = styled.div`
+  display: flex;
+  width: 100%;
+`
 
 const Footer_ = styled.div`
   width: 100%;
@@ -69,6 +75,7 @@ const NavHeader = styled.h2`
   letter-spacing: 0.05em;
   text-transform: capitalize;
   color: #fff5f5;
+  cursor: pointer;
 `
 const NavIndex = styled.span`
   margin-right: 10px;
@@ -85,6 +92,7 @@ const NavHeaderCont = styled.div`
 `
 const NavItem = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
   &:last-child {
     align-self: flex-end;
@@ -107,4 +115,18 @@ const SubNavTitle = styled.span`
   font-size: 18px;
   line-height: 22px;
   color: #fff5f5;
+`
+let Img = styled.img`
+  align-self: flex-end;
+`
+let CopyRight = styled.p`
+  margin-left: 30px;
+  margin-top: 20px;
+  color: #fff;
+`
+let A = styled.a`
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff5f5;
+  cursor: pointer;
 `

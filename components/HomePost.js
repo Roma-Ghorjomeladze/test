@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Article } from './Article'
+import Link from 'next/link'
 export const HomePost = ({ article, isLink }) => {
   return (
     <Container>
@@ -10,7 +11,16 @@ export const HomePost = ({ article, isLink }) => {
       )}
       <ArticleCont>
         <Article isLink={!!isLink} record={{ ...article, dir: 'home' }} />
-        {article.button && <Btn>Mehr erfahren</Btn>}
+        {article.button && isLink && (
+          <ClickCont>
+            <Link
+              key={article.slug}
+              href={{ pathname: `/home/${article.slug}` }}
+            >
+              <A>Mehr erfahren</A>
+            </Link>
+          </ClickCont>
+        )}
       </ArticleCont>
       {article.order != true && (
         <ImgCont>
@@ -20,31 +30,6 @@ export const HomePost = ({ article, isLink }) => {
     </Container>
   )
 }
-let Btn = styled.button`
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 20px;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.05em;
-  outline: none;
-  width: 211.75px;
-  height: 59px;
-  background: linear-gradient(0deg, #fff5f5, #fff5f5);
-  border: 2px solid #3a4b6d;
-  cursor: pointer;
-  text-align: center;
-  vertical-align: center;
-  margin-top: 50px;
-  &:active {
-    transform: translateY(2px);
-  }
-  &:hover {
-    background: linear-gradient(0deg, #6380ba, #6380ba), #fff5f5;
-    border: 2px solid #6380ba;
-    color: #fff;
-  }
-`
 
 let Container = styled.div`
   display: flex;
@@ -77,4 +62,34 @@ let Image = styled.img`
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+`
+
+let A = styled.a`
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+  outline: none;
+  width: 211.75px;
+  height: 59px;
+  background: linear-gradient(0deg, #fff5f5, #fff5f5);
+  border: 2px solid #3a4b6d;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: center;
+  margin-top: 50px;
+  padding: 20px 17px;
+  &:active {
+    transform: translateY(2px);
+  }
+  &:hover {
+    background: linear-gradient(0deg, #6380ba, #6380ba), #fff5f5;
+    border: 2px solid #6380ba;
+    color: #fff;
+  }
+`
+let ClickCont = styled.div`
+  margin-top: 30px;
 `
