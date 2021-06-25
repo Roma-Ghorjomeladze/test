@@ -11,5 +11,3 @@ Mit Berührung, Gespräch, Bewegung und Erkenntnis fördere ich Ihre Selbstwahrn
 Körperliche Beschwerden, Schicksalsschläge und seelisches Leid sind untrennbar mit dem Leben verbunden. Wir alle sind herausgefordert, mit belastenden Umständen einen Umgang zu finden und unsere innere Mitte zu stärken.
 
 Sind die körpereigenen Ressourcen nicht mehr zugänglich und wir kommen nicht mehr in den natürlichen Fluss von Wohlbefinden, ist es ratsam sich Unterstützung zu gönnen.
-
-testing
