@@ -2,7 +2,7 @@
 title: Prozessarbeit
 date: '2021-07-03T00:00:00Z'
 image: /static/manuela prozess.png
-order: false
+order: true
 button: true
 ---
 
