@@ -42,6 +42,15 @@ let Container = styled.div`
   &:last-child {
     margin-bottom: 100px;
   }
+  @media (max-width: 1080px) {
+    flex-direction: column;
+    &:first-child {
+      margin-top: 40px;
+    }
+    &:last-child {
+      margin-bottom: 30px;
+    }
+  }
 `
 
 let ImgCont = styled.div`

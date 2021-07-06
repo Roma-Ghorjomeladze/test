@@ -1,10 +1,16 @@
 import styled from 'styled-components'
+import Image from 'next/image'
 
 export const Cover = ({ src, title }) => {
   return (
     <Outer>
       <Container>
-        <Image src={src} />
+        <Image
+          layout="fill"
+          objectFit="cover"
+          src={src}
+          objectPosition="bottom center"
+        />
         <Page>{title}</Page>
       </Container>
     </Outer>
@@ -19,10 +25,10 @@ let Container = styled.div`
   position: relative;
 `
 
-let Image = styled.img`
-  width: 100%;
-  height: 100%;
-`
+// let Image = styled.img`
+//   width: 100%;
+//   height: 100%;
+// `
 
 let Page = styled.span`
   position: absolute;
@@ -35,6 +41,4 @@ let Page = styled.span`
   line-height: 30px;
   max-width: 350px;
 `
-let Outer = styled.div`
-  position: sticky;
-`
+let Outer = styled.div``

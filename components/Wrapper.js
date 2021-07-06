@@ -6,10 +6,7 @@ import Meta from './Meta'
 export default function Wrapper(props) {
   return (
     <Container>
-      <Meta
-        siteTitle={props.data?.frontmatter.title}
-        siteDescription=""
-      />
+      <Meta siteTitle={props.data?.frontmatter.title} siteDescription="" />
       <Header data={props.data} />
 
       <Main>{props.children}</Main>
@@ -22,6 +19,9 @@ let Main = styled.div`
   background-color: #fff5f5;
   padding: 0 110px;
   overflow: hidden;
+  @media (max-width: 1080px) {
+    padding: 0 10px;
+  }
 `
 
 let Container = styled.div`

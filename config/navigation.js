@@ -142,23 +142,7 @@ export const navigation = {
       index: 1,
     },
     index: 5,
-    options: [
-      // {
-      //   label: 'Praxis Schaffhausen',
-      //   href: '/contacts/praxisSchaffhausen',
-      //   index: 1,
-      // },
-      // {
-      //   label: 'Praxis Frauenfeld',
-      //   href: '/contacts/praxisFrauenfeld',
-      //   index: 2,
-      // },
-      // {
-      //   label: 'Termin vereinbaren',
-      //   href: '/contacts/terminVereinbaren',
-      //   index: 3,
-      // },
-    ],
+    options: [],
   },
 }
 

@@ -14,30 +14,33 @@ export const DropDown = ({ nav }) => {
           <A>{nav.default.label}</A>
         </Link>
       </DropDownHeader>
-      {isOpen && (
+      {isOpen && nav.options.length > 0 && (
         <DropDownListContainer>
-          {nav.options.map(option => (
-            <div>
-              <LinkCont>
-                <Link href={option.href}>
-                  <ChildNavs>{option.label}</ChildNavs>
-                </Link>
-              </LinkCont>
-              {option.options &&
-                option.options.map(subNav => {
-                  return (
-                    <SubLinkCont>
-                      <Link
-                        key={subNav.href}
-                        href={{ pathname: subNav.href, path: subNav.href }}
-                      >
-                        <A>- {subNav.label}</A>
-                      </Link>
-                    </SubLinkCont>
-                  )
-                })}
-            </div>
-          ))}
+          {nav.options &&
+            nav.options.length > 0 &&
+            nav.options.map(option => (
+              <div>
+                <LinkCont>
+                  <Link href={option.href}>
+                    <ChildNavs>{option.label}</ChildNavs>
+                  </Link>
+                </LinkCont>
+                {option.options &&
+                  option.options.length > 0 &&
+                  option.options.map(subNav => {
+                    return (
+                      <SubLinkCont>
+                        <Link
+                          key={subNav.href}
+                          href={{ pathname: subNav.href, path: subNav.href }}
+                        >
+                          <A>- {subNav.label}</A>
+                        </Link>
+                      </SubLinkCont>
+                    )
+                  })}
+              </div>
+            ))}
         </DropDownListContainer>
       )}
     </DropDownContainer>

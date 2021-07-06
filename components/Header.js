@@ -3,24 +3,26 @@ import React, { useEffect } from 'react'
 import { Cover } from './Cover'
 import { DropDown } from './DropDown'
 import { navigation, homeNavigation } from '../config/navigation'
+import NavBar from './Nav/Navbar'
+import Burger from './Nav/Burger'
 export default function Header(props) {
-  useEffect(() => {
-    const handler = () => {
-      if (window.scrollY > 212) {
-        document.getElementById('header_container').style.height = '80px'
-        document.getElementById('header_logo').style.width = '60px'
-      } else {
-        document.getElementById('header_container').style.height = '166px'
-        document.getElementById('header_logo').style.width = '91px'
-      }
-    }
+  // useEffect(() => {
+  //   const handler = () => {
+  //     if (window.scrollY > 212) {
+  //       document.getElementById('header_container').style.height = '80px'
+  //       document.getElementById('header_logo').style.width = '60px'
+  //     } else {
+  //       document.getElementById('header_container').style.height = '166px'
+  //       document.getElementById('header_logo').style.width = '91px'
+  //     }
+  //   }
 
-    window.addEventListener('scroll', handler)
-    return () => window.removeEventListener('scroll', handler)
-  }, [])
+  //   window.addEventListener('scroll', handler)
+  //   return () => window.removeEventListener('scroll', handler)
+  // }, [])
   return (
     <>
-      <Container id="header_container">
+      {/* <Container id="header_container">
         <FlexCont>
           <InnerCont>
             <DropDown nav={homeNavigation} />
@@ -39,7 +41,8 @@ export default function Header(props) {
             <DropDown nav={navigation.contacts} />
           </InnerCont>
         </FlexCont>
-      </Container>
+      </Container> */}
+      <NavBar />
       {props.data && (
         <Cover
           src={props.data?.frontmatter.image}
@@ -55,6 +58,7 @@ let Container = styled.div`
   height: 166px;
   left: 0px;
   background: #fff5f5;
+  width: 200px;
   top: 0;
   z-index: 10;
   position: fixed;
