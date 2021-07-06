@@ -1,9 +1,10 @@
 ---
 title: Herzlich Willkommen
-date: '2021-06-11T00:00:00Z'
+date: '2021-07-06T00:00:00Z'
 image: /static/Portrait-Andrea.png
-order: true
+order: false
 ---
+
 Interessieren Sie sich für einen ganzheitlichen Therapieansatz? Möchten Sie in einem sicheren und geschützten Rahmen Ihrem Anliegen Raum geben, gesehen, gehört und unterstützt werden? Gerne begleite ich Sie ein Stück auf Ihrem individuellen Weg.
 
 Mit Berührung, Gespräch, Bewegung und Erkenntnis fördere ich Ihre Selbstwahrnehmung und die Stärkung der Genesungskompetenz. Meine Unterstützung ist ganzheitlich und hat die Absicht, Sie mit dem ursprünglichen Fluss und ihrer innenwohnenden Kraft zu verbinden.

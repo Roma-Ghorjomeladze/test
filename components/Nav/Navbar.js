@@ -16,6 +16,9 @@ const Nav = styled.nav`
   padding-bottom: 40px;
   padding-left: 30px;
   padding-right: 30px;
+  @media (max-width: 768px) {
+    height: 55px;
+  }
 `
 
 const Navbar = () => {

@@ -13,26 +13,42 @@ export default function Footer() {
       <Cont>
         {Object.values(navigation).map(nav => {
           return (
-            <NavItem>
+            <NavItem key={nav.index}>
               <NavHeaderCont>
-                <Link href={nav.default.isNotLink ? '' : nav.default.href}>
+                <Link
+                  href={{
+                    pathname: nav.default.isNotLink ? '' : nav.default.href,
+                    query: nav.default.label,
+                  }}
+                >
                   <NavHeader>{nav.default.label}</NavHeader>
                 </Link>
               </NavHeaderCont>
               <NavBody>
                 {nav.options.map(subNav => {
                   return (
-                    <div>
+                    <div key={subNav.label}>
                       <SubNavContainer>
-                        <Link href={subNav.isNotLink ? '' : subNav.href}>
+                        <Link
+                          href={{
+                            pathname: subNav.isNotLink ? '' : subNav.href,
+                            query: subNav.label,
+                          }}
+                        >
                           <A>{subNav.label}</A>
                         </Link>
                       </SubNavContainer>
                       {subNav.options &&
                         subNav.options.map(sn => {
+                          console.log({ label: sn.label })
                           return (
-                            <SubNavContainer>
-                              <Link href={sn.isNotLink ? '' : sn.href}>
+                            <SubNavContainer key={sn.label}>
+                              <Link
+                                href={{
+                                  pathname: sn.isNotLink ? '' : sn.href,
+                                  query: sn.label,
+                                }}
+                              >
                                 <A>- {sn.label}</A>
                               </Link>
                             </SubNavContainer>
@@ -55,6 +71,9 @@ export default function Footer() {
 const Cont = styled.div`
   display: flex;
   width: 100%;
+  @media (max-width: 1080px) {
+    flex-direction: column;
+  }
 `
 
 const Footer_ = styled.div`
@@ -77,15 +96,7 @@ const NavHeader = styled.h2`
   color: #fff5f5;
   cursor: pointer;
 `
-const NavIndex = styled.span`
-  margin-right: 10px;
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 22px;
-  letter-spacing: 0.05em;
-  text-transform: capitalize;
-  color: #fff5f5;
-`
+
 const NavHeaderCont = styled.div`
   display: flex;
   margin-bottom: 10px;
@@ -98,23 +109,14 @@ const NavItem = styled.div`
     align-self: flex-end;
     margin-bottom: -20px;
   }
+  @media (max-width: 1080px) {
+    margin-bottom: 25px;
+  }
 `
 const NavBody = styled.div``
-const NavIndexSmall = styled.span`
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  color: #ffffff;
-  font-weight: bold;
-  margin-right: 10px;
-`
+
 const SubNavContainer = styled.div`
   margin-bottom: 8px;
-`
-const SubNavTitle = styled.span`
-  font-size: 18px;
-  line-height: 22px;
-  color: #fff5f5;
 `
 let Img = styled.img`
   align-self: flex-end;
@@ -123,6 +125,9 @@ let CopyRight = styled.p`
   margin-left: 30px;
   margin-top: 20px;
   color: #fff;
+  @media (max-width: 1080px) {
+    margin-left: 0;
+  }
 `
 let A = styled.a`
   font-size: 18px;

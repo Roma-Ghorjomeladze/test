@@ -14,13 +14,14 @@ const Ul = styled.ul`
   padding: 0 30px;
   @media (max-width: 768px) {
     flex-flow: column wrap;
-    background-color: #0d2538;
+    background-color: #fff5f5;
     position: fixed;
     transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
     top: 0;
     right: 0;
     width: 300px;
-    padding-top: 3.5rem;
+    padding-top: 20px;
+    padding-bottom: 30px;
     transition: transform 0.3s ease-in-out;
   }
 `
@@ -33,6 +34,7 @@ const InnerCont = styled.div`
   padding-top: 30px;
   @media (max-width: 768px) {
     order: 2;
+    padding-top: 0;
     flex-direction: column;
   }
 `
@@ -40,6 +42,9 @@ const LogoCont = styled.div`
   display: flex;
   justify-content: center;
   flex: 2;
+  @media (max-width: 768px) {
+    margin-bottom: 30px;
+  }
 `
 
 const Img = styled.img`
@@ -72,9 +77,12 @@ const RightNav = ({ open }) => {
   return (
     <Ul open={open}>
       <InnerCont>
-        <DropDown nav={homeNavigation} />
-        <DropDown nav={navigation.angebot} />
-        <DropDown nav={navigation.organisationals} />
+        <DropDown key={homeNavigation.index} nav={homeNavigation} />
+        <DropDown key={navigation.angebot.index} nav={navigation.angebot} />
+        <DropDown
+          key={navigation.organisationals.index}
+          nav={navigation.organisationals}
+        />
       </InnerCont>
       <LogoCont>
         <Img
@@ -85,9 +93,9 @@ const RightNav = ({ open }) => {
         />
       </LogoCont>
       <InnerCont>
-        <DropDown nav={navigation.andrea} />
-        <DropDown nav={navigation.other} />
-        <DropDown nav={navigation.contacts} />
+        <DropDown key={navigation.andrea.index} nav={navigation.andrea} />
+        <DropDown key={navigation.other.index} nav={navigation.other} />
+        <DropDown key={navigation.contacts.index} nav={navigation.contacts} />
       </InnerCont>
     </Ul>
   )

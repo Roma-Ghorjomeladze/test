@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import Layout from './Layout'
-import { Slide } from './Slide'
 
 export const Article = props => {
   return (
@@ -13,7 +12,10 @@ export const Article = props => {
             <div className="blog_title_cont">
               <Link
                 key={props.record.slug}
-                href={{ pathname: `/${props.record.dir}/${props.record.slug}` }}
+                href={{
+                  pathname: `/${props.record.dir}/${props.record.slug}`,
+                  query: { post: props.record.slug },
+                }}
               >
                 <A>
                   <Span>{props.record.title}</Span>
@@ -24,13 +26,9 @@ export const Article = props => {
             <h1>{props.record.title}</h1>
           )}
         </div>
-        {props.record.type == 'slide' ? (
-          <Slide slide={props.record} />
-        ) : (
-          <div className="blog__body">
-            <ReactMarkdown source={props.record.content} />
-          </div>
-        )}
+        <div className="blog__body">
+          <ReactMarkdown source={props.record.content} />
+        </div>
       </article>
       <style jsx>
         {`

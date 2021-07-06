@@ -10,7 +10,12 @@ export const DropDown = ({ nav }) => {
   return (
     <DropDownContainer onMouseLeave={hide} onMouseOver={show}>
       <DropDownHeader>
-        <Link href={nav.default.isNotLink ? '' : nav.default.href}>
+        <Link
+          href={{
+            pathname: nav.default.isNotLink ? '' : nav.default.href,
+            query: nav.default.label,
+          }}
+        >
           <A>{nav.default.label}</A>
         </Link>
       </DropDownHeader>
@@ -21,7 +26,7 @@ export const DropDown = ({ nav }) => {
             nav.options.map(option => (
               <div>
                 <LinkCont>
-                  <Link href={option.href}>
+                  <Link href={{ pathname: option.href, query: option.label }}>
                     <ChildNavs>{option.label}</ChildNavs>
                   </Link>
                 </LinkCont>
@@ -32,7 +37,11 @@ export const DropDown = ({ nav }) => {
                       <SubLinkCont>
                         <Link
                           key={subNav.href}
-                          href={{ pathname: subNav.href, path: subNav.href }}
+                          href={{
+                            pathname: subNav.href,
+                            path: subNav.href,
+                            query: subNav.label,
+                          }}
                         >
                           <A>- {subNav.label}</A>
                         </Link>
@@ -49,6 +58,7 @@ export const DropDown = ({ nav }) => {
 
 const DropDownContainer = styled('div')`
   position: relative;
+  padding: 10px 0;
 `
 
 const DropDownHeader = styled('div')`

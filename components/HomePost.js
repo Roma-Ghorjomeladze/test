@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Article } from './Article'
 import Link from 'next/link'
+// import Image from 'next/image'
 export const HomePost = ({ article, isLink }) => {
   return (
     <Container>
@@ -15,7 +16,7 @@ export const HomePost = ({ article, isLink }) => {
           <ClickCont>
             <Link
               key={article.slug}
-              href={{ pathname: `/home/${article.slug}` }}
+              href={{ pathname: `/home/${article.slug}`, query: article.slug }}
             >
               <A>Mehr erfahren</A>
             </Link>
@@ -24,7 +25,7 @@ export const HomePost = ({ article, isLink }) => {
       </ArticleCont>
       {article.order != true && (
         <ImgCont>
-          <Image src={article.image} />
+          <Image objectFit="contain" layout="fill" src={article.image} />
         </ImgCont>
       )}
     </Container>
@@ -44,6 +45,7 @@ let Container = styled.div`
   }
   @media (max-width: 1080px) {
     flex-direction: column;
+    margin-bottom: 35px;
     &:first-child {
       margin-top: 40px;
     }
@@ -58,19 +60,18 @@ let ImgCont = styled.div`
   padding: 0;
   max-height: 396px;
   flex: 1;
-  position: relative;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  @media (max-width: 1080px) {
+    order: 1;
+  }
 `
 
 let ArticleCont = styled.div`
   flex: 1;
   padding: 20px;
-`
-
-let Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  @media (max-width: 1080px) {
+    order: 2;
+  }
 `
 
 let A = styled.a`
@@ -101,4 +102,7 @@ let A = styled.a`
 `
 let ClickCont = styled.div`
   margin-top: 30px;
+`
+let Image = styled.img`
+  object-fit: cover;
 `

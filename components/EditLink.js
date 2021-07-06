@@ -4,7 +4,6 @@ export const EditLink = ({ cms }) => {
   const handleToggle = () => {
     cms.toggle()
   }
-  console.log(cms.enabled)
 
   return (
     <Button onClick={() => handleToggle()}>

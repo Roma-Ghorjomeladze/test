@@ -1,7 +1,7 @@
 import matter from 'gray-matter'
 import { usePlugin } from 'tinacms'
 import { useJsonForm } from 'next-tinacms-json'
-import Wrapper from '../../components/Wrapper'
+import ProfileWrapper from '../../components/ProfileWrapper'
 import { Article } from '../../components/Article'
 import styled from 'styled-components'
 
@@ -31,8 +31,9 @@ const Andrea = ({ jsonFile, records }) => {
   }
   const [data, form] = useJsonForm(jsonFile, formOptions)
   usePlugin(form)
+  console.log({ data })
   return (
-    <Wrapper data={data}>
+    <ProfileWrapper data={data}>
       {records.length &&
         records.map(record => (
           <ArticleCont>
@@ -47,7 +48,7 @@ const Andrea = ({ jsonFile, records }) => {
             />
           </ArticleCont>
         ))}
-    </Wrapper>
+    </ProfileWrapper>
   )
 }
 

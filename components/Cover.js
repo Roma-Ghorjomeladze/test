@@ -18,17 +18,13 @@ export const Cover = ({ src, title }) => {
 }
 
 let Container = styled.div`
-  width: vw;
+  width: 100vw;
+  min-height: 350px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   position: relative;
 `
-
-// let Image = styled.img`
-//   width: 100%;
-//   height: 100%;
-// `
 
 let Page = styled.span`
   position: absolute;

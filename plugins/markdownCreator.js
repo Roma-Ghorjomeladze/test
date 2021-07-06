@@ -71,115 +71,8 @@ export class MarkdownCreatorPlugin {
   }
 }
 
-export const CreateBlogPlugin = new MarkdownCreatorPlugin({
-  label: 'Add new post on home page',
-  filename: form => {
-    const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
-      .toLowerCase()
-    return `data/posts/${slug}.md`
-  },
-  fields: [
-    {
-      label: 'Title',
-      name: 'title',
-      component: 'text',
-      required: true,
-    },
-    {
-      label: 'Date',
-      name: 'date',
-      component: 'date',
-      description: 'The default will be today',
-    },
-    {
-      label: 'Author',
-      description: 'Who wrote this, yo?',
-      name: 'author',
-      component: 'text',
-    },
-  ],
-  frontmatter: postInfo => ({
-    title: postInfo.title,
-    date: postInfo.date || new Date(),
-    author: postInfo.author || 'Kurt Vonnegut',
-    hero_image: '/static/alfons-taekema-bali.jpg',
-  }),
-  body: () => `New post, who dis?`,
-})
-
-export const CreateContactPlugin = new MarkdownCreatorPlugin({
-  label: 'Add new contact',
-  filename: form => {
-    const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
-      .toLowerCase()
-    return `data/contacts/${slug}.md`
-  },
-  fields: [
-    {
-      label: 'Title',
-      name: 'title',
-      component: 'text',
-      required: true,
-    },
-    {
-      label: 'Date',
-      name: 'date',
-      component: 'date',
-      description: 'The default will be today',
-    },
-    {
-      label: 'Address',
-      name: 'address',
-      component: 'text',
-      required: true,
-    },
-  ],
-  frontmatter: contactInfo => ({
-    title: contactInfo.title,
-    address: contactInfo.address,
-    date: postInfo.date || new Date(),
-  }),
-})
-
-export const CreateProfileArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new profile article',
-  filename: form => {
-    const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
-      .toLowerCase()
-    return `data/andrea/${slug}.md`
-  },
-  fields: [
-    {
-      label: 'Title',
-      name: 'title',
-      component: 'text',
-      required: true,
-    },
-    {
-      label: 'Date',
-      name: 'date',
-      component: 'date',
-      description: 'The default will be today',
-    },
-  ],
-  frontmatter: contactInfo => ({
-    title: contactInfo.title,
-    date: postInfo.date || new Date(),
-  }),
-  body: () => 'update this article',
-})
-
 export const CreateHomePostPlugin = new MarkdownCreatorPlugin({
-  label: 'Add new post on home page',
+  label: '1. Home',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
@@ -239,84 +132,21 @@ export const CreateHomePostPlugin = new MarkdownCreatorPlugin({
     title: postInfo.title,
     date: postInfo.date || new Date(),
     image: postInfo.image,
-    order: postInfo.order == true ? true : false,
+    order: postInfo.order == true ? false : true,
     button: postInfo.button == true ? true : false,
   }),
-  body: () =>
-    `When you add the details for your article, than you will be able to update content of it.`,
+  body: () => `update this text.`,
 })
 
-export const CreateAnwendungsbereicheArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new anwendungsbereiche article',
+export const CreateCraniosacralArticlePlugin = new MarkdownCreatorPlugin({
+  label: '2.1. Craniosacral',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
       .replace(/\[^a-zA-Z0-9]/, '')
       .replace('?', '')
       .toLowerCase()
-    return `data/angebot/craniosacralTherapie/anwendungsbereiche/${slug}.md`
-  },
-  fields: [
-    {
-      label: 'Title',
-      name: 'title',
-      component: 'text',
-      required: true,
-    },
-    {
-      label: 'Date',
-      name: 'date',
-      component: 'date',
-      description: 'The default will be today',
-    },
-  ],
-  frontmatter: article => ({
-    title: article.title,
-    date: article.date || new Date(),
-  }),
-  body: () => 'update this article',
-})
-
-export const CreateKinderUndFamilienArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new kinder Und Familien article',
-  filename: form => {
-    const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
-      .toLowerCase()
-    return `data/angebot/craniosacralTherapie/kinderUndFamilien/${slug}.md`
-  },
-  fields: [
-    {
-      label: 'Title',
-      name: 'title',
-      component: 'text',
-      required: true,
-    },
-    {
-      label: 'Date',
-      name: 'date',
-      component: 'date',
-      description: 'The default will be today',
-    },
-  ],
-  frontmatter: article => ({
-    title: article.title,
-    date: article.date || new Date(),
-  }),
-  body: () => 'update this article',
-})
-
-export const CreateNachDerGeburtArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new nach der geburt article',
-  filename: form => {
-    const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
-      .toLowerCase()
-    return `data/angebot/craniosacralTherapie/nachDerGeburt/${slug}.md`
+    return `data/angebot/craniosacralTherapie/self/${slug}.md`
   },
   fields: [
     {
@@ -340,7 +170,7 @@ export const CreateNachDerGeburtArticlePlugin = new MarkdownCreatorPlugin({
 })
 
 export const CreateSchwangerschaftArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new schwangerschaft article',
+  label: '2.1.1. Schwangerschaft',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
@@ -370,8 +200,101 @@ export const CreateSchwangerschaftArticlePlugin = new MarkdownCreatorPlugin({
   body: () => 'update this article',
 })
 
+export const CreateNachDerGeburtArticlePlugin = new MarkdownCreatorPlugin({
+  label: '2.1.2. Nach der geburt',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/angebot/craniosacralTherapie/nachDerGeburt/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+  }),
+  body: () => 'update this article',
+})
+
+export const CreateKinderUndFamilienArticlePlugin = new MarkdownCreatorPlugin({
+  label: '2.1.3. Kinder und familien',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/angebot/craniosacralTherapie/kinderUndFamilien/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+  }),
+  body: () => 'update this article',
+})
+
+export const CreateAnwendungsbereicheArticlePlugin = new MarkdownCreatorPlugin({
+  label: '2.1.4. Anwendungsbereiche',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/angebot/craniosacralTherapie/anwendungsbereiche/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+  }),
+  body: () => 'update this article',
+})
+
 export const CreatePrantalTherapyArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new prantal therapy article',
+  label: '2.2. Prantal therapy',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
@@ -402,7 +325,7 @@ export const CreatePrantalTherapyArticlePlugin = new MarkdownCreatorPlugin({
 })
 
 export const CreateProzessbegleitungArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new prozessbegleitung article',
+  label: '2.3. Prozessbegleitung',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
@@ -444,7 +367,7 @@ export const CreateProzessbegleitungArticlePlugin = new MarkdownCreatorPlugin({
 })
 
 export const CreatesyStemischeArbeitArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new systemischeArbeit article',
+  label: '2.4. SystemischeArbeit',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
@@ -486,7 +409,7 @@ export const CreatesyStemischeArbeitArticlePlugin = new MarkdownCreatorPlugin({
 })
 
 export const CreateTraumaArbeitArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new traumaArbeit article',
+  label: '2.5. TraumaArbeit',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
@@ -528,7 +451,7 @@ export const CreateTraumaArbeitArticlePlugin = new MarkdownCreatorPlugin({
 })
 
 export const CreateAstrologyArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new astrology article',
+  label: '2.6. Astrologysche psychologie',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
@@ -570,7 +493,7 @@ export const CreateAstrologyArticlePlugin = new MarkdownCreatorPlugin({
 })
 
 export const CreateAblaufEinerSitzungArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new ablauf Einer Sitzung article',
+  label: '3.1. Ablauf einer sitzung',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
@@ -600,70 +523,8 @@ export const CreateAblaufEinerSitzungArticlePlugin = new MarkdownCreatorPlugin({
   body: () => 'update this article',
 })
 
-export const CreateGutschineArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new gutschine article',
-  filename: form => {
-    const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
-      .toLowerCase()
-    return `data/organisationals/gutschine/${slug}.md`
-  },
-  fields: [
-    {
-      label: 'Title',
-      name: 'title',
-      component: 'text',
-      required: true,
-    },
-    {
-      label: 'Date',
-      name: 'date',
-      component: 'date',
-      description: 'The default will be today',
-    },
-  ],
-  frontmatter: article => ({
-    title: article.title,
-    date: article.date || new Date(),
-  }),
-  body: () => 'update this article',
-})
-
-export const CreateKlientestimmenArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new klientestimmen article',
-  filename: form => {
-    const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
-      .toLowerCase()
-    return `data/organisationals/klientestimmen/${slug}.md`
-  },
-  fields: [
-    {
-      label: 'Title',
-      name: 'title',
-      component: 'text',
-      required: true,
-    },
-    {
-      label: 'Date',
-      name: 'date',
-      component: 'date',
-      description: 'The default will be today',
-    },
-  ],
-  frontmatter: article => ({
-    title: article.title,
-    date: article.date || new Date(),
-  }),
-  body: () => 'update this article',
-})
-
 export const CreateKostenArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new kosten article',
+  label: '3.2. Kosten',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
@@ -695,7 +556,7 @@ export const CreateKostenArticlePlugin = new MarkdownCreatorPlugin({
 
 export const CreateKostenUndKrankenkasseArticlePlugin = new MarkdownCreatorPlugin(
   {
-    label: 'Add new kosten und krankenkasse article',
+    label: '3.3. Kosten und krankenkasse',
     filename: form => {
       const slug = form.title
         .replace(/\s+/g, '-')
@@ -726,15 +587,15 @@ export const CreateKostenUndKrankenkasseArticlePlugin = new MarkdownCreatorPlugi
   }
 )
 
-export const CreateCraniosacralArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new article on craniosacral page',
+export const CreateGutschineArticlePlugin = new MarkdownCreatorPlugin({
+  label: '3.4. Gutschine',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
       .replace(/\[^a-zA-Z0-9]/, '')
       .replace('?', '')
       .toLowerCase()
-    return `data/angebot/craniosacralTherapie/self/${slug}.md`
+    return `data/organisationals/gutschine/${slug}.md`
   },
   fields: [
     {
@@ -757,15 +618,15 @@ export const CreateCraniosacralArticlePlugin = new MarkdownCreatorPlugin({
   body: () => 'update this article',
 })
 
-export const CreateWissenswertesKunstArticlePlugin = new MarkdownCreatorPlugin({
-  label: 'Add new article on wissenswertes kunst',
+export const CreateKlientestimmenArticlePlugin = new MarkdownCreatorPlugin({
+  label: '3.5. Klientestimmen',
   filename: form => {
     const slug = form.title
       .replace(/\s+/g, '-')
       .replace(/\[^a-zA-Z0-9]/, '')
       .replace('?', '')
       .toLowerCase()
-    return `data/wissenswertes/kunst/${slug}.md`
+    return `data/organisationals/klientestimmen/${slug}.md`
   },
   fields: [
     {
@@ -784,13 +645,44 @@ export const CreateWissenswertesKunstArticlePlugin = new MarkdownCreatorPlugin({
   frontmatter: article => ({
     title: article.title,
     date: article.date || new Date(),
+  }),
+  body: () => 'update this article',
+})
+
+export const CreateProfileArticlePlugin = new MarkdownCreatorPlugin({
+  label: '4. Profile',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/andrea/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+  ],
+  frontmatter: contactInfo => ({
+    title: contactInfo.title,
+    date: postInfo.date || new Date(),
   }),
   body: () => 'update this article',
 })
 
 export const CreateWissenswertesWasserfilterArticlePlugin = new MarkdownCreatorPlugin(
   {
-    label: 'Add new article on wissenswertes wasserfilter',
+    label: '5.1 Wissenswertes wasserfilter',
     filename: form => {
       const slug = form.title
         .replace(/\s+/g, '-')
@@ -820,6 +712,75 @@ export const CreateWissenswertesWasserfilterArticlePlugin = new MarkdownCreatorP
     body: () => 'update this article',
   }
 )
+
+export const CreateWissenswertesKunstArticlePlugin = new MarkdownCreatorPlugin({
+  label: '5.2 Wissenswertes kunst',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/wissenswertes/kunst/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+  ],
+  frontmatter: article => ({
+    title: article.title,
+    date: article.date || new Date(),
+  }),
+  body: () => 'update this article',
+})
+
+export const CreateContactPlugin = new MarkdownCreatorPlugin({
+  label: '6. Contact',
+  filename: form => {
+    const slug = form.title
+      .replace(/\s+/g, '-')
+      .replace(/\[^a-zA-Z0-9]/, '')
+      .replace('?', '')
+      .toLowerCase()
+    return `data/contacts/${slug}.md`
+  },
+  fields: [
+    {
+      label: 'Title',
+      name: 'title',
+      component: 'text',
+      required: true,
+    },
+    {
+      label: 'Date',
+      name: 'date',
+      component: 'date',
+      description: 'The default will be today',
+    },
+    {
+      label: 'Address',
+      name: 'address',
+      component: 'text',
+      required: true,
+    },
+  ],
+  frontmatter: contactInfo => ({
+    title: contactInfo.title,
+    address: contactInfo.address,
+    date: postInfo.date || new Date(),
+  }),
+})
+
 // export const CreateCraniosacralSlidePlugin = new MarkdownCreatorPlugin({
 //   label: 'Add new slide on craniosacral page',
 //   filename: form => {

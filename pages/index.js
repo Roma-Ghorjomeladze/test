@@ -78,14 +78,24 @@ Index.getInitialProps = async function({ preview, previewData }) {
     })
     return data
   })(require.context('../data/home', true, /\.md$/))
-
+  // console.log({
+  //   unordered: posts,
+  //   ordered: posts.sort((p1, p2) =>
+  //     p1.document.data.date > p2.document.data.date ? 1 : -1
+  //   ),
+  // })
+  posts.sort((a, b) => {
+    console.log(a.document.data.date > b.document.data.date)
+  })
   return {
     jsonFile: {
       fileRelativePath: `data/home/config.json`,
       data: content.default,
     },
 
-    homeArticles: posts.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
+    homeArticles: posts.sort((p1, p2) =>
+      p1.document.data.date > p2.document.data.date ? -1 : 1
+    ),
     sourceProvider: null,
     preview: false,
     error: null,

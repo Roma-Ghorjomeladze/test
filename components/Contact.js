@@ -6,7 +6,13 @@ export const Contact = props => {
     <Container>
       <Title>
         {!!props.isLink ? (
-          <Link key={props.slug} href={{ pathname: `/contacts/${props.slug}` }}>
+          <Link
+            key={props.slug}
+            href={{
+              pathname: `/contacts/${props.slug}`,
+              query: { post: props.slug },
+            }}
+          >
             <A>{props.contact.title}</A>
           </Link>
         ) : (
