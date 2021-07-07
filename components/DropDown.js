@@ -76,6 +76,11 @@ const DropDownListContainer = styled('div')`
   left: -30px;
   min-width: 150px;
   z-index: 33;
+  @media(max-width: 768px){
+    min-width: 350px;
+    box-shadow: 1px 1px 1px 1px #ffe6e6;
+    left: -70px;
+  }
 `
 
 let A = styled.a`

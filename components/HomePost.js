@@ -70,6 +70,8 @@ let ImgCont = styled.div`
   @media (max-width: 1080px) {
     justify-content: flex-start;
     order: 1;
+    margin-bottom: 10px;
+    margin-top: 30px;
   }
 `
 
