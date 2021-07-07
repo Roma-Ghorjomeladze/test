@@ -1,6 +1,6 @@
 ---
 title: Wann kann eine Craniosacral-Therapie hilfreich sein?
-date: 2021-07-07T12:57:48.259Z
+date: '2021-07-07T12:57:48.259Z'
 ---
 Die Craniosacral Therapie kann in jeder Lebenssituation und in jedem Alter zur Förderung und Erhaltung der Gesundheit beitragen. 
 

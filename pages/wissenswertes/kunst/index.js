@@ -35,7 +35,7 @@ const Andrea = ({ jsonFile, records }) => {
   return (
     <Wrapper data={data}>
       <Meta />
-      {records.length &&
+      {records.length > 0 &&
         records.map(record => (
           <ArticleCont>
             <Article
@@ -77,13 +77,20 @@ Andrea.getInitialProps = async function() {
       fileRelativePath: `data/wissenswertes/kunst/config.json`,
       data: content.default,
     },
-    records: records.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
+    records: records.sort((p1, p2) =>
+      p1.document.data.date > p2.document.data.date ? 1 : -1
+    ),
   }
 }
 
 const ArticleCont = styled.div`
   &:first-child {
     margin-top: 130px;
+  }
+  @media (max-width: 1080px) {
+    &:first-child {
+      margin-top: 39px;
+    }
   }
   margin-bottom: 60px;
 `

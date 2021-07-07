@@ -9,35 +9,35 @@ export const navigation = {
     options: [
       {
         label: 'Craniosacral Therapie',
-        href: '/angebot/craniosacralTherapie',
+        href: '/angebot/craniosacral-therapie',
         index: 1,
         options: [
           {
             label: 'Schwangerschaft',
-            href: '/angebot/craniosacralTherapie/schwangerschaft',
+            href: '/angebot/craniosacral-therapie/schwangerschaft',
             index: 'a',
           },
           {
             label: 'Nach Der Geburt',
-            href: '/angebot/craniosacralTherapie/nachDerGeburt',
+            href: '/angebot/craniosacral-therapie/nach-der-geburt',
             index: 'b',
           },
           {
             label: 'Kinder und Familien',
-            href: '/angebot/craniosacralTherapie/kinderUndFamilien',
+            href: '/angebot/craniosacral-therapie/kinder-und-familien',
             index: 'c',
           },
 
           {
             label: 'Anwendungsbereiche',
-            href: '/angebot/craniosacralTherapie/anwendungsbereiche',
+            href: '/angebot/craniosacral-therapie/anwendungsbereiche',
             index: 'd',
           },
         ],
       },
       {
-        label: 'Pränataltherapie',
-        href: '/angebot/prantalTherapie',
+        label: 'Pränatal und geburts therapie',
+        href: '/angebot/prantal-und-geburts-therapie',
         index: 2,
       },
       {
@@ -46,19 +46,19 @@ export const navigation = {
         index: 3,
       },
       {
-        label: 'Systemische-Arbeit',
-        href: '/angebot/systemischeArbeit',
+        label: 'systemische aufstellungsarbeit',
+        href: '/angebot/systemische-aufstellungsarbeit',
         index: 4,
       },
 
       {
         label: 'Trauma-Arbeit',
-        href: '/angebot/traumaArbeit',
+        href: '/angebot/trauma-arbeit',
         index: 5,
       },
       {
         label: 'Astrologische Psychologie',
-        href: '/angebot/astrologischePsychologie',
+        href: '/angebot/astrologische-psychologie',
         index: 6,
       },
     ],
@@ -74,7 +74,7 @@ export const navigation = {
     options: [
       {
         label: 'Ablauf einer Sitzung',
-        href: '/organisationals/ablaufEinerSitzung',
+        href: '/organisationals/ablauf-einer-sitzung',
         index: 1,
       },
       {
@@ -84,7 +84,7 @@ export const navigation = {
       },
       {
         label: 'Kosten und Krankenkasse',
-        href: '/organisationals/kostenUndKrankenkasse',
+        href: '/organisationals/kosten-und-krankenkasse',
         index: 4,
       },
       {
@@ -102,16 +102,16 @@ export const navigation = {
   andrea: {
     default: {
       label: 'Andrea S.',
-      href: '/andrea',
+      href: '/andrea-schuppli',
       index: 1,
     },
     index: 3,
     options: [
-      // {
-      //   label: 'Vita',
-      //   href: '/andrea/vita',
-      //   index: 1,
-      // },
+      {
+        label: 'Vita',
+        href: '/andrea-schuppli',
+        index: 1,
+      },
     ],
   },
   other: {

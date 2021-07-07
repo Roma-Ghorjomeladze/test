@@ -35,6 +35,15 @@ let Title = styled.h2`
   letter-spacing: 0.05em;
   color: #000000;
   margin-bottom: 20px;
+  font-weight: 400;
+  @media (max-width: 1080px) {
+    font-size: 17px;
+    line-height: 17px;
+  }
+  @media (max-width: 1080px) {
+    font-size: 14px;
+    line-height: 14px;
+  }
 `
 
 let Address = styled.p`

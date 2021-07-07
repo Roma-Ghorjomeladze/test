@@ -11,7 +11,11 @@ export const HomePost = ({ article, isLink }) => {
         </ImgCont>
       )}
       <ArticleCont>
-        <Article isLink={!!isLink} record={{ ...article, dir: 'home' }} />
+        <Article
+          isLink={!!isLink}
+          homePage={true}
+          record={{ ...article, dir: 'home' }}
+        />
         {article.button && isLink && (
           <ClickCont>
             <Link
@@ -56,12 +60,15 @@ let Container = styled.div`
 `
 
 let ImgCont = styled.div`
+  display: flex;
+  justify-content: center;
   margin: 0;
   padding: 0;
   max-height: 396px;
   flex: 1;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   @media (max-width: 1080px) {
+    justify-content: flex-start;
     order: 1;
   }
 `

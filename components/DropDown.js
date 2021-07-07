@@ -6,18 +6,22 @@ export const DropDown = ({ nav }) => {
   const [isOpen, setIsOpen] = useState(false)
   const show = () => setIsOpen(true)
   const hide = () => setIsOpen(false)
+  let Element = Link
+  if (nav.default.isNotLink) {
+    Element = styled.div``
+  }
 
   return (
     <DropDownContainer onMouseLeave={hide} onMouseOver={show}>
       <DropDownHeader>
-        <Link
+        <Element
           href={{
             pathname: nav.default.isNotLink ? '' : nav.default.href,
-            query: nav.default.label,
+            query: nav.default.href,
           }}
         >
           <A>{nav.default.label}</A>
-        </Link>
+        </Element>
       </DropDownHeader>
       {isOpen && nav.options.length > 0 && (
         <DropDownListContainer>

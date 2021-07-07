@@ -1,10 +1,9 @@
 import matter from 'gray-matter'
 import { usePlugin } from 'tinacms'
 import { useJsonForm } from 'next-tinacms-json'
-import Wrapper from '../../../components/Wrapper'
-import { Article } from '../../../components/Article'
+import ProfileWrapper from '../../components/ProfileWrapper'
+import { Article } from '../../components/Article'
 import styled from 'styled-components'
-import Meta from '../../../components/Meta'
 
 const Andrea = ({ jsonFile, records }) => {
   const formOptions = {
@@ -33,32 +32,29 @@ const Andrea = ({ jsonFile, records }) => {
   const [data, form] = useJsonForm(jsonFile, formOptions)
   usePlugin(form)
   return (
-    <Wrapper data={data}>
-      <Meta />
-      {!!records.length &&
+    <ProfileWrapper data={data}>
+      {records.length &&
         records.map(record => (
-          <ArticleCont>
+          <ArticleCont key={record.slug}>
             <Article
               isLink
               record={{
                 slug: record.slug,
                 content: record.document.content,
                 title: record.document.data.title,
-                dir: 'organisationals/gutscheine',
+                dir: 'andrea-schuppli',
               }}
             />
           </ArticleCont>
         ))}
-    </Wrapper>
+    </ProfileWrapper>
   )
 }
 
 export default Andrea
 
 Andrea.getInitialProps = async function() {
-  const content = await import(
-    '../../../data/organisationals/gutscheine/config.json'
-  )
+  const content = await import('../../data/andrea-schuppli/config.json')
   let records = (context => {
     const keys = context.keys()
     const values = keys.map(context)
@@ -73,13 +69,15 @@ Andrea.getInitialProps = async function() {
       return { document, slug }
     })
     return data
-  })(require.context('../../../data/organisationals/gutscheine', true, /\.md$/))
+  })(require.context('../../data/andrea-schuppli', true, /\.md$/))
   return {
     jsonFile: {
-      fileRelativePath: `data/organisationals/gutscheine/config.json`,
+      fileRelativePath: `data/andrea-schuppli/config.json`,
       data: content.default,
     },
-    records: records.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
+    records: records.sort((p1, p2) =>
+      p1.document.data.date > p2.document.data.date ? 1 : -1
+    ),
   }
 }
 

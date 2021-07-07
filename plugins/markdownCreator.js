@@ -75,10 +75,16 @@ export const CreateHomePostPlugin = new MarkdownCreatorPlugin({
   label: '1. Home',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
     return `data/home/${slug}.md`
   },
   fields: [
@@ -142,11 +148,17 @@ export const CreateCraniosacralArticlePlugin = new MarkdownCreatorPlugin({
   label: '2.1. Craniosacral',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
-    return `data/angebot/craniosacralTherapie/self/${slug}.md`
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
+    return `data/angebot/craniosacral-therapie/self/${slug}.md`
   },
   fields: [
     {
@@ -173,11 +185,17 @@ export const CreateSchwangerschaftArticlePlugin = new MarkdownCreatorPlugin({
   label: '2.1.1. Schwangerschaft',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
-    return `data/angebot/craniosacralTherapie/schwangerschaft/${slug}.md`
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
+    return `data/angebot/craniosacral-therapie/schwangerschaft/${slug}.md`
   },
   fields: [
     {
@@ -204,11 +222,17 @@ export const CreateNachDerGeburtArticlePlugin = new MarkdownCreatorPlugin({
   label: '2.1.2. Nach der geburt',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
-    return `data/angebot/craniosacralTherapie/nachDerGeburt/${slug}.md`
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
+    return `data/angebot/craniosacral-therapie/nach-der-geburt/${slug}.md`
   },
   fields: [
     {
@@ -235,11 +259,17 @@ export const CreateKinderUndFamilienArticlePlugin = new MarkdownCreatorPlugin({
   label: '2.1.3. Kinder und familien',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
-    return `data/angebot/craniosacralTherapie/kinderUndFamilien/${slug}.md`
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
+    return `data/angebot/craniosacral-therapie/kinder-und-familien/${slug}.md`
   },
   fields: [
     {
@@ -266,11 +296,17 @@ export const CreateAnwendungsbereicheArticlePlugin = new MarkdownCreatorPlugin({
   label: '2.1.4. Anwendungsbereiche',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
-    return `data/angebot/craniosacralTherapie/anwendungsbereiche/${slug}.md`
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
+    return `data/angebot/craniosacral-therapie/anwendungsbereiche/${slug}.md`
   },
   fields: [
     {
@@ -294,14 +330,20 @@ export const CreateAnwendungsbereicheArticlePlugin = new MarkdownCreatorPlugin({
 })
 
 export const CreatePrantalTherapyArticlePlugin = new MarkdownCreatorPlugin({
-  label: '2.2. Prantal therapy',
+  label: '2.2. Prantal und geburst therapy',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
-    return `data/angebot/prantalTherapie/${slug}.md`
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
+    return `data/angebot/prantal-und-geburts-therapie/${slug}.md`
   },
   fields: [
     {
@@ -328,10 +370,16 @@ export const CreateProzessbegleitungArticlePlugin = new MarkdownCreatorPlugin({
   label: '2.3. Prozessbegleitung',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
     return `data/angebot/prozessbegleitung/${slug}.md`
   },
   fields: [
@@ -367,14 +415,20 @@ export const CreateProzessbegleitungArticlePlugin = new MarkdownCreatorPlugin({
 })
 
 export const CreatesyStemischeArbeitArticlePlugin = new MarkdownCreatorPlugin({
-  label: '2.4. SystemischeArbeit',
+  label: '2.4. systemische Aufstellungsarbeit',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
-    return `data/angebot/systemischeArbeit/${slug}.md`
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
+    return `data/angebot/systemische-aufstellungsarbeit/${slug}.md`
   },
   fields: [
     {
@@ -409,14 +463,20 @@ export const CreatesyStemischeArbeitArticlePlugin = new MarkdownCreatorPlugin({
 })
 
 export const CreateTraumaArbeitArticlePlugin = new MarkdownCreatorPlugin({
-  label: '2.5. TraumaArbeit',
+  label: '2.5. Trauma Arbeit',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
-    return `data/angebot/traumaArbeit/${slug}.md`
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
+    return `data/angebot/trauma-arbeit/${slug}.md`
   },
   fields: [
     {
@@ -454,11 +514,17 @@ export const CreateAstrologyArticlePlugin = new MarkdownCreatorPlugin({
   label: '2.6. Astrologysche psychologie',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
-    return `data/angebot/astrologischePsychologie/${slug}.md`
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
+    return `data/angebot/astrologische-psychologie/${slug}.md`
   },
   fields: [
     {
@@ -496,11 +562,17 @@ export const CreateAblaufEinerSitzungArticlePlugin = new MarkdownCreatorPlugin({
   label: '3.1. Ablauf einer sitzung',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
-    return `data/organisationals/ablaufEinerSitzung/${slug}.md`
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
+    return `data/organisationals/ablauf-einer-sitzung/${slug}.md`
   },
   fields: [
     {
@@ -527,10 +599,16 @@ export const CreateKostenArticlePlugin = new MarkdownCreatorPlugin({
   label: '3.2. Kosten',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
     return `data/organisationals/kosten/${slug}.md`
   },
   fields: [
@@ -559,11 +637,17 @@ export const CreateKostenUndKrankenkasseArticlePlugin = new MarkdownCreatorPlugi
     label: '3.3. Kosten und krankenkasse',
     filename: form => {
       const slug = form.title
-        .replace(/\s+/g, '-')
-        .replace(/\[^a-zA-Z0-9]/, '')
-        .replace('?', '')
         .toLowerCase()
-      return `data/organisationals/kostenUndKrankenkasse/${slug}.md`
+        .replace('ü', 'ue')
+        .replace('ä', 'ae')
+        .replace('ö', 'oe')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^a-zA-Z0-9-]/g, '')
+        .replace('?', '')
+
+      return `data/organisationals/kosten-und-krankenkasse/${slug}.md`
     },
     fields: [
       {
@@ -591,11 +675,17 @@ export const CreateGutschineArticlePlugin = new MarkdownCreatorPlugin({
   label: '3.4. Gutschine',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
-    return `data/organisationals/gutschine/${slug}.md`
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
+    return `data/organisationals/gutscheine/${slug}.md`
   },
   fields: [
     {
@@ -619,14 +709,20 @@ export const CreateGutschineArticlePlugin = new MarkdownCreatorPlugin({
 })
 
 export const CreateKlientestimmenArticlePlugin = new MarkdownCreatorPlugin({
-  label: '3.5. Klientestimmen',
+  label: '3.5. Klientnestimmen',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
-    return `data/organisationals/klientestimmen/${slug}.md`
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
+    return `data/organisationals/klientenstimmen/${slug}.md`
   },
   fields: [
     {
@@ -653,11 +749,17 @@ export const CreateProfileArticlePlugin = new MarkdownCreatorPlugin({
   label: '4. Profile',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
-    return `data/andrea/${slug}.md`
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
+    return `data/andrea-schuppli/${slug}.md`
   },
   fields: [
     {
@@ -685,10 +787,16 @@ export const CreateWissenswertesWasserfilterArticlePlugin = new MarkdownCreatorP
     label: '5.1 Wissenswertes wasserfilter',
     filename: form => {
       const slug = form.title
-        .replace(/\s+/g, '-')
-        .replace(/\[^a-zA-Z0-9]/, '')
-        .replace('?', '')
         .toLowerCase()
+        .replace('ü', 'ue')
+        .replace('ä', 'ae')
+        .replace('ö', 'oe')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^a-zA-Z0-9-]/g, '')
+        .replace('?', '')
+
       return `data/wissenswertes/wasserfilter/${slug}.md`
     },
     fields: [
@@ -717,10 +825,16 @@ export const CreateWissenswertesKunstArticlePlugin = new MarkdownCreatorPlugin({
   label: '5.2 Wissenswertes kunst',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
     return `data/wissenswertes/kunst/${slug}.md`
   },
   fields: [
@@ -748,10 +862,16 @@ export const CreateContactPlugin = new MarkdownCreatorPlugin({
   label: '6. Contact',
   filename: form => {
     const slug = form.title
-      .replace(/\s+/g, '-')
-      .replace(/\[^a-zA-Z0-9]/, '')
-      .replace('?', '')
       .toLowerCase()
+      .replace('ü', 'ue')
+      .replace('ä', 'ae')
+      .replace('ö', 'oe')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-]/g, '')
+      .replace('?', '')
+
     return `data/contacts/${slug}.md`
   },
   fields: [
@@ -785,10 +905,15 @@ export const CreateContactPlugin = new MarkdownCreatorPlugin({
 //   label: 'Add new slide on craniosacral page',
 //   filename: form => {
 //     const slug = form.title
+// .toLowerCase() //
+// .replace('ü', 'ue')
+// .replace('ä', 'ae')
+// .replace('ö', 'oe')
+// .replace(/\s+/g, ' ').trim()
 //       .replace(/\s+/g, '-')
-//       .replace(/\[^a-zA-Z0-9]/, '')
+//       .replace(/[^a-zA-Z0-9-]/g, '')
 //       .replace('?', '')
-//       .toLowerCase()
+
 //     return `data/angebot/craniosacralTherapie/self/${slug}.md`
 //   },
 //   fields: [

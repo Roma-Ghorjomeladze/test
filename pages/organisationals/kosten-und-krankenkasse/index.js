@@ -44,7 +44,7 @@ const Andrea = ({ jsonFile, records }) => {
                 slug: record.slug,
                 content: record.document.content,
                 title: record.document.data.title,
-                dir: 'organisationals/gutscheine',
+                dir: 'organisationals/kosten-und-krankenkasse',
               }}
             />
           </ArticleCont>
@@ -57,7 +57,7 @@ export default Andrea
 
 Andrea.getInitialProps = async function() {
   const content = await import(
-    '../../../data/organisationals/gutscheine/config.json'
+    '../../../data/organisationals/kosten-und-krankenkasse/config.json'
   )
   let records = (context => {
     const keys = context.keys()
@@ -73,13 +73,21 @@ Andrea.getInitialProps = async function() {
       return { document, slug }
     })
     return data
-  })(require.context('../../../data/organisationals/gutscheine', true, /\.md$/))
+  })(
+    require.context(
+      '../../../data/organisationals/kosten-und-krankenkasse',
+      true,
+      /\.md$/
+    )
+  )
   return {
     jsonFile: {
-      fileRelativePath: `data/organisationals/gutscheine/config.json`,
+      fileRelativePath: `data/organisationals/kosten-und-krankenkasse/config.json`,
       data: content.default,
     },
-    records: records.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
+    records: records.sort((p1, p2) =>
+      p1.document.data.date > p2.document.data.date ? 1 : -1
+    ),
   }
 }
 

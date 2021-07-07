@@ -1,0 +1,6 @@
+---
+title: Über meinen Weg
+date: '2021-06-08T00:00:00Z'
+---
+
+Fest verwurzelt im Kanton Schaffhausen und Umgebung hat mich rückblickend wohl die vielen Natur-Ressourcen an diesem Fleck am Rhein gehalten. Als bewegungsfreudiger Mensch, der hinter die Geheimnisse des Lebens und des Lebendigsein schauen wollte hat mich mein Weg schon bald aus der ersten Ausbildung als kfm. Angestellte entlassen. Ich wollte etwas kreieren, mit meinen Händen schaffen und den Bezug zur Natur spüren, so bekam ich die Möglichkeit mich im Töpferhandwerk auszubilden. Die weitere Reise sollte eine längere Auslandreise sein; das Leben wollte es anders und ich durfte das Geschenk vom Mutterwerden eines Sohnes erleben. Im Abstand von jeweils zweieinhalb Jahren folgten zwei Töchter. Meine Kinder und das Muttersein sind rückblickend wohl die grössten LehrmeisterInnen und das schönste Geschenk des Lebens. Mein Wechsel in die Körperarbeit und Ausbildung als Therapeutin mit Schwerpunkt rund um die Geburt und Prägungen sind motiviert durch eigene Erfahrung und dessen intensive Auseinandersetzung. Bald sind alle meine Kinder aus dem Nest ausgeflogen und ich darf mich auf einen neuen Lebensabschnitt freuen. Neue Projekte sind am entstehen, meine Visionen und Wünsche nehmen Gestalt an.

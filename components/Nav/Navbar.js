@@ -18,6 +18,8 @@ const Nav = styled.nav`
   padding-right: 30px;
   @media (max-width: 768px) {
     height: 55px;
+    padding-bottom: 0;
+    height: 0;
   }
 `
 

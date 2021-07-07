@@ -40,7 +40,6 @@ export default function Footer() {
                       </SubNavContainer>
                       {subNav.options &&
                         subNav.options.map(sn => {
-                          console.log({ label: sn.label })
                           return (
                             <SubNavContainer key={sn.label}>
                               <Link

@@ -35,7 +35,7 @@ const Andrea = ({ jsonFile, records }) => {
   return (
     <Wrapper data={data}>
       <Meta />
-      {records.length &&
+      {!!records.length &&
         records.map(record => (
           <ArticleCont>
             <Article
@@ -92,6 +92,11 @@ Andrea.getInitialProps = async function() {
 const ArticleCont = styled.div`
   &:first-child {
     margin-top: 130px;
+  }
+  @media (max-width: 1080px) {
+    &:first-child {
+      margin-top: 39px;
+    }
   }
   margin-bottom: 60px;
 `

@@ -32,19 +32,23 @@ const Andrea = ({ jsonFile, records }) => {
   }
   const [data, form] = useJsonForm(jsonFile, formOptions)
   usePlugin(form)
+  console.log({ records })
   return (
     <Wrapper data={data}>
       <Meta />
-      {!!records.length &&
+      {records.length &&
         records.map(record => (
           <ArticleCont>
             <Article
               isLink
               record={{
+                ...record.document.data,
                 slug: record.slug,
                 content: record.document.content,
                 title: record.document.data.title,
-                dir: 'organisationals/gutscheine',
+                dir: 'angebot/craniosacral-therapie',
+                type: record.document.data.type,
+                image: record.document.data.image,
               }}
             />
           </ArticleCont>
@@ -57,7 +61,7 @@ export default Andrea
 
 Andrea.getInitialProps = async function() {
   const content = await import(
-    '../../../data/organisationals/gutscheine/config.json'
+    '../../../data/angebot/craniosacral-therapie/self/config.json'
   )
   let records = (context => {
     const keys = context.keys()
@@ -73,13 +77,21 @@ Andrea.getInitialProps = async function() {
       return { document, slug }
     })
     return data
-  })(require.context('../../../data/organisationals/gutscheine', true, /\.md$/))
+  })(
+    require.context(
+      '../../../data/angebot/craniosacral-therapie/self',
+      true,
+      /\.md$/
+    )
+  )
   return {
     jsonFile: {
-      fileRelativePath: `data/organisationals/gutscheine/config.json`,
+      fileRelativePath: `data/angebot/craniosacral-therapie/self/config.json`,
       data: content.default,
     },
-    records: records.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
+    records: records.sort((p1, p2) =>
+      p1.document.data.date > p2.document.data.date ? 1 : -1
+    ),
   }
 }
 

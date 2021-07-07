@@ -1,10 +1,10 @@
 import matter from 'gray-matter'
 import { usePlugin } from 'tinacms'
 import { useJsonForm } from 'next-tinacms-json'
-import Wrapper from '../../../components/Wrapper'
-import { Article } from '../../../components/Article'
+import Wrapper from '../../../../components/Wrapper'
+import { Article } from '../../../../components/Article'
 import styled from 'styled-components'
-import Meta from '../../../components/Meta'
+import Meta from '../../../../components/Meta'
 
 const Andrea = ({ jsonFile, records }) => {
   const formOptions = {
@@ -35,7 +35,7 @@ const Andrea = ({ jsonFile, records }) => {
   return (
     <Wrapper data={data}>
       <Meta />
-      {!!records.length &&
+      {records.length &&
         records.map(record => (
           <ArticleCont>
             <Article
@@ -44,7 +44,7 @@ const Andrea = ({ jsonFile, records }) => {
                 slug: record.slug,
                 content: record.document.content,
                 title: record.document.data.title,
-                dir: 'organisationals/gutscheine',
+                dir: 'angebot/craniosacral-therapie/nach-der-geburt',
               }}
             />
           </ArticleCont>
@@ -57,7 +57,7 @@ export default Andrea
 
 Andrea.getInitialProps = async function() {
   const content = await import(
-    '../../../data/organisationals/gutscheine/config.json'
+    '../../../../data/angebot/craniosacral-therapie/nach-der-geburt/config.json'
   )
   let records = (context => {
     const keys = context.keys()
@@ -73,10 +73,16 @@ Andrea.getInitialProps = async function() {
       return { document, slug }
     })
     return data
-  })(require.context('../../../data/organisationals/gutscheine', true, /\.md$/))
+  })(
+    require.context(
+      '../../../../data/angebot/craniosacral-therapie/nach-der-geburt',
+      true,
+      /\.md$/
+    )
+  )
   return {
     jsonFile: {
-      fileRelativePath: `data/organisationals/gutscheine/config.json`,
+      fileRelativePath: `data/angebot/craniosacral-therapie/nach-der-geburt/config.json`,
       data: content.default,
     },
     records: records.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),

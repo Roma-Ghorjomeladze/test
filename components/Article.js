@@ -26,9 +26,14 @@ export const Article = props => {
             <h1>{props.record.title}</h1>
           )}
         </div>
-        <div className="blog__body">
+        {!props.homePage && !!props.record.image && (
+          <div>
+            <img src={props.record.image} />
+          </div>
+        )}
+        <ArticelBody className="blog__body">
           <ReactMarkdown source={props.record.content} />
-        </div>
+        </ArticelBody>
       </article>
       <style jsx>
         {`
@@ -146,6 +151,7 @@ export const Article = props => {
               margin-left: 1.5rem;
               margin-bottom: 1.5rem;
             }
+
             .blog__hero {
               min-height: 600px;
               height: 75vh;
@@ -157,6 +163,9 @@ export const Article = props => {
             }
             .blog__footer {
               padding: 2.25rem;
+            }
+            .blog__body p {
+              color: red;
             }
           }
 
@@ -190,4 +199,32 @@ let A = styled.a`
 const Span = styled.span`
   letter-spacing: 1.5px;
   font-family: 'Roboto' sans-serif;
+  @media (max-width: 1080px) {
+    font-size: 20px;
+    letter-spacing: 0.8px;
+  }
+  @media (max-width: 1080px) {
+    font-size: 17px;
+    letter-spacing: 0.3px;
+  }
+`
+const ArticelBody = styled.div`
+  p {
+    -webkit-letter-spacing: -0.5px;
+    -moz-letter-spacing: -0.5px;
+    -ms-letter-spacing: -0.5px;
+    letter-spacing: -0.5px;
+    line-height: 1.5;
+    font-weight: 300;
+  }
+  @media (max-width: 1080px) {
+    p {
+      font-size: 17px;
+    }
+  }
+  @media (max-width: 1080px) {
+    p {
+      font-size: 14px;
+    }
+  }
 `
