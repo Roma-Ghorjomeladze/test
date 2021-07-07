@@ -1,6 +1,6 @@
 ---
 title: Was ist Pränatal - und Geburtstherapie?
-date: '2021-06-11T08:40:54.223Z'
+date: '2021-07-07T00:00:00Z'
 ---
 Pränatal– und Geburtsprozesstherapie bringt uns in Kontakt mit unserem Potential und ermöglicht uns, besser im Hier und Jetzt zu sein. 
 
