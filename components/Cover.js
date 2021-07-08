@@ -10,6 +10,7 @@ export const Cover = ({ src, title }) => {
           objectFit="cover"
           src={src}
           objectPosition="bottom center"
+          alt={title}
         />
         <Page>{title}</Page>
       </Container>

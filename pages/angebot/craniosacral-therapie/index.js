@@ -32,7 +32,6 @@ const Andrea = ({ jsonFile, records }) => {
   }
   const [data, form] = useJsonForm(jsonFile, formOptions)
   usePlugin(form)
-  console.log({ records })
   return (
     <Wrapper data={data}>
       <Meta />

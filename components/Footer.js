@@ -37,7 +37,9 @@ export default function Footer() {
                             query: { name: subNav.label },
                           }}
                         >
-                          <A>{subNav.label}</A>
+                          <a>
+                            <A>{subNav.label}</A>
+                          </a>
                         </Link>
                       </SubNavContainer>
                       {subNav.options &&
@@ -132,7 +134,7 @@ let CopyRight = styled.p`
     margin-left: 0;
   }
 `
-let A = styled.a`
+let A = styled.span`
   font-size: 18px;
   line-height: 22px;
   color: #fff5f5;

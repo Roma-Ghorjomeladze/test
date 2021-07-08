@@ -188,7 +188,7 @@ export const Article = props => {
   )
 }
 
-let A = styled.a`
+let A = styled.span`
   text-decoration: none;
   text-align: left;
   font-weight: 400;

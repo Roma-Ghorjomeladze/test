@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { DropDown } from '../DropDown'
 import { navigation, homeNavigation } from '../../config/navigation'
 
-const Ul = styled.ul`
+const Ul = styled.div`
   list-style: none;
   display: flex;
   position: fixed;

@@ -12,7 +12,7 @@ export const EditLink = ({ cms }) => {
   )
 }
 
-let Button = styled.button`
+let Button = styled.div`
   z-index: 10;
   background-color: #8a3848;
   color: #974152;
@@ -21,4 +21,5 @@ let Button = styled.button`
   position: absolute;
   bottom: 0;
   left: 0;
+  cursor: pointer;
 `
