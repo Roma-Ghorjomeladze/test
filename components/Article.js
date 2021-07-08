@@ -14,12 +14,14 @@ export const Article = props => {
                 key={props.record.slug}
                 href={{
                   pathname: `/${props.record.dir}/${props.record.slug}`,
-                  query: { post: props.record.slug },
+                  query: { name: props.record.slug },
                 }}
               >
-                <A>
-                  <Span>{props.record.title}</Span>
-                </A>
+                <a>
+                  <A>
+                    <Span>{props.record.title}</Span>
+                  </A>
+                </a>
               </Link>
             </div>
           ) : (
@@ -28,7 +30,7 @@ export const Article = props => {
         </div>
         {!props.homePage && !!props.record.image && (
           <div>
-            <img src={props.record.image} />
+            <img alt={props.record.title} src={props.record.image} />
           </div>
         )}
         <ArticelBody className="blog__body">
@@ -209,6 +211,7 @@ const Span = styled.span`
   }
 `
 const ArticelBody = styled.div`
+  max-width: 900px;
   p {
     -webkit-letter-spacing: -0.5px;
     -moz-letter-spacing: -0.5px;

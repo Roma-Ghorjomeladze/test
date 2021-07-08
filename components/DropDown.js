@@ -17,10 +17,13 @@ export const DropDown = ({ nav }) => {
         <Element
           href={{
             pathname: nav.default.isNotLink ? '' : nav.default.href,
-            query: nav.default.href,
+            path: nav.default.isNotLink ? '' : nav.default.href,
+            query: { name: nav.default.href },
           }}
         >
-          <A>{nav.default.label}</A>
+          <a>
+            <A>{nav.default.label}</A>
+          </a>
         </Element>
       </DropDownHeader>
       {isOpen && nav.options.length > 0 && (
@@ -30,8 +33,16 @@ export const DropDown = ({ nav }) => {
             nav.options.map(option => (
               <div>
                 <LinkCont>
-                  <Link href={{ pathname: option.href, query: option.label }}>
-                    <ChildNavs>{option.label}</ChildNavs>
+                  <Link
+                    href={{
+                      pathname: option.href,
+                      path: option.href,
+                      query: { name: option.label },
+                    }}
+                  >
+                    <a>
+                      <ChildNavs>{option.label}</ChildNavs>
+                    </a>
                   </Link>
                 </LinkCont>
                 {option.options &&
@@ -44,10 +55,12 @@ export const DropDown = ({ nav }) => {
                           href={{
                             pathname: subNav.href,
                             path: subNav.href,
-                            query: subNav.label,
+                            query: { name: subNav.label },
                           }}
                         >
-                          <A>- {subNav.label}</A>
+                          <a>
+                            <A>- {subNav.label}</A>
+                          </a>
                         </Link>
                       </SubLinkCont>
                     )
@@ -76,7 +89,7 @@ const DropDownListContainer = styled('div')`
   left: -30px;
   min-width: 150px;
   z-index: 33;
-  @media(max-width: 768px){
+  @media (max-width: 768px) {
     min-width: 350px;
     box-shadow: 1px 1px 1px 1px #ffe6e6;
     left: -70px;

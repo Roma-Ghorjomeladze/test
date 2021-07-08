@@ -10,10 +10,12 @@ export const Contact = props => {
             key={props.slug}
             href={{
               pathname: `/contacts/${props.slug}`,
-              query: { post: props.slug },
+              query: { name: props.slug },
             }}
           >
-            <A>{props.contact.title}</A>
+            <a>
+              <A>{props.contact.title}</A>
+            </a>
           </Link>
         ) : (
           props.contact.title

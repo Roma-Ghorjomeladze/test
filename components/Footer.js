@@ -18,10 +18,12 @@ export default function Footer() {
                 <Link
                   href={{
                     pathname: nav.default.isNotLink ? '' : nav.default.href,
-                    query: nav.default.label,
+                    query: { name: nav.default.label },
                   }}
                 >
-                  <NavHeader>{nav.default.label}</NavHeader>
+                  <a>
+                    <NavHeader>{nav.default.label}</NavHeader>
+                  </a>
                 </Link>
               </NavHeaderCont>
               <NavBody>
@@ -32,7 +34,7 @@ export default function Footer() {
                         <Link
                           href={{
                             pathname: subNav.isNotLink ? '' : subNav.href,
-                            query: subNav.label,
+                            query: { name: subNav.label },
                           }}
                         >
                           <A>{subNav.label}</A>
@@ -45,10 +47,12 @@ export default function Footer() {
                               <Link
                                 href={{
                                   pathname: sn.isNotLink ? '' : sn.href,
-                                  query: sn.label,
+                                  query: { name: sn.label },
                                 }}
                               >
-                                <A>- {sn.label}</A>
+                                <a>
+                                  <A>- {sn.label}</A>
+                                </a>
                               </Link>
                             </SubNavContainer>
                           )

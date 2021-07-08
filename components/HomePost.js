@@ -20,16 +20,26 @@ export const HomePost = ({ article, isLink }) => {
           <ClickCont>
             <Link
               key={article.slug}
-              href={{ pathname: `/home/${article.slug}`, query: article.slug }}
+              href={{
+                pathname: `/home/${article.slug}`,
+                query: { name: article.slug },
+              }}
             >
-              <A>Mehr erfahren</A>
+              <a>
+                <A>Mehr erfahren</A>
+              </a>
             </Link>
           </ClickCont>
         )}
       </ArticleCont>
       {article.order != true && (
         <ImgCont>
-          <Image objectFit="contain" layout="fill" src={article.image} />
+          <Image
+            alt={article.title}
+            objectFit="contain"
+            layout="fill"
+            src={article.image}
+          />
         </ImgCont>
       )}
     </Container>
