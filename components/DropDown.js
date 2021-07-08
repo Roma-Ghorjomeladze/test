@@ -6,32 +6,32 @@ export const DropDown = ({ nav }) => {
   const [isOpen, setIsOpen] = useState(false)
   const show = () => setIsOpen(true)
   const hide = () => setIsOpen(false)
-  let Element = Link
-  if (nav.default.isNotLink) {
-    Element = styled.div``
-  }
 
   return (
     <DropDownContainer onMouseLeave={hide} onMouseOver={show}>
       <DropDownHeader>
-        <Element
+        <Link
           href={{
             pathname: nav.default.isNotLink ? '' : nav.default.href,
             path: nav.default.isNotLink ? '' : nav.default.href,
             query: { name: nav.default.href },
           }}
         >
-          <a>
+          {nav.default.isNotLink ? (
             <A>{nav.default.label}</A>
-          </a>
-        </Element>
+          ) : (
+            <a>
+              <A>{nav.default.label}</A>
+            </a>
+          )}
+        </Link>
       </DropDownHeader>
       {isOpen && nav.options.length > 0 && (
         <DropDownListContainer>
           {nav.options &&
             nav.options.length > 0 &&
             nav.options.map(option => (
-              <div>
+              <div key={option.href}>
                 <LinkCont>
                   <Link
                     href={{
@@ -49,7 +49,7 @@ export const DropDown = ({ nav }) => {
                   option.options.length > 0 &&
                   option.options.map(subNav => {
                     return (
-                      <SubLinkCont>
+                      <SubLinkCont key={subNav.href}>
                         <Link
                           key={subNav.href}
                           href={{
@@ -96,7 +96,7 @@ const DropDownListContainer = styled('div')`
   }
 `
 
-let A = styled.a`
+let A = styled.span`
   font-size: 18px;
   line-height: 18px;
   display: flex;
@@ -108,7 +108,7 @@ let A = styled.a`
   color: #3a4b6d;
 `
 
-let ChildNavs = styled.a`
+let ChildNavs = styled.span`
   font-size: 18px;
   line-height: 22px;
   display: flex;

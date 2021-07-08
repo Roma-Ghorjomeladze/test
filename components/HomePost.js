@@ -7,7 +7,7 @@ export const HomePost = ({ article, isLink }) => {
     <Container>
       {article.order == true && (
         <ImgCont>
-          <Image src={article.image} />
+          <Image alt={article.title} src={article.image} />
         </ImgCont>
       )}
       <ArticleCont>
@@ -93,7 +93,7 @@ let ArticleCont = styled.div`
   }
 `
 
-let A = styled.a`
+let A = styled.span`
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;

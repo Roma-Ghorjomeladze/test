@@ -37,7 +37,7 @@ const Andrea = ({ jsonFile, records }) => {
       <Meta />
       {records.length &&
         records.map(record => (
-          <ArticleCont>
+          <ArticleCont key={record.title}>
             <Article
               isLink
               record={{
