@@ -125,6 +125,16 @@ const SubNavContainer = styled.div`
 `
 let Img = styled.img`
   align-self: flex-end;
+  width: 137px;
+  height: 137px;
+  @media (max-width: 1080px) {
+    width: 100px;
+    height: 100px;
+  }
+  @media (max-width: 768) {
+    width: 80px;
+    height: 80px;
+  }
 `
 let CopyRight = styled.p`
   margin-left: 30px;

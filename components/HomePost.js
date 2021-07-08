@@ -123,5 +123,16 @@ let ClickCont = styled.div`
   margin-top: 30px;
 `
 let Image = styled.img`
-  object-fit: cover;
+  object-fit: contain;
+  width: 640px;
+  height: 395px;
+  @media (max-width: 1650px) {
+    width: 580px;
+    height: 345px;
+  }
+
+  @media (max-width: 1366px) {
+    width: 540px;
+    height: 310px;
+  }
 `
