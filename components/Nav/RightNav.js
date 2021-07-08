@@ -63,9 +63,11 @@ const RightNav = ({ open }) => {
       }
       if (window.scrollY > 212) {
         document.getElementById('header_logo').style.width = '60px'
+        document.getElementById('header_logo').style.height = '60px'
         document.getElementById('header_logo').style.top = '15px'
       } else {
         document.getElementById('header_logo').style.width = '91px'
+        document.getElementById('header_logo').style.height = '91px'
         document.getElementById('header_logo').style.top = '0'
       }
     }
@@ -88,7 +90,7 @@ const RightNav = ({ open }) => {
         <Img
           id="header_logo"
           className=""
-          src={'/static/logos/logo.svg'}
+          src={'/static/logos/logo.png'}
           alt="Logo"
         />
       </LogoCont>

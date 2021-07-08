@@ -30,7 +30,7 @@ export const Article = props => {
         </div>
         {!props.homePage && !!props.record.image && (
           <div>
-            <img alt={props.record.title} src={props.record.image} />
+            <Img alt={props.record.title} src={props.record.image} />
           </div>
         )}
         <ArticelBody className="blog__body">
@@ -187,6 +187,11 @@ export const Article = props => {
     </Layout>
   )
 }
+
+let Img = styled.img`
+  width: auto;
+  height: auto;
+`
 
 let A = styled.span`
   text-decoration: none;

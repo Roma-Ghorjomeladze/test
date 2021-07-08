@@ -66,7 +66,7 @@ export default function Footer() {
             </NavItem>
           )
         })}
-        <Img className="logo" src={'/static/logos/logo.svg'} alt="Logo" />
+        <Img className="logo" src={'/static/logos/logo.png'} alt="Logo" />
       </Cont>
       <CopyRight>{`Copyright © ${date.getFullYear()} Entdeckungsraum`}</CopyRight>
       <EditLink cms={cms} />
