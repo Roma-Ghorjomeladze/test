@@ -61,6 +61,9 @@ const LogoCont = styled.div`
   margin: 0 35px 30px 35px;
   width: 91px;
   transition: 400ms;
+  @media (max-width: 1080px) {
+    margin: 0 20px 30px 20px;
+  }
   @media (max-width: 768px) {
     order: -1;
     margin: 0;

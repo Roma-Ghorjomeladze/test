@@ -6,7 +6,7 @@ import { Article } from '../../../components/Article'
 import styled from 'styled-components'
 import Meta from '../../../components/Meta'
 
-const Andrea = ({ jsonFile, records }) => {
+const SystemischeAufstellungsarbeit = ({ jsonFile, records }) => {
   const formOptions = {
     label: 'Site Config',
     fields: [
@@ -37,7 +37,7 @@ const Andrea = ({ jsonFile, records }) => {
       <Meta />
       {records.length &&
         records.map(record => (
-          <ArticleCont>
+          <ArticleCont key={record.slug}>
             <Article
               isLink
               record={{
@@ -53,9 +53,9 @@ const Andrea = ({ jsonFile, records }) => {
   )
 }
 
-export default Andrea
+export default SystemischeAufstellungsarbeit
 
-Andrea.getInitialProps = async function() {
+SystemischeAufstellungsarbeit.getInitialProps = async function() {
   const content = await import(
     '../../../data/angebot/systemische-aufstellungsarbeit/config.json'
   )

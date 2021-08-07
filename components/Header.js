@@ -40,6 +40,5 @@ let Cont = styled.div`
   @media (max-width: 768px) {
     height: 0;
     display: block;
-    position: unset;
   }
 `

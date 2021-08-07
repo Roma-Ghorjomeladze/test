@@ -6,7 +6,7 @@ import { Article } from '../../../components/Article'
 import styled from 'styled-components'
 import Meta from '../../../components/Meta'
 
-const Andrea = ({ jsonFile, records }) => {
+const Prozessbegleitung = ({ jsonFile, records }) => {
   const formOptions = {
     label: 'Site Config',
     fields: [
@@ -37,7 +37,7 @@ const Andrea = ({ jsonFile, records }) => {
       <Meta />
       {records.length &&
         records.map(record => (
-          <ArticleCont>
+          <ArticleCont key={record.slug}>
             <Article
               isLink
               record={{
@@ -54,9 +54,9 @@ const Andrea = ({ jsonFile, records }) => {
   )
 }
 
-export default Andrea
+export default Prozessbegleitung
 
-Andrea.getInitialProps = async function() {
+Prozessbegleitung.getInitialProps = async function() {
   const content = await import(
     '../../../data/angebot/prozessbegleitung/config.json'
   )

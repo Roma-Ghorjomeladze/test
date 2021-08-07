@@ -6,7 +6,7 @@ import { Article } from '../../../components/Article'
 import styled from 'styled-components'
 import Meta from '../../../components/Meta'
 
-const Andrea = ({ jsonFile, records }) => {
+const Kunst = ({ jsonFile, records }) => {
   const formOptions = {
     label: 'Site Config',
     fields: [
@@ -52,9 +52,9 @@ const Andrea = ({ jsonFile, records }) => {
   )
 }
 
-export default Andrea
+export default Kunst
 
-Andrea.getInitialProps = async function() {
+Kunst.getInitialProps = async function() {
   const content = await import('../../../data/wissenswertes/kunst/config.json')
   let records = (context => {
     const keys = context.keys()

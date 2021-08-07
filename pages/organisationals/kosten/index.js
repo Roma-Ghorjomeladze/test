@@ -6,7 +6,7 @@ import { Article } from '../../../components/Article'
 import styled from 'styled-components'
 import Meta from '../../../components/Meta'
 
-const Andrea = ({ jsonFile, records }) => {
+const Kosten = ({ jsonFile, records }) => {
   const formOptions = {
     label: 'Site Config',
     fields: [
@@ -33,7 +33,7 @@ const Andrea = ({ jsonFile, records }) => {
   const [data, form] = useJsonForm(jsonFile, formOptions)
   usePlugin(form)
   return (
-    <Wrapper data={data} title={jsonFile.data.frontmatter.title}> 
+    <Wrapper data={data} title={jsonFile.data.frontmatter.title}>
       {records.length &&
         records.map(record => (
           <ArticleCont>
@@ -52,9 +52,9 @@ const Andrea = ({ jsonFile, records }) => {
   )
 }
 
-export default Andrea
+export default Kosten
 
-Andrea.getInitialProps = async function() {
+Kosten.getInitialProps = async function() {
   const content = await import(
     '../../../data/organisationals/kosten/config.json'
   )
@@ -72,13 +72,7 @@ Andrea.getInitialProps = async function() {
       return { document, slug }
     })
     return data
-  })(
-    require.context(
-      '../../../data/organisationals/kosten',
-      true,
-      /\.md$/
-    )
-  )
+  })(require.context('../../../data/organisationals/kosten', true, /\.md$/))
   return {
     jsonFile: {
       fileRelativePath: `data/organisationals/kosten/config.json`,

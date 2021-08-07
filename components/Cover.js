@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Image from 'next/image'
 
 export const Cover = ({ src, title }) => {
   return (
@@ -21,20 +20,28 @@ export const Cover = ({ src, title }) => {
 
 let Div = styled.div`
   height: 166px;
+  @media (max-width: 768px) {
+    height: 0;
+  }
+`
+
+let Image = styled.img`
+  width: 100%;
+  height: 100%;
 `
 
 let Container = styled.div`
   width: 100%;
   max-width: 1440px;
-  min-height: 200px;
+  height: 200px;
   margin: 0 auto;
   box-sizing: border-box;
   position: relative;
   @media (max-width: 1080px) {
-    min-height: 150px;
+    height: 150px;
   }
   @media (max-width: 768px) {
-    min-height: 100px;
+    height: 100px;
   }
 `
 

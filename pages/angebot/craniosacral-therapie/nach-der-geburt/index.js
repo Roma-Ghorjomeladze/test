@@ -6,7 +6,7 @@ import { Article } from '../../../../components/Article'
 import styled from 'styled-components'
 import Meta from '../../../../components/Meta'
 
-const Andrea = ({ jsonFile, records }) => {
+const NachDerGeburt = ({ jsonFile, records }) => {
   const formOptions = {
     label: 'Site Config',
     fields: [
@@ -36,7 +36,7 @@ const Andrea = ({ jsonFile, records }) => {
     <Wrapper data={data} title={jsonFile.data.frontmatter.title}>
       {records.length &&
         records.map(record => (
-          <ArticleCont>
+          <ArticleCont key={record.slug}>
             <Article
               isLink
               record={{
@@ -52,9 +52,9 @@ const Andrea = ({ jsonFile, records }) => {
   )
 }
 
-export default Andrea
+export default NachDerGeburt
 
-Andrea.getInitialProps = async function() {
+NachDerGeburt.getInitialProps = async function() {
   const content = await import(
     '../../../../data/angebot/craniosacral-therapie/nach-der-geburt/config.json'
   )
