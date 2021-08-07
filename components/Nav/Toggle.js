@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import RightNav from './RightNav'
 
 const StyledBurger = styled.div`
   width: 2rem;
@@ -34,7 +35,7 @@ const StyledBurger = styled.div`
   }
 `
 
-const Toggle = () => {
+const Burger = () => {
   const [open, setOpen] = useState(false)
 
   return (
@@ -44,8 +45,9 @@ const Toggle = () => {
         <div />
         <div />
       </StyledBurger>
+      <RightNav open={open} />
     </>
   )
 }
 
-export default Toggle
+export default Burger

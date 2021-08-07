@@ -30,7 +30,7 @@ export default function ContactTemplate(props) {
   const [contact, form] = useMarkdownForm(props.markdownFile, formOptions)
   usePlugin(form)
   return (
-    <Wrapper data={props.config}>
+    <Wrapper data={props.config} title={contact.frontmatter.title}>
       <Contact contact={contact.frontmatter} />
     </Wrapper>
   )

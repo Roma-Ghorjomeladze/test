@@ -14,7 +14,6 @@ export const Article = props => {
                 key={props.record.slug}
                 href={{
                   pathname: `/${props.record.dir}/${props.record.slug}`,
-                  query: { name: props.record.slug },
                 }}
               >
                 <a>

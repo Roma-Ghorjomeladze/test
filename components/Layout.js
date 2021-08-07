@@ -3,10 +3,6 @@ import Meta from './Meta'
 export default function Layout(props) {
   return (
     <div className={`layout `}>
-      <Meta
-        siteTitle={props.siteTitle}
-        siteDescription={props.siteDescription}
-      />
       <div className="content">{props.children}</div>
       <style jsx>
         {`

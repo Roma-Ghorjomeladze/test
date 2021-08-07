@@ -22,7 +22,6 @@ export const HomePost = ({ article, isLink }) => {
               key={article.slug}
               href={{
                 pathname: `/home/${article.slug}`,
-                query: { name: article.slug },
               }}
             >
               <a>

@@ -2,12 +2,19 @@ import Header from './Header'
 import Footer from './Footer'
 import styled from 'styled-components'
 import Meta from './Meta'
+import {Cover} from './Cover'
 
 export default function Wrapper(props) {
   return (
     <Container>
-      <Meta siteTitle={props.data?.frontmatter.title} siteDescription="" />
+      <Meta siteTitle={props.title} siteDescription="" />
       <Header data={props.data} />
+      {props.displayCover !== false && (
+        <Cover
+          src={props.data?.frontmatter.image}
+          title={props.data?.frontmatter.title}
+        />
+      )}
       <Main>{props.children}</Main>
       <Footer />
     </Container>
@@ -29,5 +36,5 @@ let Container = styled.div`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #FFF5F5;
+  background-color: #fff5f5;
 `

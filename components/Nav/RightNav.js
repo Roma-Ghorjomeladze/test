@@ -5,26 +5,52 @@ import { navigation, homeNavigation } from '../../config/navigation'
 import Toggle from '../Nav/Toggle'
 
 const Ul = styled.div`
- display: flex;
- justify-content: space-between;
- align-items: flex-end;
- z-index: 5;
- @media (max-width: 768px) {
+  display: flex;
+  justify-content: space-between;
+  z-index: 5;
+  flex: 1;
+  @media (max-width: 768px) {
     flex-direction: column;
     position: fixed;
     right: 0;
     align-items: center;
     padding: 20px 50px;
-    background-color: #FFF5F5;
+    background-color: #fff5f5;
+    transition: transform 0.3s ease-in-out;
+    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
   }
 `
 
+// const Ul = styled.div`
+//   list-style: none;
+//   display: flex;
+//   position: fixed;
+//   justify-content: space-between;
+//   width: 100%;
+//   transition: height 500ms;
+//   margin: 0;
+//   padding: 0 30px;
+//   @media (max-width: 768px) {
+//     flex-flow: column wrap;
+//     background-color: #fff5f5;
+//     position: fixed;
+//     transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+//     top: 0;
+//     right: 0;
+//     width: 300px;
+//     padding-top: 20px;
+//     padding-bottom: 30px;
+//     transition: transform 0.3s ease-in-out;
+//   }
+// `
+
 const InnerCont = styled.div`
- display: flex;
- justify-content: space-between;
- flex: 1;
- margin-bottom: 20px;
- @media (max-width: 768px) {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  margin-bottom: 25px;
+  align-items: flex-end;
+  @media (max-width: 768px) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -32,7 +58,7 @@ const InnerCont = styled.div`
   }
 `
 const LogoCont = styled.div`
-  margin: 0 25px;
+  margin: 0 35px 30px 35px;
   width: 91px;
   @media (max-width: 768px) {
     order: -1;
@@ -40,9 +66,7 @@ const LogoCont = styled.div`
   }
 `
 
-const Img = styled.img`
-  
-`
+const Img = styled.img``
 
 const RightNav = ({ open }) => {
   // useEffect(() => {
@@ -67,7 +91,6 @@ const RightNav = ({ open }) => {
 
   return (
     <Ul open={open}>
-      <Toggle/>
       <InnerCont>
         <DropDown key={homeNavigation.index} nav={homeNavigation} />
         <DropDown key={navigation.angebot.index} nav={navigation.angebot} />

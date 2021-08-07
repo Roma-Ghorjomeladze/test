@@ -3,7 +3,8 @@ import Image from 'next/image'
 
 export const Cover = ({ src, title }) => {
   return (
-    <Outer>
+    <>
+      <Div></Div>
       <Container>
         <Image
           layout="fill"
@@ -14,15 +15,17 @@ export const Cover = ({ src, title }) => {
         />
         <Page>{title}</Page>
       </Container>
-    </Outer>
+    </>
   )
 }
-
+let Div = styled.div`
+  height: 166px;
+`
 let Container = styled.div`
-  width: 100vw;
+  width: 100%;
+  max-width: 1440px;
   min-height: 200px;
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
   box-sizing: border-box;
   position: relative;
   @media (max-width: 1080px) {
@@ -52,11 +55,5 @@ let Page = styled.span`
     min-height: 17px;
     left: 50px;
     bottom: 20px;
-  }
-`
-let Outer = styled.div`
-  padding-top: 150px;
-  @media (max-width: 768px) {
-    padding-top: 0;
   }
 `

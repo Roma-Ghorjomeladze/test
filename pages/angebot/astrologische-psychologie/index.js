@@ -33,8 +33,7 @@ const Andrea = ({ jsonFile, records }) => {
   const [data, form] = useJsonForm(jsonFile, formOptions)
   usePlugin(form)
   return (
-    <Wrapper data={data}>
-      <Meta />
+    <Wrapper data={data} title={jsonFile.data.frontmatter.title}>
       {records.length &&
         records.map(record => (
           <ArticleCont>

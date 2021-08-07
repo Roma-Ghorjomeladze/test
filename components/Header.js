@@ -1,30 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Cover } from './Cover'
-import NavBar from './Nav/Navbar'
-import RightNav from './Nav/RightNav'
+import Toggle from './Nav/Toggle'
 export default function Header(props) {
   return (
     <Cont>
-      <RightNav/>
-      {/* <NavBar /> */}
-      {/* {props.data.frontmatter && (
-        <Cover
-          src={props.data?.frontmatter.image}
-          title={props.data?.frontmatter.title}
-        />
-      )} */}
+      <Toggle />
     </Cont>
   )
 }
 
 let Cont = styled.div`
-  height: 144px;
+  height: 166px;
   width: 100%;
+  z-index: 2;
   max-width: 1440px;
-  background-color: #FFF5F5;
-  margin: 0 auto;
+  background-color: #fff5f5;
+  display: flex;
+  align-items: flex-end;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
   @media (max-width: 768px) {
     height: 0;
+    display: block;
+    position: unset;
   }
-`;
+`

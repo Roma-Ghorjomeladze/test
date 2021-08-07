@@ -17,8 +17,7 @@ export default function Footer() {
               <NavHeaderCont>
                 <Link
                   href={{
-                    pathname: nav.default.isNotLink ? '' : nav.default.href,
-                    query: { name: nav.default.label },
+                    pathname: nav.default.isNotLink ? '/' : nav.default.href,
                   }}
                 >
                   <a>
@@ -33,8 +32,7 @@ export default function Footer() {
                       <SubNavContainer>
                         <Link
                           href={{
-                            pathname: subNav.isNotLink ? '' : subNav.href,
-                            query: { name: subNav.label },
+                            pathname: subNav.isNotLink ? '/' : subNav.href,
                           }}
                         >
                           <a>
@@ -48,8 +46,7 @@ export default function Footer() {
                             <SubNavContainer key={sn.label}>
                               <Link
                                 href={{
-                                  pathname: sn.isNotLink ? '' : sn.href,
-                                  query: { name: sn.label },
+                                  pathname: sn.isNotLink ? '/' : sn.href,
                                 }}
                               >
                                 <a>
@@ -83,6 +80,8 @@ const Cont = styled.div`
 
 const Footer_ = styled.div`
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   padding: 65px 80px;
   background-color: #8a3848;
   min-height: 50px;

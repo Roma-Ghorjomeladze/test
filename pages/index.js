@@ -5,6 +5,7 @@ import { usePlugin } from 'tinacms'
 import Wrapper from '../components/Wrapper'
 import { HomePost } from '../components/HomePost'
 import { getGithubPreviewProps } from 'next-tinacms-github'
+import { Cover } from '../components/Cover'
 
 const Index = ({ jsonFile, homeArticles }) => {
   const formOptions = {
@@ -33,7 +34,7 @@ const Index = ({ jsonFile, homeArticles }) => {
   const [data, form] = useJsonForm(jsonFile, formOptions)
   usePlugin(form)
   return (
-    <Wrapper data={data}>
+    <Wrapper data={data} title={jsonFile.data.frontmatter.title}>
       {homeArticles.length &&
         homeArticles.map(article => (
           <HomePost

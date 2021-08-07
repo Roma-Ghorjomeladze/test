@@ -14,7 +14,6 @@ export const DropDown = ({ nav }) => {
           href={{
             pathname: nav.default.isNotLink ? '' : nav.default.href,
             path: nav.default.isNotLink ? '' : nav.default.href,
-            query: { name: nav.default.href },
           }}
         >
           {nav.default.isNotLink ? (
@@ -37,7 +36,6 @@ export const DropDown = ({ nav }) => {
                     href={{
                       pathname: option.href,
                       path: option.href,
-                      query: { name: option.label },
                     }}
                   >
                     <a>
@@ -55,7 +53,6 @@ export const DropDown = ({ nav }) => {
                           href={{
                             pathname: subNav.href,
                             path: subNav.href,
-                            query: { name: subNav.label },
                           }}
                         >
                           <a>

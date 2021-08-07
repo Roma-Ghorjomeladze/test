@@ -7,7 +7,6 @@ export const HeaderLink = ({ option }) => {
       href={{
         pathname: option.href,
         path: option.href,
-        query: { name: option.label },
       }}
     >
       <a>
