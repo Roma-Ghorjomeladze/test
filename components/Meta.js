@@ -98,7 +98,6 @@ export default function Meta(props) {
           }
 
           h3 {
-            font-size: 1.2rem;
             letter-spacing: -0.5px;
             line-height: 1.1875;
             color: #a0a0a0;
@@ -106,7 +105,6 @@ export default function Meta(props) {
           }
 
           p {
-            font-size: 1.2rem;
             letter-spacing: -0.5px;
             line-height: 1.5;
             color: #464646;

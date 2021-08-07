@@ -3,8 +3,11 @@ import styled from 'styled-components'
 import Burger from './Burger'
 
 const Nav = styled.nav`
-  width: 100%;
+  
+  /* width: 100%;
   height: 166px;
+  max-width: 1440px;
+  margin: 0 auto;
   border-bottom: 2px solid #f1f1f1;
   position: fixed;
   display: flex;
@@ -20,27 +23,27 @@ const Nav = styled.nav`
     height: 55px;
     padding-bottom: 0;
     height: 0;
-  }
+  } */
 `
 
 const Navbar = () => {
-  useEffect(() => {
-    const handler = () => {
-      if (window.innerWidth < 769) {
-        return
-      }
-      if (window.scrollY > 212) {
-        document.getElementById('header_container').style.height = '80px'
-        document.getElementById('header_container').style.paddingBottom = '10px'
-      } else {
-        document.getElementById('header_container').style.height = '166px'
-        document.getElementById('header_container').style.paddingBottom = '40px'
-      }
-    }
+  // useEffect(() => {
+  //   const handler = () => {
+  //     if (window.innerWidth < 769) {
+  //       return
+  //     }
+  //     if (window.scrollY > 212) {
+  //       document.getElementById('header_container').style.height = '80px'
+  //       document.getElementById('header_container').style.paddingBottom = '10px'
+  //     } else {
+  //       document.getElementById('header_container').style.height = '166px'
+  //       document.getElementById('header_container').style.paddingBottom = '40px'
+  //     }
+  //   }
 
-    window.addEventListener('scroll', handler)
-    return () => window.removeEventListener('scroll', handler)
-  }, [])
+  //   window.addEventListener('scroll', handler)
+  //   return () => window.removeEventListener('scroll', handler)
+  // }, [])
 
   return (
     <Nav id="header_container">

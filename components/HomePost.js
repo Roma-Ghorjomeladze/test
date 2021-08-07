@@ -49,10 +49,11 @@ export const HomePost = ({ article, isLink }) => {
 let Container = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 200px;
+  padding-bottom: 18px;
+  padding-top: 85px;
   width: 100%;
   &:first-child {
-    margin-top: 115px;
+    margin-top: 30px;
   }
   &:last-child {
     margin-bottom: 100px;
@@ -65,6 +66,12 @@ let Container = styled.div`
     }
     &:last-child {
       margin-bottom: 30px;
+    }
+  }
+  @media (max-width: 768px) {
+    padding-top: 0;
+    &:first-child {
+      margin-top: 0;
     }
   }
 `
@@ -82,6 +89,9 @@ let ImgCont = styled.div`
     order: 1;
     margin-bottom: 10px;
     margin-top: 30px;
+  }
+  @media (max-width: 768px){
+    margin-top: 10px;
   }
 `
 
