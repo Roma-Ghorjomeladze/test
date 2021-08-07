@@ -18,9 +18,11 @@ export const Cover = ({ src, title }) => {
     </>
   )
 }
+
 let Div = styled.div`
   height: 166px;
 `
+
 let Container = styled.div`
   width: 100%;
   max-width: 1440px;

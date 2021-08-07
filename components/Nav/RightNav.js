@@ -48,7 +48,7 @@ const InnerCont = styled.div`
   display: flex;
   justify-content: space-between;
   flex: 1;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   align-items: flex-end;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -60,38 +60,39 @@ const InnerCont = styled.div`
 const LogoCont = styled.div`
   margin: 0 35px 30px 35px;
   width: 91px;
+  transition: 400ms;
   @media (max-width: 768px) {
     order: -1;
     margin: 0;
   }
 `
 
-const Img = styled.img``
+const Img = styled.img`
+  width: 100%;
+`
 
 const RightNav = ({ open }) => {
-  // useEffect(() => {
-  //   const handler = () => {
-  //     if (window.innerWidth < 769) {
-  //       return
-  //     }
-  //     if (window.scrollY > 212) {
-  //       document.getElementById('header_logo').style.width = '60px'
-  //       document.getElementById('header_logo').style.height = '60px'
-  //       document.getElementById('header_logo').style.top = '15px'
-  //     } else {
-  //       document.getElementById('header_logo').style.width = '91px'
-  //       document.getElementById('header_logo').style.height = '91px'
-  //       document.getElementById('header_logo').style.top = '0'
-  //     }
-  //   }
+  useEffect(() => {
+    const handler = () => {
+      if (window.innerWidth < 769) {
+        return
+      }
+      if (window.scrollY > 190) {
+        document.getElementById('header_logo').style.width = '60px'
+        document.getElementById('header_logo').style.marginBottom = '11px'
+      } else {
+        document.getElementById('header_logo').style.width = '91px'
+        document.getElementById('header_logo').style.marginBottom = '30px'
+      }
+    }
 
-  //   window.addEventListener('scroll', handler)
-  //   return () => window.removeEventListener('scroll', handler)
-  // }, [])
+    window.addEventListener('scroll', handler)
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
 
   return (
     <Ul open={open}>
-      <InnerCont>
+      <InnerCont className="innerCont">
         <DropDown key={homeNavigation.index} nav={homeNavigation} />
         <DropDown key={navigation.angebot.index} nav={navigation.angebot} />
         <DropDown
@@ -99,15 +100,10 @@ const RightNav = ({ open }) => {
           nav={navigation.organisationals}
         />
       </InnerCont>
-      <LogoCont>
-        <Img
-          id="header_logo"
-          className=""
-          src={'/static/logos/logo.png'}
-          alt="Logo"
-        />
+      <LogoCont id="header_logo">
+        <Img className="" src={'/static/logos/logo.png'} alt="Logo" />
       </LogoCont>
-      <InnerCont>
+      <InnerCont className="innerCont">
         <DropDown key={navigation.andrea.index} nav={navigation.andrea} />
         <DropDown key={navigation.other.index} nav={navigation.other} />
         <DropDown key={navigation.contacts.index} nav={navigation.contacts} />

@@ -31,7 +31,7 @@ const Contacts = ({ jsonFile, contactDetails }) => {
   const [data, form] = useJsonForm(jsonFile, formOptions)
   usePlugin(form)
   return (
-    <Wrapper data={data}>
+    <Wrapper data={data} title={jsonFile.data.frontmatter.title}>
       {contactDetails.length &&
         contactDetails.map(doc => {
           return <Contact isLink contact={doc.document.data} slug={doc.slug} />
