@@ -99,7 +99,7 @@ let ImgCont = styled.div`
 
 let ArticleCont = styled.div`
   flex: 1;
-  padding: 20px;
+  padding: 20px 20px 20px 0;
   @media (max-width: 1080px) {
     order: 2;
   }

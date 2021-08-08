@@ -28,6 +28,7 @@ export default function Header(props) {
 let Cont = styled.div`
   height: 166px;
   width: 100%;
+  padding: 0 100px;
   z-index: 2;
   max-width: 1440px;
   background-color: #fff5f5;
