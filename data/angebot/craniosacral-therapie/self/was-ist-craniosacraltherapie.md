@@ -1,6 +1,6 @@
 ---
 title: Was ist Craniosacral therapie?
-date: '2021-06-14T09:14:24.293Z'
+date: '2021-06-07T00:00:00Z'
 ---
 
 Die Begleitung während der Schwangerschaft hilft die grossen körperlichen und emotionalen Veränderungen in dieser Zeit optimal zu integrieren. Der Organismus hat die Möglichkeit zu entspannen und sich auf tiefer
