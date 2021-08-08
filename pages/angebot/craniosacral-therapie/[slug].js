@@ -4,6 +4,7 @@ import { useMarkdownForm } from 'next-tinacms-markdown'
 import Wrapper from '../../../components/Wrapper'
 import { Article } from '../../../components/Article'
 import styled from 'styled-components'
+import { CraniosacralArticle } from '../../../components/CraniosacralArticle'
 
 export default function Gutschine(props) {
   let formOptions = {
@@ -26,6 +27,16 @@ export default function Gutschine(props) {
         description: 'The articles will be sorted accordint to this date',
       },
       {
+        name: 'frontmatter.order',
+        description: 'choose alignment of your content',
+        label: 'order',
+        component: 'toggle',
+        toggleLabels: {
+          true: 'Top and bottom',
+          false: 'Left and right',
+        },
+      },
+      {
         label: 'Cover Image. you can leave it empty',
         name: 'frontmatter.image',
         component: 'image',
@@ -46,7 +57,7 @@ export default function Gutschine(props) {
   return (
     <Wrapper data={props.config} title={record.frontmatter.title}>
       <ArticleCont>
-        <Article
+        <CraniosacralArticle
           record={{
             ...record.frontmatter,
             slug: '',

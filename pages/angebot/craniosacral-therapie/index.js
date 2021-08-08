@@ -5,6 +5,8 @@ import Wrapper from '../../../components/Wrapper'
 import { Article } from '../../../components/Article'
 import styled from 'styled-components'
 import Meta from '../../../components/Meta'
+import { Slide } from '../../../components/Slide'
+import { CraniosacralArticle } from '../../../components/CraniosacralArticle'
 
 const CraniosacralTherapie = ({ jsonFile, records }) => {
   const formOptions = {
@@ -35,21 +37,24 @@ const CraniosacralTherapie = ({ jsonFile, records }) => {
   return (
     <Wrapper data={data} title={jsonFile.data.frontmatter.title}>
       {records.length &&
-        records.map(record => (
-          <ArticleCont key={record.title}>
-            <Article
-              isLink
-              record={{
-                ...record.document.data,
-                slug: record.slug,
-                content: record.document.content,
-                title: record.document.data.title,
-                dir: 'angebot/craniosacral-therapie',
-                type: record.document.data.type,
-                image: record.document.data.image,
-              }}
-            />
-          </ArticleCont>
+        records.map((record, idx) => (
+          <>
+            {idx == 1 && <Slide key={Math.random} />}
+            <ArticleCont key={record.title}>
+              <CraniosacralArticle
+                isLink
+                record={{
+                  ...record.document.data,
+                  slug: record.slug,
+                  content: record.document.content,
+                  title: record.document.data.title,
+                  dir: 'angebot/craniosacral-therapie',
+                  type: record.document.data.type,
+                  image: record.document.data.image,
+                }}
+              />
+            </ArticleCont>
+          </>
         ))}
     </Wrapper>
   )

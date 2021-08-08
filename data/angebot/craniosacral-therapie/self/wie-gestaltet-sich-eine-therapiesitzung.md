@@ -1,8 +1,9 @@
 ---
 title: Wie gestaltet sich eine Therapiesitzung?
-date: 2021-07-07T11:58:00.660Z
+date: '2021-06-02T11:58:00.660Z'
 image: /static/WiegestaltetsicheineTherapiesitzung.png
 ---
+
 Sie findet in bequemer Kleidung, in Rückenlage auf einer Behandlungsliege statt. Bei Bewegungseinschränkungen können auch andere Positionen eingenommen werden. Die Hände werden an spezifische Körperstellen gelegt, um Zugang zu diversen Körpersystemen zu erhalten. Diese sind unter anderem: Nerven-, Knochen-, Lymph-, Hormon-, Muskel- und Blutsystem.
 
 Ziel der Therapie ist es, Klientinnen mit einer tiefen Entspannung in Kontakt kommen zu lassen.

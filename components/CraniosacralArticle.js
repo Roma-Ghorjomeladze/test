@@ -3,38 +3,50 @@ import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import Layout from './Layout'
 
-export const Article = props => {
+let Main = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: ${({ rightAlignment }) => {
+    return rightAlignment == false ? 'row' : 'column-reverse'
+  }};
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
+`
+
+export const CraniosacralArticle = ({ record, isLink }) => {
+  const rightAlignment = record.order
   return (
-    <Layout siteTitle={props.record.title}>
+    <Layout siteTitle={record.title}>
       <article className="blog">
-        <div className="blog__info">
-          {!!props.isLink ? (
-            <div className="blog_title_cont">
-              <Link
-                key={props.record.slug}
-                href={{
-                  pathname: `/${props.record.dir}/${props.record.slug}`,
-                }}
-              >
-                <a>
-                  <A>
-                    <Span>{props.record.title}</Span>
-                  </A>
-                </a>
-              </Link>
-            </div>
-          ) : (
-            <h1>{props.record.title}</h1>
-          )}
-        </div>
-        {!props.homePage && !!props.record.image && (
-          <div>
-            <Img alt={props.record.title} src={props.record.image} />
+        {!!isLink ? (
+          <div className="blog_title_cont">
+            <Link
+              key={record.slug}
+              href={{
+                pathname: `/${record.dir}/${record.slug}`,
+              }}
+            >
+              <a>
+                <A>
+                  <Span>{record.title}</Span>
+                </A>
+              </a>
+            </Link>
           </div>
+        ) : (
+          <h1>{record.title}</h1>
         )}
-        <ArticelBody className="blog__body">
-          <ReactMarkdown source={props.record.content} />
-        </ArticelBody>
+        <Main rightAlignment={rightAlignment}>
+          <ArticelBody className="blog__body">
+            <ReactMarkdown source={record.content} />
+          </ArticelBody>
+          {!!record.image && (
+            <ImageCont>
+              <Img alt={record.title} src={record.image} />
+            </ImageCont>
+          )}
+        </Main>
       </article>
       <style jsx>
         {`
@@ -46,6 +58,7 @@ export const Article = props => {
             letter-spacing: 0.05em;
             color: #000000;
             font-weight: bold;
+            margin-bottom: 30px;
           }
           .blog h1 {
             margin-bottom: 0.7rem;
@@ -190,6 +203,11 @@ export const Article = props => {
 let Img = styled.img`
   width: auto;
   height: auto;
+`
+
+let ImageCont = styled.div`
+  min-width: 245px;
+  margin-bottom: 40px;
 `
 
 let A = styled.span`

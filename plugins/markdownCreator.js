@@ -181,10 +181,21 @@ export const CreateCraniosacralArticlePlugin = new MarkdownCreatorPlugin({
       component: 'date',
       description: 'The default will be today',
     },
+    {
+      name: 'frontmatter.order',
+      description: 'choose alignment of your content',
+      label: 'order',
+      component: 'toggle',
+      toggleLabels: {
+        true: 'Top and bottom',
+        false: 'Left and right',
+      },
+    },
   ],
   frontmatter: article => ({
     title: article.title,
     date: article.date || new Date(),
+    order: article.order == true ? false : true,
   }),
   body: () => 'update this article',
 })
