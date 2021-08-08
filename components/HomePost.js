@@ -21,7 +21,10 @@ export const HomePost = ({ article, isLink }) => {
             <Link
               key={article.slug}
               href={{
-                pathname: `/home/${article.slug}`,
+                pathname:
+                  article.linkTo != 'false'
+                    ? article.linkTo
+                    : `/home/${article.slug}`,
               }}
             >
               <a>
@@ -89,7 +92,7 @@ let ImgCont = styled.div`
     margin-bottom: 10px;
     margin-top: 30px;
   }
-  @media (max-width: 768px){
+  @media (max-width: 768px) {
     margin-top: 10px;
   }
 `

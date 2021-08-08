@@ -3,6 +3,7 @@ import Wrapper from '../../components/Wrapper'
 import { HomePost } from '../../components/HomePost'
 import { usePlugin } from 'tinacms'
 import { useMarkdownForm } from 'next-tinacms-markdown'
+import { navigationElements } from '../../config/availableRouts'
 
 export default function HomePostItem(props) {
   const formOptions = {
@@ -23,6 +24,13 @@ export default function HomePostItem(props) {
         name: 'frontmatter.date',
         component: 'date',
         description: 'The articles will be sorted accordint to this date',
+      },
+      {
+        name: 'frontmatter.linkTo',
+        component: 'select',
+        label: 'Link article to page',
+        description: 'select on which page link to',
+        options: navigationElements,
       },
       {
         label: 'Cover Image',
@@ -62,9 +70,9 @@ export default function HomePostItem(props) {
 
   const [record, form] = useMarkdownForm(props.markdownFile, formOptions)
   usePlugin(form)
-  console.log({record})
+  console.log({ record })
   return (
-    <Wrapper data={props.config} title = {record.frontmatter.title}>
+    <Wrapper data={props.config} title={record.frontmatter.title}>
       <HomePost
         article={{
           ...record.frontmatter,

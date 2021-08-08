@@ -19,6 +19,7 @@ RemarkCreatorPlugin in gatsby-tinacms-remark package 09.29.20
 
 */
 
+import { navigationElements } from '../config/availableRouts'
 import toMarkdownString from '../utils/toMarkdownString'
 
 const MISSING_FILENAME_MESSAGE =
@@ -122,6 +123,13 @@ export const CreateHomePostPlugin = new MarkdownCreatorPlugin({
         true: 'Right',
         false: 'Left',
       },
+    },
+    {
+      name: 'frontmatter.linkTo',
+      component: 'select',
+      label: 'Link article to page',
+      description: 'select on which page link to',
+      options: navigationElements,
     },
     {
       name: 'button',
