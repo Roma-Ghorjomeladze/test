@@ -7,7 +7,7 @@ export const Slide = ({ slide }) => {
       <P>Meine Spezialgebiete</P>
       <Images>
         <ImageCont key={1}>
-          <Image src="/static/slide/slide1.png" />
+          <Image alt="Schwangerschaft" src="/static/slide/slide1.png" />
           <Title>
             <Link href="/angebot/craniosacral-therapie/schwangerschaft">
               <a>Schwangerschaft</a>
@@ -15,7 +15,7 @@ export const Slide = ({ slide }) => {
           </Title>
         </ImageCont>
         <ImageCont key={2}>
-          <Image src="/static/slide/slide2.png" />
+          <Image alt="Nach der Geburt" src="/static/slide/slide2.png" />
           <Title>
             <Link href="/angebot/craniosacral-therapie/nach-der-geburt">
               <a>Nach der Geburt</a>
@@ -23,7 +23,7 @@ export const Slide = ({ slide }) => {
           </Title>
         </ImageCont>
         <ImageCont key={3}>
-          <Image src="/static/slide/slide3.png" />
+          <Image alt="Kinder und Familien" src="/static/slide/slide3.png" />
           <Title>
             <Link href="/angebot/craniosacral-therapie/kinder-und-familien">
               <a>Kinder und Familien</a>
