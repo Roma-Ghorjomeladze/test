@@ -38,6 +38,9 @@ let Cont = styled.div`
   left: 50%;
   transform: translateX(-50%);
   transition: 400ms;
+  @media (max-width: 1080px) {
+    padding: 0 10px;
+  }
   @media (max-width: 768px) {
     height: 0;
     display: block;
