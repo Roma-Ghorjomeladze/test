@@ -17,9 +17,7 @@ export const Article = props => {
                 }}
               >
                 <a>
-                  <A>
-                    <Span>{props.record.title}</Span>
-                  </A>
+                  <A>{props.record.title}</A>
                 </a>
               </Link>
             </div>
@@ -207,17 +205,15 @@ let Img = styled.img`
   height: auto;
 `
 
-let A = styled.span`
+let A = styled.h2`
   text-decoration: none;
   text-align: left;
   font-weight: 400;
   cursor: pointer;
-  margin-top: 30px !important;
+  font-size: 27px;
   &:hover {
     color: #00008b;
   }
-`
-const Span = styled.span`
   letter-spacing: 1.5px;
   font-family: 'Roboto' sans-serif;
   @media (max-width: 1080px) {
