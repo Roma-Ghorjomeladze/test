@@ -224,6 +224,15 @@ export const CreateSchwangerschaftArticlePlugin = new MarkdownCreatorPlugin({
       required: true,
     },
     {
+      component: 'list',
+      name: 'frontmatter.list',
+      field: {
+        component: 'textarea',
+      },
+      label: 'List',
+      description: 'add items of your list',
+    },
+    {
       label: 'Date',
       name: 'date',
       component: 'date',
@@ -233,6 +242,7 @@ export const CreateSchwangerschaftArticlePlugin = new MarkdownCreatorPlugin({
   frontmatter: article => ({
     title: article.title,
     date: article.date || new Date(),
+    list: article.list,
   }),
   body: () => 'update this article',
 })
@@ -266,10 +276,20 @@ export const CreateNachDerGeburtArticlePlugin = new MarkdownCreatorPlugin({
       component: 'date',
       description: 'The default will be today',
     },
+    {
+      component: 'list',
+      name: 'frontmatter.list',
+      field: {
+        component: 'textarea',
+      },
+      label: 'List',
+      description: 'add items of your list',
+    },
   ],
   frontmatter: article => ({
     title: article.title,
     date: article.date || new Date(),
+    list: article.list,
   }),
   body: () => 'update this article',
 })
@@ -303,10 +323,20 @@ export const CreateKinderUndFamilienArticlePlugin = new MarkdownCreatorPlugin({
       component: 'date',
       description: 'The default will be today',
     },
+    {
+      component: 'list',
+      name: 'frontmatter.list',
+      field: {
+        component: 'textarea',
+      },
+      label: 'List',
+      description: 'add items of your list',
+    },
   ],
   frontmatter: article => ({
     title: article.title,
     date: article.date || new Date(),
+    list: article.list,
   }),
   body: () => 'update this article',
 })
@@ -377,10 +407,25 @@ export const CreatePrantalTherapyArticlePlugin = new MarkdownCreatorPlugin({
       component: 'date',
       description: 'The default will be today',
     },
+    {
+      component: 'list',
+      name: 'frontmatter.list',
+      field: {
+        component: 'textarea',
+      },
+      label: 'List',
+      description: 'add items of your list',
+    },
+    {
+      label: 'Bottom Text',
+      name: 'frontmatter.bottomText',
+      component: 'textarea',
+    },
   ],
   frontmatter: article => ({
     title: article.title,
     date: article.date || new Date(),
+    list: article.list,
   }),
   body: () => 'update this article',
 })

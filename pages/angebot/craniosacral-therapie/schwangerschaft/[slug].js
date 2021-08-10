@@ -25,13 +25,23 @@ export default function Gutschine(props) {
         label: 'Blog Body',
         component: 'markdown',
       },
+      {
+        component: 'list',
+        name: 'frontmatter.list',
+        field: {
+          component: 'textarea',
+        },
+        label: 'List',
+        description: 'add items of your list',
+      },
     ],
   }
 
   const [record, form] = useMarkdownForm(props.markdownFile, formOptions)
   usePlugin(form)
+  console.log({ record })
   return (
-    <Wrapper data={props.config}  title={record.frontmatter.title}>
+    <Wrapper data={props.config} title={record.frontmatter.title}>
       <ArticleCont>
         <Article
           record={{
@@ -69,4 +79,13 @@ Gutschine.getInitialProps = async function(ctx) {
 const ArticleCont = styled.div`
   margin-top: 100px;
   margin-bottom: 60px;
+`
+const UnOrderedList = styled.ul``
+const LI = styled.li`
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 33px;
+  letter-spacing: 0.02em;
+  color: #000000;
 `

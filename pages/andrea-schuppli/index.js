@@ -4,6 +4,7 @@ import { useJsonForm } from 'next-tinacms-json'
 import ProfileWrapper from '../../components/ProfileWrapper'
 import { Article } from '../../components/Article'
 import styled from 'styled-components'
+import Wrapper from '../../components/Wrapper'
 
 const Andrea = ({ jsonFile, records }) => {
   const formOptions = {
@@ -32,7 +33,19 @@ const Andrea = ({ jsonFile, records }) => {
   const [data, form] = useJsonForm(jsonFile, formOptions)
   usePlugin(form)
   return (
-    <ProfileWrapper data={data} title={jsonFile.data.frontmatter.title}>
+    <Wrapper
+      displayCover={false}
+      data={data}
+      title={jsonFile.data.frontmatter.title}
+    >
+      <Div></Div>
+      <Container>
+        <Image
+          src={jsonFile.data.frontmatter.image}
+          objectPosition="bottom center"
+        />
+        <Page>{jsonFile.data.frontmatter.title}</Page>
+      </Container>
       {records.length &&
         records.map(record => (
           <ArticleCont key={record.slug}>
@@ -47,7 +60,7 @@ const Andrea = ({ jsonFile, records }) => {
             />
           </ArticleCont>
         ))}
-    </ProfileWrapper>
+    </Wrapper>
   )
 }
 
@@ -91,5 +104,42 @@ const ArticleCont = styled.div`
     }
   }
   margin-bottom: 60px;
+`
+const Div = styled.div`
+  height: 200px;
+  @media (max-width: 768px) {
+    height: 0;
+  }
+`
 
+let Container = styled.div`
+  width: 100%;
+  height: 630px;
+  margin: 0 0 50px 0;
+  box-sizing: border-box;
+  position: relative;
+  @media (max-width: 1080px) {
+    height: 400px;
+  }
+`
+let Page = styled.span`
+  position: absolute;
+  left: 110px;
+  bottom: 40px;
+  z-index: 2;
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 30px;
+  max-width: 350px;
+  @media (max-width: 768px) {
+    left: 40px;
+    bottom: 20px;
+    font-size: 23px;
+  }
+`
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `

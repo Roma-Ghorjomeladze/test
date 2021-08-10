@@ -117,9 +117,11 @@ let ChildNavs = styled.span`
 
 let LinkCont = styled.div`
   padding: 10px 0;
+  z-index: 555;
 `
 let SubLinkCont = styled.div`
   padding: 5px 0;
   margin-left: 15px;
   white-space: nowrap;
+  z-index: 555;
 `

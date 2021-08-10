@@ -25,6 +25,20 @@ export default function Gutschine(props) {
         label: 'Blog Body',
         component: 'markdown',
       },
+      {
+        component: 'list',
+        name: 'frontmatter.list',
+        field: {
+          component: 'textarea',
+        },
+        label: 'List',
+        description: 'add items of your list',
+      },
+      {
+        label: 'Bottom Text',
+        name: 'frontmatter.bottomText',
+        component: 'textarea',
+      },
     ],
   }
 
@@ -38,6 +52,8 @@ export default function Gutschine(props) {
             slug: '',
             title: record.frontmatter.title,
             content: record.markdownBody,
+            list: record.frontmatter.list,
+            bottomText: record.frontmatter.bottomText,
           }}
         />
       </ArticleCont>

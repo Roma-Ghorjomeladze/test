@@ -49,7 +49,7 @@ let Page = styled.span`
   position: absolute;
   left: 110px;
   bottom: 40px;
-  z-index: 2;
+  z-index: 0;
   color: #fff;
   font-size: 30px;
   line-height: 30px;

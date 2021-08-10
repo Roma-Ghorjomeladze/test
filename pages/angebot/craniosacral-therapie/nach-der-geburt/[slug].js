@@ -25,19 +25,29 @@ export default function Gutschine(props) {
         label: 'Blog Body',
         component: 'markdown',
       },
+      {
+        component: 'list',
+        name: 'frontmatter.list',
+        field: {
+          component: 'textarea',
+        },
+        label: 'List',
+        description: 'add items of your list',
+      },
     ],
   }
 
   const [record, form] = useMarkdownForm(props.markdownFile, formOptions)
   usePlugin(form)
   return (
-    <Wrapper data={props.config}  title={record.frontmatter.title}>
+    <Wrapper data={props.config} title={record.frontmatter.title}>
       <ArticleCont>
         <Article
           record={{
             slug: '',
             title: record.frontmatter.title,
             content: record.markdownBody,
+            list: record.frontmatter.list,
           }}
         />
       </ArticleCont>

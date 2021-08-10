@@ -43,6 +43,7 @@ const NachDerGeburt = ({ jsonFile, records }) => {
                 slug: record.slug,
                 content: record.document.content,
                 title: record.document.data.title,
+                list: record.document.data.list,
                 dir: 'angebot/craniosacral-therapie/nach-der-geburt',
               }}
             />

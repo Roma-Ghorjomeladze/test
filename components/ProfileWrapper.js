@@ -1,13 +1,13 @@
-import ProfileHeader from './ProfileHeader'
 import Footer from './Footer'
 import styled from 'styled-components'
 import Meta from './Meta'
+import Header from './Header'
 
 export default function ProfileWrapper(props) {
   return (
     <Container>
       <Meta siteTitle={props.data?.frontmatter.title} siteDescription="" />
-      <ProfileHeader data={props.data} />
+      <Header data={props.data} />
       <Main>{props.children}</Main>
       <Footer />
     </Container>

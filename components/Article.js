@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import Layout from './Layout'
 
 export const Article = props => {
+  console.log({ props })
   return (
     <Layout siteTitle={props.record.title}>
       <article className="blog">
@@ -35,6 +36,14 @@ export const Article = props => {
         <ArticelBody className="blog__body">
           <ReactMarkdown source={props.record.content} />
         </ArticelBody>
+        {props.record.list && props.record.list.length > 0 && (
+          <UnOrderedList>
+            {props.record.list.map((el, idx) => (
+              <LI key={idx}>{el}</LI>
+            ))}
+          </UnOrderedList>
+        )}
+        {!!props.record.bottomText && <P>{props.record.bottomText}</P>}
       </article>
       <style jsx>
         {`
@@ -186,7 +195,14 @@ export const Article = props => {
     </Layout>
   )
 }
-
+const P = styled.p`
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 33px;
+  letter-spacing: 0.02em;
+  color: #3a4b6d;
+`
 let Img = styled.img`
   width: auto;
   height: auto;
@@ -230,4 +246,13 @@ const ArticelBody = styled.div`
       font-size: 14px;
     }
   }
+`
+const UnOrderedList = styled.ul``
+const LI = styled.li`
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 33px;
+  letter-spacing: 0.02em;
+  color: #3a4b6d;
 `
