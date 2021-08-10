@@ -11,6 +11,9 @@ list:
   - • Unerklärliche Traurigkeit
   - • Sehnsucht nach etwas Unbekanntem
   - • Todessehnsucht
+bottomText: |-
+  Weitere Informationen und Termine auf Anfrage.
+  Flyer Geburtsprozess-Seminar section download
 ---
 Bei dieser Art der Arbeit ist die Gruppe zentral. Hier bilden die Workshopteilnehmer ein grösseres Feld, das symbolisch den schützenden und liebevollen Raum (Gebärmutter/Familiensystem), in das jedes Kind geboren werden möchte.
 
