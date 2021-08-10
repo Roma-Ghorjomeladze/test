@@ -70,7 +70,6 @@ export default function HomePostItem(props) {
 
   const [record, form] = useMarkdownForm(props.markdownFile, formOptions)
   usePlugin(form)
-  console.log({ record })
   return (
     <Wrapper data={props.config} title={record.frontmatter.title}>
       <HomePost

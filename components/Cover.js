@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Image from 'next/image'
 
 export const Cover = ({ src, title }) => {
   return (
@@ -25,10 +26,10 @@ let Div = styled.div`
   }
 `
 
-let Image = styled.img`
-  width: 100%;
-  height: 100%;
-`
+// let Image = styled.img`
+//   height: 100%;
+//   width: 100%;
+// `
 
 let Container = styled.div`
   width: 100%;

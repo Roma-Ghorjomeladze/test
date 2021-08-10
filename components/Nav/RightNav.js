@@ -58,9 +58,10 @@ const InnerCont = styled.div`
   }
 `
 const LogoCont = styled.div`
-  margin: 0 35px 30px 35px;
-  width: 91px;
+  margin: 0 35px 0 35px;
   transition: 400ms;
+  display: flex;
+  align-items: flex-end;
   @media (max-width: 1080px) {
     margin: 0 20px 30px 20px;
   }
@@ -71,7 +72,9 @@ const LogoCont = styled.div`
 `
 
 const Img = styled.img`
-  width: 100%;
+  width: 91px;
+  height: 91px;
+  object-fit: contain;
 `
 
 const RightNav = ({ open }) => {
@@ -82,7 +85,7 @@ const RightNav = ({ open }) => {
       }
       if (window.scrollY > 190) {
         document.getElementById('header_logo').style.width = '60px'
-        document.getElementById('header_logo').style.marginBottom = '11px'
+        document.getElementById('header_logo').style.marginBottom = '0'
       } else {
         document.getElementById('header_logo').style.width = '91px'
         document.getElementById('header_logo').style.marginBottom = '30px'
@@ -103,8 +106,13 @@ const RightNav = ({ open }) => {
           nav={navigation.organisationals}
         />
       </InnerCont>
-      <LogoCont id="header_logo">
-        <Img className="" src={'/static/logos/logo.png'} alt="Logo" />
+      <LogoCont>
+        <Img
+          id="header_logo"
+          className=""
+          src={'/static/logos/logo.png'}
+          alt="Logo"
+        />
       </LogoCont>
       <InnerCont className="innerCont">
         <DropDown key={navigation.andrea.index} nav={navigation.andrea} />

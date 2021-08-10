@@ -6,7 +6,7 @@ export const HomePost = ({ article, isLink }) => {
   return (
     <Container>
       {article.order == true && (
-        <ImgCont>
+        <ImgCont alignRight={article.order != true}>
           <Image alt={article.title} src={article.image} />
         </ImgCont>
       )}
@@ -35,7 +35,7 @@ export const HomePost = ({ article, isLink }) => {
         )}
       </ArticleCont>
       {article.order != true && (
-        <ImgCont>
+        <ImgCont alignRight={article.order != true}>
           <Image
             alt={article.title}
             objectFit="contain"
@@ -80,7 +80,9 @@ let Container = styled.div`
 
 let ImgCont = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: ${({ alignRight }) =>
+    alignRight ? 'flex-end' : 'flex-start'};
+  max-width: 600px;
   margin: 0;
   padding: 0;
   max-height: 396px;
@@ -99,6 +101,7 @@ let ImgCont = styled.div`
 
 let ArticleCont = styled.div`
   flex: 1;
+  max-width: 550px;
   padding: 20px 20px 20px 0;
   @media (max-width: 1080px) {
     order: 2;

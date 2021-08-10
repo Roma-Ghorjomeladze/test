@@ -4,7 +4,6 @@ import ReactMarkdown from 'react-markdown'
 import Layout from './Layout'
 
 export const Article = props => {
-  console.log({ props })
   return (
     <Layout siteTitle={props.record.title}>
       <article className="blog">
