@@ -4,6 +4,20 @@ date: '2021-07-02T00:00:00Z'
 bottomText: |
   Weitere Informationen und Termine auf Anfrage.
   Flyer Geburtsprozess-Seminar section download
+list:
+  - • Ängste aller Art
+  - |+
+    • Innere Unruhe
+
+  - • Sich wiederholende Lebensmuster
+  - • Bindungs- und Beziehungsprobleme
+  - • Angst alleine zu sein oder verlassen zu werden
+  - |+
+    • Spannung, Stress und Übersensibilität
+
+  - • Unerklärliche Traurigkeit
+  - • Sehnsucht nach etwas Unbekanntem
+  - • Todessehnsucht
 ---
 Bei dieser Art der Arbeit ist die Gruppe zentral. Hier bilden die Workshopteilnehmer ein grösseres Feld, das symbolisch den schützenden und liebevollen Raum (Gebärmutter/Familiensystem), in das jedes Kind geboren werden möchte.
 
@@ -12,21 +26,3 @@ Wir achten auf unsere Empfindungen und Gefühle und geben dem Körper Zeit und R
 Das Vorgehen gestaltet sich aus einer aktuellen Fragestellung. Es führt uns die Körpersprache und Zellerinnerung zu unseren grundlegenden Prägungen.
 
 Bei folgenden Symptomen kann die Arbeit an frühen Prägungen helfen:
-
-• Ängste aller Art
-
-• Innere Unruhe
-
-• Sich wiederholende Lebensmuster
-
-• Bindungs- und Beziehungsprobleme
-
-• Angst alleine zu sein oder verlassen zu werden
-
-• Spannung, Stress und Übersensibilität
-
-• Unerklärliche Traurigkeit
-
-• Sehnsucht nach etwas Unbekanntem
-
-• Todessehnsucht
