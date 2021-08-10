@@ -1,19 +1,12 @@
 ---
 title: Geburtsworkshop
 date: '2021-07-02T00:00:00Z'
-bottomText: >-
-  Weitere Informationen und Termine auf Anfrage. Flyer Geburtsprozess-Seminar
-  section download
 list:
   - • Ängste aller Art
   - • Innere Unruhe
-  - |+
-    • Sich wiederholende Lebensmuster
-
+  - • Sich wiederholende Lebensmuster
   - • Bindungs- und Beziehungsprobleme
-  - |+
-    • Angst alleine zu sein oder verlassen zu werden
-
+  - • Angst alleine zu sein oder verlassen zu werden
   - '• Spannung, Stress und Übersensibilität'
   - • Unerklärliche Traurigkeit
   - • Sehnsucht nach etwas Unbekanntem
