@@ -3,7 +3,7 @@ title: Craniosacral - Therapie
 date: '2021-07-05T00:00:00Z'
 image: /static/elinCranio.png
 order: true
-button: true
+button: false
 linkTo: /angebot/craniosacral-therapie
 ---
 
