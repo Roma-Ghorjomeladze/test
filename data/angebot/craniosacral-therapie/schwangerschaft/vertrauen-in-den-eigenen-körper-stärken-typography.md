@@ -1,6 +1,6 @@
 ---
-title: Vertrauen in den eigenen Körper stärken Typography
-date: 2021-06-25T14:32:22.819Z
+title: Vertrauen in den eigenen Körper stärken
+date: '2021-06-25T14:32:22.819Z'
 ---
 Die Begleitung während der Schwangerschaft hilft die grossen körperlichen und emotionalen Veränderungen in dieser Zeit optimal zu integrieren. Der Organismus hat die Möglichkeit zu entspannen und sich auf tiefer Ebene auszugleichen und auf die bevorstehende Geburt vorzubereiten. Das Vertrauen in den eigenen Körper ist in diesen  Monaten sehr wichtig. 
 
