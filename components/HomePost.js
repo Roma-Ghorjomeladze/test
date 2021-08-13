@@ -16,6 +16,7 @@ export const HomePost = ({ article, isLink }) => {
           isLink={!!isLink}
           homePage={true}
           record={{ ...article, dir: 'home' }}
+          isClickable={true}
         />
         {article.button && isLink && (
           <ClickCont>

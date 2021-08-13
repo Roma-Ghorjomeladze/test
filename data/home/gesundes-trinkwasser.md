@@ -1,7 +1,7 @@
 ---
 title: Gesundes Trinkwasser
 date: '2021-06-10T22:10:28.632Z'
-image: /static/trinkwasser.png
+image: /static/Gesundes-Trinkwasser-Teaser.png
 order: false
 button: true
 linkTo: /sonstiges/wasserfilter

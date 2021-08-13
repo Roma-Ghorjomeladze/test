@@ -16,15 +16,19 @@ export default function Footer() {
             return (
               <NavItem key={nav.index}>
                 <NavHeaderCont>
-                  <Link
-                    href={{
-                      pathname: nav.default.isNotLink ? '/' : nav.default.href,
-                    }}
-                  >
-                    <a>
-                      <NavHeader>{nav.default.label}</NavHeader>
-                    </a>
-                  </Link>
+                  {nav.default.isNotLink ? (
+                    <NavHeader>{nav.default.label}</NavHeader>
+                  ) : (
+                    <Link
+                      href={{
+                        pathname: nav.default.href,
+                      }}
+                    >
+                      <a>
+                        <NavHeader>{nav.default.label}</NavHeader>
+                      </a>
+                    </Link>
+                  )}
                 </NavHeaderCont>
                 <NavBody>
                   {nav.options.map(subNav => {
@@ -147,7 +151,7 @@ let CopyRight = styled.p`
   margin-left: 30px;
   margin-top: 20px;
   color: #fff;
-  font-family: 'Sana';
+  font-family: 'Quicksand';
   @media (max-width: 1080px) {
     margin-left: 0;
   }

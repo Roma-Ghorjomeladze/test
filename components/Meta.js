@@ -34,11 +34,7 @@ export default function Meta(props) {
             color: inherit;
             transition: opacity 0.2s ease;
           }
-          a:hover {
-            transition: opacity 0.2s ease;
-            opacity: 0.5;
-            text-decoration-color: inherit;
-          }
+
           ul {
             list-style: none;
             padding-bottom: 0;
@@ -63,6 +59,7 @@ export default function Meta(props) {
           p {
             margin-bottom: 1.45rem;
             color: #3a4b6d;
+            font-weight: 300;
           }
           img {
             max-width: 100%;

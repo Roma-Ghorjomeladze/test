@@ -1,7 +1,7 @@
 ---
 title: Pränatal - und Geburtsarbeit
 date: '2021-07-04T00:00:00Z'
-image: /static/baby pränatal.png
+image: /static/Praenatal-und-Geburtsarbeit-Teaser.png
 order: false
 button: true
 linkTo: /angebot/praental-therapie

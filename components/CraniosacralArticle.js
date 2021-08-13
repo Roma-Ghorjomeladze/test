@@ -35,7 +35,9 @@ export const CraniosacralArticle = ({ record, isLink }) => {
             </Link>
           </div>
         ) : (
-          <h1>{record.title}</h1>
+          <TitleCont>
+            <Span>{record.title}</Span>
+          </TitleCont>
         )}
         <Main rightAlignment={rightAlignment}>
           <ArticelBody className="blog__body">
@@ -200,6 +202,10 @@ export const CraniosacralArticle = ({ record, isLink }) => {
   )
 }
 
+let TitleCont = styled.div`
+  margin-bottom: 30px;
+`
+
 let Img = styled.img`
   width: auto;
   height: auto;
@@ -216,14 +222,12 @@ let A = styled.span`
   font-weight: 400;
   cursor: pointer;
   margin-top: 30px !important;
-  &:hover {
-    color: #00008b;
-  }
 `
 const Span = styled.span`
   letter-spacing: 1.5px;
-  font-family: 'SanaRegular';
+  font-family: 'Sana';
   color: #3a4b6d;
+  font-size: 27px;
   @media (max-width: 1080px) {
     font-size: 20px;
     letter-spacing: 0.8px;

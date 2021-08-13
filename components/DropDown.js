@@ -10,20 +10,20 @@ export const DropDown = ({ nav }) => {
   return (
     <DropDownContainer onMouseLeave={hide} onMouseOver={show}>
       <DropDownHeader>
-        <Link
-          href={{
-            pathname: nav.default.isNotLink ? '' : nav.default.href,
-            path: nav.default.isNotLink ? '' : nav.default.href,
-          }}
-        >
-          {nav.default.isNotLink ? (
-            <A>{nav.default.label}</A>
-          ) : (
+        {nav.default.isNotLink ? (
+          <A>{nav.default.label}</A>
+        ) : (
+          <Link
+            href={{
+              pathname: nav.default.isNotLink ? '' : nav.default.href,
+              path: nav.default.isNotLink ? '' : nav.default.href,
+            }}
+          >
             <a>
               <A>{nav.default.label}</A>
             </a>
-          )}
-        </Link>
+          </Link>
+        )}
       </DropDownHeader>
       {isOpen && nav.options.length > 0 && (
         <DropDownListContainer>
@@ -100,7 +100,6 @@ let A = styled.span`
   align-items: center;
   text-align: center;
   letter-spacing: 0.05em;
-  text-transform: capitalize;
   cursor: pointer;
   color: #3a4b6d;
 `

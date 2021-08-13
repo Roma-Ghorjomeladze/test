@@ -21,6 +21,15 @@ export default function Gutschine(props) {
         description: 'The articles will be sorted accordint to this date',
       },
       {
+        component: 'list',
+        name: 'frontmatter.list',
+        field: {
+          component: 'textarea',
+        },
+        label: 'List',
+        description: 'add items of your list',
+      },
+      {
         name: 'markdownBody',
         label: 'Blog Body',
         component: 'markdown',
@@ -38,6 +47,7 @@ export default function Gutschine(props) {
             slug: '',
             title: record.frontmatter.title,
             content: record.markdownBody,
+            list: record.frontmatter.list,
           }}
         />
       </ArticleCont>

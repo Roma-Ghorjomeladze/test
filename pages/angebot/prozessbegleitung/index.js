@@ -80,7 +80,9 @@ Prozessbegleitung.getInitialProps = async function() {
       fileRelativePath: `data/angebot/prozessbegleitung/config.json`,
       data: content.default,
     },
-    records: records.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
+    records: records.sort((p1, p2) =>
+      p1.document.data.date > p2.document.data.date ? -1 : 1
+    ),
   }
 }
 

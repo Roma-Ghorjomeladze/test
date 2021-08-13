@@ -6,12 +6,11 @@ import { useCMS } from 'tinacms'
 
 export const Article = props => {
   let cms = useCMS()
-  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
   return (
     <Layout siteTitle={props.record.title}>
       <article className="blog">
         <div className="blog__info">
-          {!!props.isLink ? (
+          {cms.enabled ? (
             <div className="blog_title_cont">
               <Link
                 key={props.record.slug}
@@ -27,7 +26,9 @@ export const Article = props => {
               </Link>
             </div>
           ) : (
-            <A>{props.record.title}</A>
+            <A isClickable={props.isClickable && props.isLink}>
+              {props.record.title}
+            </A>
           )}
         </div>
         {!props.homePage && !!props.record.image && (
@@ -224,14 +225,14 @@ let Img = styled.img`
 
 let A = styled.h2`
   text-decoration: none;
-  font-family: 'SanaRegular';
+  font-family: 'Sana';
   color: #3a4b6d;
   text-align: left;
   font-weight: 400;
   cursor: pointer;
   font-size: 27px;
   &:hover {
-    color: #00008b;
+    color: ${({ isClickable }) => (isClickable ? '#00008b' : '#3a4b6d')};
   }
   letter-spacing: 1.5px;
   @media (max-width: 1080px) {

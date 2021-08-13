@@ -13,7 +13,9 @@ export const Cover = ({ src, title }) => {
           objectPosition="bottom center"
           alt={title}
         />
-        <Page>{title}</Page>
+        <TitleCont>
+          <Page>{title}</Page>
+        </TitleCont>
       </Container>
     </>
   )
@@ -23,6 +25,18 @@ let Div = styled.div`
   height: 166px;
   @media (max-width: 768px) {
     height: 0;
+  }
+`
+
+let TitleCont = styled.div`
+  width: 1440px;
+  background-color: green;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  left: 100px;
+  @media (max-width: 1080px) {
+    left: 0;
   }
 `
 
@@ -51,8 +65,7 @@ let Page = styled.span`
   text-shadow: 0px 2px 16px #000000;
   position: absolute;
   font-family: 'SanaRegular';
-  left: 110px;
-  bottom: 40px;
+  bottom: -170px;
   z-index: 0;
   font-size: 30px;
   line-height: 30px;
@@ -61,12 +74,13 @@ let Page = styled.span`
   @media (max-width: 1080px) {
     font-size: 22px;
     line-height: 22px;
-    left: 80px;
-    bottom: 30px;
+    bottom: unset;
+    margin-top: 100px;
+    margin-left: 15px;
+    margin-top: 100px;
   }
   @media (max-width: 768px) {
     min-height: 17px;
-    left: 50px;
-    bottom: 20px;
+    margin-top: 70px;
   }
 `

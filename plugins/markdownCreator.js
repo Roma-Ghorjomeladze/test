@@ -508,6 +508,15 @@ export const CreatesyStemischeArbeitArticlePlugin = new MarkdownCreatorPlugin({
       description: 'The default will be today',
     },
     {
+      component: 'list',
+      name: 'frontmatter.list',
+      field: {
+        component: 'textarea',
+      },
+      label: 'List',
+      description: 'add items of your list',
+    },
+    {
       name: 'button',
       description: 'Choose show the button or not',
       label: 'Show button',
@@ -522,6 +531,7 @@ export const CreatesyStemischeArbeitArticlePlugin = new MarkdownCreatorPlugin({
     title: article.title,
     date: article.date || new Date(),
     button: article.button == true ? true : false,
+    list: article.list,
   }),
   body: () => 'update this article',
 })

@@ -35,7 +35,7 @@ let Page = styled.span`
   position: absolute;
   left: 110px;
   bottom: 40px;
-  z-index: 2;
+  z-index: 1;
   color: #fff;
   font-weight: bold;
   font-size: 30px;

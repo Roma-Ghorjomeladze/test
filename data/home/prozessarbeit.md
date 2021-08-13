@@ -1,7 +1,7 @@
 ---
 title: Prozessarbeit
 date: '2021-07-03T00:00:00Z'
-image: /static/manuela prozess.png
+image: /static/Prozessarbeit-Teaser.png
 order: true
 button: true
 linkTo: /angebot/prozessbegleitung

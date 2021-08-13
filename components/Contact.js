@@ -57,7 +57,4 @@ let Address = styled.p`
 let A = styled.a`
   text-decoration: none;
   cursor: pointer;
-  &:hover {
-    color: #00008b;
-  }
 `
