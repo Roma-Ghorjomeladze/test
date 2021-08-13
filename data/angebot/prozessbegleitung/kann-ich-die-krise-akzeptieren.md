@@ -1,6 +1,6 @@
 ---
 title: Kann ich die Krise akzeptieren?
-date: '2021-05-05T00:00:00Z'
+date: '2021-06-16T00:00:00Z'
 button: false
 ---
 Oder verdränge ich sie und bekämpfe nur die Symptome? Längerfristig belastet dies die psychische und physische Gesundheit. Es gibt kein Rezept und keine Anleitung für das Bewältigen von Krisensituationen. Die grosse Kunst des Annehmens, ist vielleicht die grösste Lebensaufgabe überhaupt, der wir uns immer wieder stellen müssen. 
