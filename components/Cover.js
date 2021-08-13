@@ -33,7 +33,6 @@ let Div = styled.div`
 
 let Container = styled.div`
   width: 100%;
-  max-width: 1440px;
   height: 200px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -47,14 +46,18 @@ let Container = styled.div`
 `
 
 let Page = styled.span`
+  letter-spacing: 0.05em;
+  color: #fff5f5;
+  text-shadow: 0px 2px 16px #000000;
   position: absolute;
+  font-family: 'SanaRegular';
   left: 110px;
   bottom: 40px;
   z-index: 0;
-  color: #fff;
   font-size: 30px;
   line-height: 30px;
   max-width: 422px;
+  text-shadow: 0px 2px 16px #000000;
   @media (max-width: 1080px) {
     font-size: 22px;
     line-height: 22px;

@@ -75,6 +75,7 @@ const Img = styled.img`
   width: 91px;
   height: 91px;
   object-fit: contain;
+  margin-bottom: 30px;
 `
 
 const RightNav = ({ open }) => {

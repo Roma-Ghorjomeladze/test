@@ -20,21 +20,29 @@ export default function Header(props) {
   }, [])
   return (
     <Cont id="header_container">
-      <Toggle />
+      <InnerCont>
+        <Toggle />
+      </InnerCont>
     </Cont>
   )
 }
+
+let InnerCont = styled.div`
+  max-width: 1440px;
+  margin: 0 auto;
+  flex: 1;
+`
 
 let Cont = styled.div`
   height: 166px;
   width: 100%;
   padding: 0 100px;
   z-index: 2;
-  max-width: 1440px;
   background-color: #fff5f5;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   position: fixed;
+  box-shadow: rgb(99 55 64 / 34%) 0px 1px 8px;
   left: 50%;
   transform: translateX(-50%);
   transition: 400ms;

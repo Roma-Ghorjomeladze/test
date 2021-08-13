@@ -2,8 +2,11 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import Layout from './Layout'
+import { useCMS } from 'tinacms'
 
 export const Article = props => {
+  let cms = useCMS()
+
   return (
     <Layout siteTitle={props.record.title}>
       <article className="blog">
@@ -13,7 +16,9 @@ export const Article = props => {
               <Link
                 key={props.record.slug}
                 href={{
-                  pathname: `/${props.record.dir}/${props.record.slug}`,
+                  pathname: cms.enabled
+                    ? `/${props.record.dir}/${props.record.slug}`
+                    : props.record.linkTo,
                 }}
               >
                 <a>
@@ -207,6 +212,8 @@ let Img = styled.img`
 
 let A = styled.h2`
   text-decoration: none;
+  font-family: 'SanaRegular';
+  color: #3a4b6d;
   text-align: left;
   font-weight: 400;
   cursor: pointer;
@@ -215,7 +222,6 @@ let A = styled.h2`
     color: #00008b;
   }
   letter-spacing: 1.5px;
-  font-family: 'Roboto' sans-serif;
   @media (max-width: 1080px) {
     font-size: 20px;
     letter-spacing: 0.8px;

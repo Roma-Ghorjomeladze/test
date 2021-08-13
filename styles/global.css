@@ -4,3 +4,31 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+
+@font-face {
+  font-family: 'SanaBold';
+  src: url('/public/fonts/Sana-Bold.otf');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Sana';
+  src: url('/public/fonts/Sana-Thin.ttf');
+  font-style: normal;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'SanaMedium';
+  src: url('/public/fonts/Sana-Medium.ttf');
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/public/fonts/Mulish-Medium.ttf');
+  font-style: normal;
+  font-weight: 300;
+}

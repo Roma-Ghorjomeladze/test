@@ -9,67 +9,73 @@ export default function Footer() {
   let date = new Date()
 
   return (
-    <Footer_>
-      <Cont>
-        {Object.values(navigation).map(nav => {
-          return (
-            <NavItem key={nav.index}>
-              <NavHeaderCont>
-                <Link
-                  href={{
-                    pathname: nav.default.isNotLink ? '/' : nav.default.href,
-                  }}
-                >
-                  <a>
-                    <NavHeader>{nav.default.label}</NavHeader>
-                  </a>
-                </Link>
-              </NavHeaderCont>
-              <NavBody>
-                {nav.options.map(subNav => {
-                  return (
-                    <div key={subNav.label}>
-                      <SubNavContainer>
-                        <Link
-                          href={{
-                            pathname: subNav.isNotLink ? '/' : subNav.href,
-                          }}
-                        >
-                          <a>
-                            <A>{subNav.label}</A>
-                          </a>
-                        </Link>
-                      </SubNavContainer>
-                      {subNav.options &&
-                        subNav.options.map(sn => {
-                          return (
-                            <SubNavContainer key={sn.label}>
-                              <Link
-                                href={{
-                                  pathname: sn.isNotLink ? '/' : sn.href,
-                                }}
-                              >
-                                <a>
-                                  <A>- {sn.label}</A>
-                                </a>
-                              </Link>
-                            </SubNavContainer>
-                          )
-                        })}
-                    </div>
-                  )
-                })}
-              </NavBody>
-            </NavItem>
-          )
-        })}
-        <Img className="logo" src={'/static/logos/logo.png'} alt="Logo" />
-      </Cont>
-      <CopyRight>{`Copyright © ${date.getFullYear()} Entdeckungsraum`}</CopyRight>
-      <EditLink cms={cms} />
-    </Footer_>
+    <FooterWrapper>
+      <Footer_>
+        <Cont>
+          {Object.values(navigation).map(nav => {
+            return (
+              <NavItem key={nav.index}>
+                <NavHeaderCont>
+                  <Link
+                    href={{
+                      pathname: nav.default.isNotLink ? '/' : nav.default.href,
+                    }}
+                  >
+                    <a>
+                      <NavHeader>{nav.default.label}</NavHeader>
+                    </a>
+                  </Link>
+                </NavHeaderCont>
+                <NavBody>
+                  {nav.options.map(subNav => {
+                    return (
+                      <div key={subNav.label}>
+                        <SubNavContainer>
+                          <Link
+                            href={{
+                              pathname: subNav.isNotLink ? '/' : subNav.href,
+                            }}
+                          >
+                            <a>
+                              <A>{subNav.label}</A>
+                            </a>
+                          </Link>
+                        </SubNavContainer>
+                        {subNav.options &&
+                          subNav.options.map(sn => {
+                            return (
+                              <SubNavContainer key={sn.label}>
+                                <Link
+                                  href={{
+                                    pathname: sn.isNotLink ? '/' : sn.href,
+                                  }}
+                                >
+                                  <a>
+                                    <A>- {sn.label}</A>
+                                  </a>
+                                </Link>
+                              </SubNavContainer>
+                            )
+                          })}
+                      </div>
+                    )
+                  })}
+                </NavBody>
+              </NavItem>
+            )
+          })}
+          <Img className="logo" src={'/static/logos/logo.png'} alt="Logo" />
+        </Cont>
+        <CopyRight>{`Copyright © ${date.getFullYear()} Entdeckungsraum`}</CopyRight>
+        <EditLink cms={cms} />
+      </Footer_>
+    </FooterWrapper>
   )
 }
+const FooterWrapper = styled.div`
+  width: 100%;
+  background-color: #8a3848;
+`
 const Cont = styled.div`
   display: flex;
   width: 100%;

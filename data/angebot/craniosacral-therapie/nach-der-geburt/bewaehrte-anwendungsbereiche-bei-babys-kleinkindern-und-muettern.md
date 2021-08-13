@@ -2,10 +2,10 @@
 title: 'Bewährte Anwendungsbereiche bei Babys, Kleinkindern und Müttern'
 date: '2021-07-07T13:26:55.605Z'
 list:
-  - '-  nach Komplikationen während Schwangerschaft und Geburt'
   - '-  Geburten mit PDA, Wehenmittel, Kaiserschnitt, Glocke, Zange'
-  - '-  Stillprobleme'
+  - '-  Still probleme'
   - '-  Bauchkrämpfen, Aufstossen'
+  - '-  nach Komplikationen während Schwangerschaft und Geburt'
   - '-  Schädelasymmetrien, Schiefhals'
   - |+
     -  Spannungen in den Organen, in den Knochennähten oder in der Dura

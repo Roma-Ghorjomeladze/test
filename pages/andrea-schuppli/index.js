@@ -106,7 +106,7 @@ const ArticleCont = styled.div`
   margin-bottom: 60px;
 `
 const Div = styled.div`
-  height: 200px;
+  height: 166px;
   @media (max-width: 768px) {
     height: 0;
   }
@@ -123,12 +123,14 @@ let Container = styled.div`
   }
 `
 let Page = styled.span`
+  letter-spacing: 0.05em;
+  color: #fff5f5;
+  text-shadow: 0px 2px 16px #000000;
+  font-family: 'Sana';
   position: absolute;
   left: 110px;
   bottom: 40px;
   z-index: 2;
-  color: #fff;
-  font-weight: bold;
   font-size: 30px;
   line-height: 30px;
   max-width: 350px;

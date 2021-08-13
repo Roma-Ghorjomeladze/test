@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Article } from './Article'
 import Link from 'next/link'
+
 // import Image from 'next/image'
 export const HomePost = ({ article, isLink }) => {
   return (

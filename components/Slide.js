@@ -10,7 +10,7 @@ export const Slide = ({ slide }) => {
           <Image alt="Schwangerschaft" src="/static/slide/slide1.png" />
           <Title>
             <Link href="/angebot/craniosacral-therapie/schwangerschaft">
-              <a>Schwangerschaft</a>
+              <A>Schwangerschaft</A>
             </Link>
           </Title>
         </ImageCont>
@@ -18,7 +18,7 @@ export const Slide = ({ slide }) => {
           <Image alt="Nach der Geburt" src="/static/slide/slide2.png" />
           <Title>
             <Link href="/angebot/craniosacral-therapie/nach-der-geburt">
-              <a>Nach der Geburt</a>
+              <A>Nach der Geburt</A>
             </Link>
           </Title>
         </ImageCont>
@@ -26,7 +26,7 @@ export const Slide = ({ slide }) => {
           <Image alt="Kinder und Familien" src="/static/slide/slide3.png" />
           <Title>
             <Link href="/angebot/craniosacral-therapie/kinder-und-familien">
-              <a>Kinder und Familien</a>
+              <A>Kinder und Familien</A>
             </Link>
           </Title>
         </ImageCont>
@@ -34,6 +34,10 @@ export const Slide = ({ slide }) => {
     </Container>
   )
 }
+const A = styled.a`
+  font-family: 'Mulish';
+  letter-spacing: 0.05em;
+`
 
 const Container = styled.div`
   margin-bottom: 100px;
@@ -62,8 +66,9 @@ const Title = styled.span`
   position: absolute;
   cursor: pointer;
   transform: translateX(-50%);
+  font-family: 'Mulish';
   left: 50%;
-  top: 50%;
+  top: 42%;
   font-size: 27px;
   text-align: center;
   color: #ffffff;
@@ -88,10 +93,11 @@ const Images = styled.div`
   }
 `
 const P = styled.p`
+  color: #3a4b6d;
+  font-family: 'SanaRegular';
   font-size: 27px;
   line-height: 27px;
   letter-spacing: 0.05em;
-  color: #000000;
   margin-bottom: 45px;
   @media (max-width: 1080px) {
     font-size: 20px;

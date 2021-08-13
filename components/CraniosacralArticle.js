@@ -222,7 +222,8 @@ let A = styled.span`
 `
 const Span = styled.span`
   letter-spacing: 1.5px;
-  font-family: 'Roboto' sans-serif;
+  font-family: 'SanaRegular';
+  color: #3a4b6d;
   @media (max-width: 1080px) {
     font-size: 20px;
     letter-spacing: 0.8px;
