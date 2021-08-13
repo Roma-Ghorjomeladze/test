@@ -40,7 +40,7 @@ class MyApp extends App {
       baseBranch: process.env.BASE_BRANCH,
       authScope: 'repo',
     })
-    const git = new GitClient('http://localhost:3000/___tina')
+    const git = new GitClient(`/___tina`)
     this.cms = new TinaCMS({
       enabled: !!props.pageProps.preview,
       sidebar: { position: 'overlay' },
