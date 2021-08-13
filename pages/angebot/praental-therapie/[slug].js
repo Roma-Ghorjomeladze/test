@@ -25,6 +25,20 @@ export default function Gutschine(props) {
         label: 'Blog Body',
         component: 'markdown',
       },
+      {
+        component: 'list',
+        name: 'frontmatter.list',
+        field: {
+          component: 'textarea',
+        },
+        label: 'List',
+        description: 'add items of your list',
+      },
+      {
+        label: 'Bottom Text',
+        name: 'frontmatter.bottomText',
+        component: 'textarea',
+      },
     ],
   }
 
@@ -38,6 +52,8 @@ export default function Gutschine(props) {
             slug: '',
             title: record.frontmatter.title,
             content: record.markdownBody,
+            list: record.frontmatter.list,
+            bottomText: record.frontmatter.bottomText,
           }}
         />
       </ArticleCont>
@@ -47,13 +63,17 @@ export default function Gutschine(props) {
 
 Gutschine.getInitialProps = async function(ctx) {
   const { slug } = ctx.query
-  const content = await import(`../../../data/wissenswertes/kunst/${slug}.md`)
-  const config = await import(`../../../data/wissenswertes/kunst/config.json`)
+  const content = await import(
+    `../../../data/angebot/praental-therapie/${slug}.md`
+  )
+  const config = await import(
+    `../../../data/angebot/praental-therapie/config.json`
+  )
   const data = matter(content.default)
 
   return {
     markdownFile: {
-      fileRelativePath: `data/wissenswertes/kunst/${slug}.md`,
+      fileRelativePath: `data/angebot/praental-therapie/${slug}.md`,
       frontmatter: data.data,
       markdownBody: data.content,
     },

@@ -18,7 +18,7 @@ export const navigation = {
             index: 'a',
           },
           {
-            label: 'Nach Der Geburt',
+            label: 'Nach der Geburt',
             href: '/angebot/craniosacral-therapie/nach-der-geburt',
             index: 'b',
           },
@@ -36,8 +36,8 @@ export const navigation = {
         ],
       },
       {
-        label: 'Pränatal und geburts therapie',
-        href: '/angebot/prantal-und-geburts-therapie',
+        label: 'Pränatal therapie',
+        href: '/angebot/praental-therapie',
         index: 2,
       },
       {
@@ -46,8 +46,8 @@ export const navigation = {
         index: 3,
       },
       {
-        label: 'systemische aufstellungsarbeit',
-        href: '/angebot/systemische-aufstellungsarbeit',
+        label: 'Systemische-Arbeit',
+        href: '/angebot/systemische-arbeit',
         index: 4,
       },
 
@@ -78,30 +78,30 @@ export const navigation = {
         index: 1,
       },
       {
-        label: 'Kosten',
-        href: '/organisationals/kosten',
-        index: 3,
-      },
-      {
         label: 'Kosten und Krankenkasse',
         href: '/organisationals/kosten-und-krankenkasse',
-        index: 4,
+        index: 2,
       },
       {
         label: 'Gutscheine',
         href: '/organisationals/gutscheine',
-        index: 5,
+        index: 3,
       },
       {
         label: 'Klientenstimmen',
         href: '/organisationals/klientenstimmen',
-        index: 6,
+        index: 4,
+      },
+      {
+        label: 'Fachliteratur',
+        href: '/organisationals/fachliteratur',
+        index: 5,
       },
     ],
   },
   andrea: {
     default: {
-      label: 'Andrea S.',
+      label: 'Andrea Schuppli',
       href: '/andrea-schuppli',
       index: 1,
     },
@@ -116,8 +116,8 @@ export const navigation = {
   },
   other: {
     default: {
-      label: 'Wissenswertes',
-      href: '/wissenswertes',
+      label: 'Sonstiges',
+      href: '/sonstiges',
       index: 1,
       isNotLink: true,
     },
@@ -125,12 +125,12 @@ export const navigation = {
     options: [
       {
         label: 'Wasserfilter',
-        href: '/wissenswertes/wasserfilter',
+        href: '/sonstiges/wasserfilter',
         index: 1,
       },
       {
         label: 'Kunst',
-        href: '/wissenswertes/kunst',
+        href: '/sonstiges/kunst',
         index: 2,
       },
     ],

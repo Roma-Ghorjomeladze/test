@@ -6,7 +6,7 @@ import { useCMS } from 'tinacms'
 
 export const Article = props => {
   let cms = useCMS()
-
+  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
   return (
     <Layout siteTitle={props.record.title}>
       <article className="blog">
@@ -27,7 +27,7 @@ export const Article = props => {
               </Link>
             </div>
           ) : (
-            <h1>{props.record.title}</h1>
+            <A>{props.record.title}</A>
           )}
         </div>
         {!props.homePage && !!props.record.image && (
@@ -61,6 +61,7 @@ export const Article = props => {
           .blog h1 {
             margin-bottom: 0.7rem;
             text-align: left;
+            color: #3a4b6d;
           }
 
           .blog__hero {
@@ -69,6 +70,7 @@ export const Article = props => {
             width: 100%;
             margin: 0;
             overflow: hidden;
+            color: #3a4b6d;
           }
           .blog__hero img {
             margin-bottom: 0;
@@ -82,13 +84,16 @@ export const Article = props => {
             padding: 0 0 1.5rem 0;
             width: 100%;
             max-width: 768px;
+            color: #3a4b6d;
           }
           .blog__info h1 {
             margin-bottom: 0.66rem;
             text-align: left;
+            color: #3a4b6d;
           }
           .blog__info h3 {
             margin-bottom: 0;
+            color: #3a4b6d;
             text-align: left;
           }
 
@@ -105,6 +110,7 @@ export const Article = props => {
           }
           .blog__body a {
             padding-bottom: 1.5rem;
+            color: #3a4b6d;
           }
           .blog__body:last-child {
             margin-bottom: 0;
@@ -118,11 +124,13 @@ export const Article = props => {
           }
           .blog__body ul {
             list-style: initial;
+            color: #3a4b6d;
           }
           .blog__body ul ol {
             margin-left: 1.25rem;
             margin-bottom: 1.25rem;
             padding-left: 1.45rem;
+            color: #3a4b6d;
           }
 
           .blog__footer {
@@ -133,17 +141,21 @@ export const Article = props => {
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
+            color: #3a4b6d;
           }
           .blog__footer h2 {
             margin-bottom: 0;
+            color: #3a4b6d;
           }
           .blog__footer a {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            color: #3a4b6d;
           }
           .blog__footer a svg {
             width: 20px;
+            color: #3a4b6d;
           }
 
           @media (min-width: 768px) {

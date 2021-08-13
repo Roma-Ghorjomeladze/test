@@ -25,7 +25,7 @@ export const navigationElements = [
   },
   {
     label: 'Pränatal und geburts therapie',
-    value: '/angebot/prantal-und-geburts-therapie',
+    value: '/angebot/praental-therapie',
   },
   {
     label: 'Prozessbegleitung',
@@ -33,7 +33,7 @@ export const navigationElements = [
   },
   {
     label: 'systemische aufstellungsarbeit',
-    value: '/angebot/systemische-aufstellungsarbeit',
+    value: '/angebot/systemische-arbeit',
   },
   {
     label: 'Trauma-Arbeit',
@@ -69,11 +69,11 @@ export const navigationElements = [
   },
   {
     label: 'Wasserfilter',
-    value: '/wissenswertes/wasserfilter',
+    value: '/sonstiges/wasserfilter',
   },
   {
     label: 'Kunst',
-    value: '/wissenswertes/kunst',
+    value: '/sonstiges/kunst',
   },
   {
     label: 'Kontakt',

@@ -84,7 +84,7 @@ const DropDownListContainer = styled('div')`
   background: #fff5f5;
   padding: 18px 30px;
   left: -30px;
-  min-width: 150px;
+  min-width: 200px;
   z-index: 33;
   @media (max-width: 768px) {
     min-width: 350px;

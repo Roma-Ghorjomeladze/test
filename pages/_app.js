@@ -25,8 +25,8 @@ import {
   CreateKostenArticlePlugin,
   CreateKostenUndKrankenkasseArticlePlugin,
   CreateCraniosacralArticlePlugin,
-  CreateWissenswertesKunstArticlePlugin,
-  CreateWissenswertesWasserfilterArticlePlugin,
+  CreateSonstigesKunstArticlePlugin,
+  CreateSonstigesWasserfilterArticlePlugin,
 } from '../plugins/markdownCreator'
 
 class MyApp extends App {
@@ -39,6 +39,7 @@ class MyApp extends App {
       baseRepoFullName: process.env.REPO_FULL_NAME,
       baseBranch: process.env.BASE_BRANCH,
       authScope: 'repo',
+      sha: '',
     })
     const git = new GitClient(`/___tina`)
     this.cms = new TinaCMS({
@@ -69,8 +70,8 @@ class MyApp extends App {
     this.cms.plugins.add(CreateGutschineArticlePlugin)
     this.cms.plugins.add(CreateKlientestimmenArticlePlugin)
     this.cms.plugins.add(CreateProfileArticlePlugin)
-    this.cms.plugins.add(CreateWissenswertesWasserfilterArticlePlugin)
-    this.cms.plugins.add(CreateWissenswertesKunstArticlePlugin)
+    this.cms.plugins.add(CreateSonstigesWasserfilterArticlePlugin)
+    this.cms.plugins.add(CreateSonstigesKunstArticlePlugin)
     this.cms.plugins.add(CreateContactPlugin)
   }
 

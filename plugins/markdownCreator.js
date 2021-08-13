@@ -59,19 +59,15 @@ export class MarkdownCreatorPlugin {
     const fileRelativePath = await this.filename(form)
     const frontmatter = await this.frontmatter(form)
     const markdownBody = await this.body(form)
-    cms.api.github.commit(fileRelativePath, {
+
+    cms.api.git.onChange({
       fileRelativePath,
-      frontmatter,
-      markdownBody,
+      content: toMarkdownString({
+        fileRelativePath,
+        frontmatter,
+        markdownBody,
+      }),
     })
-    // cms.api.git.onChange({
-    //   fileRelativePath,
-    //   content: toMarkdownString({
-    //     fileRelativePath,
-    //     frontmatter,
-    //     markdownBody,
-    //   }),
-    // })
     cms.alerts.success('saved successfully')
   }
 }
@@ -136,7 +132,7 @@ export const CreateHomePostPlugin = new MarkdownCreatorPlugin({
       options: navigationElements,
     },
     {
-      name: 'button',
+      name: 'frontmatter.button',
       description: 'Choose show the button or not',
       label: 'Show button',
       component: 'toggle',
@@ -396,7 +392,7 @@ export const CreatePrantalTherapyArticlePlugin = new MarkdownCreatorPlugin({
       .replace(/[^a-zA-Z0-9-]/g, '')
       .replace('?', '')
 
-    return `data/angebot/prantal-und-geburts-therapie/${slug}.md`
+    return `data/angebot/praental-therapie/${slug}.md`
   },
   fields: [
     {
@@ -496,7 +492,7 @@ export const CreatesyStemischeArbeitArticlePlugin = new MarkdownCreatorPlugin({
       .replace(/[^a-zA-Z0-9-]/g, '')
       .replace('?', '')
 
-    return `data/angebot/systemische-aufstellungsarbeit/${slug}.md`
+    return `data/angebot/systemische-arbeit/${slug}.md`
   },
   fields: [
     {
@@ -850,9 +846,9 @@ export const CreateProfileArticlePlugin = new MarkdownCreatorPlugin({
   body: () => 'update this article',
 })
 
-export const CreateWissenswertesWasserfilterArticlePlugin = new MarkdownCreatorPlugin(
+export const CreateSonstigesWasserfilterArticlePlugin = new MarkdownCreatorPlugin(
   {
-    label: '5.1 Wissenswertes wasserfilter',
+    label: '5.1 sonstiges wasserfilter',
     filename: form => {
       const slug = form.title
         .toLowerCase()
@@ -865,7 +861,7 @@ export const CreateWissenswertesWasserfilterArticlePlugin = new MarkdownCreatorP
         .replace(/[^a-zA-Z0-9-]/g, '')
         .replace('?', '')
 
-      return `data/wissenswertes/wasserfilter/${slug}.md`
+      return `data/sonstiges/wasserfilter/${slug}.md`
     },
     fields: [
       {
@@ -889,8 +885,8 @@ export const CreateWissenswertesWasserfilterArticlePlugin = new MarkdownCreatorP
   }
 )
 
-export const CreateWissenswertesKunstArticlePlugin = new MarkdownCreatorPlugin({
-  label: '5.2 Wissenswertes kunst',
+export const CreateSonstigesKunstArticlePlugin = new MarkdownCreatorPlugin({
+  label: '5.2 sonstiges kunst',
   filename: form => {
     const slug = form.title
       .toLowerCase()
@@ -903,7 +899,7 @@ export const CreateWissenswertesKunstArticlePlugin = new MarkdownCreatorPlugin({
       .replace(/[^a-zA-Z0-9-]/g, '')
       .replace('?', '')
 
-    return `data/wissenswertes/kunst/${slug}.md`
+    return `data/sonstiges/kunst/${slug}.md`
   },
   fields: [
     {

@@ -6,7 +6,7 @@ import { Article } from '../../../components/Article'
 import styled from 'styled-components'
 import Meta from '../../../components/Meta'
 
-const SystemischeAufstellungsarbeit = ({ jsonFile, records }) => {
+const Wasserfilter = ({ jsonFile, records }) => {
   const formOptions = {
     label: 'Site Config',
     fields: [
@@ -37,14 +37,14 @@ const SystemischeAufstellungsarbeit = ({ jsonFile, records }) => {
       <Meta />
       {records.length &&
         records.map(record => (
-          <ArticleCont key={record.slug}>
+          <ArticleCont>
             <Article
               isLink
               record={{
                 slug: record.slug,
                 content: record.document.content,
                 title: record.document.data.title,
-                dir: 'angebot/systemische-aufstellungsarbeit',
+                dir: 'sonstiges/wasserfilter',
               }}
             />
           </ArticleCont>
@@ -53,11 +53,11 @@ const SystemischeAufstellungsarbeit = ({ jsonFile, records }) => {
   )
 }
 
-export default SystemischeAufstellungsarbeit
+export default Wasserfilter
 
-SystemischeAufstellungsarbeit.getInitialProps = async function() {
+Wasserfilter.getInitialProps = async function() {
   const content = await import(
-    '../../../data/angebot/systemische-aufstellungsarbeit/config.json'
+    '../../../data/sonstiges/wasserfilter/config.json'
   )
   let records = (context => {
     const keys = context.keys()
@@ -73,32 +73,19 @@ SystemischeAufstellungsarbeit.getInitialProps = async function() {
       return { document, slug }
     })
     return data
-  })(
-    require.context(
-      '../../../data/angebot/systemische-aufstellungsarbeit',
-      true,
-      /\.md$/
-    )
-  )
+  })(require.context('../../../data/sonstiges/wasserfilter', true, /\.md$/))
   return {
     jsonFile: {
-      fileRelativePath: `data/angebot/systemische-aufstellungsarbeit/config.json`,
+      fileRelativePath: `data/sonstiges/wasserfilter/config.json`,
       data: content.default,
     },
-    records: records.sort((p1, p2) =>
-      p1.document.data.date > p2.document.data.date ? -1 : 1
-    ),
+    records: records.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
   }
 }
 
 const ArticleCont = styled.div`
   &:first-child {
     margin-top: 130px;
-  }
-  @media (max-width: 1080px) {
-    &:first-child {
-      margin-top: 39px;
-    }
   }
   margin-bottom: 60px;
 `

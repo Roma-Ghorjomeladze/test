@@ -25,20 +25,6 @@ export default function Gutschine(props) {
         label: 'Blog Body',
         component: 'markdown',
       },
-      {
-        component: 'list',
-        name: 'frontmatter.list',
-        field: {
-          component: 'textarea',
-        },
-        label: 'List',
-        description: 'add items of your list',
-      },
-      {
-        label: 'Bottom Text',
-        name: 'frontmatter.bottomText',
-        component: 'textarea',
-      },
     ],
   }
 
@@ -52,8 +38,6 @@ export default function Gutschine(props) {
             slug: '',
             title: record.frontmatter.title,
             content: record.markdownBody,
-            list: record.frontmatter.list,
-            bottomText: record.frontmatter.bottomText,
           }}
         />
       </ArticleCont>
@@ -64,16 +48,16 @@ export default function Gutschine(props) {
 Gutschine.getInitialProps = async function(ctx) {
   const { slug } = ctx.query
   const content = await import(
-    `../../../data/angebot/prantal-und-geburts-therapie/${slug}.md`
+    `../../../data/angebot/systemische-arbeit/${slug}.md`
   )
   const config = await import(
-    `../../../data/angebot/prantal-und-geburts-therapie/config.json`
+    `../../../data/angebot/systemische-arbeit/config.json`
   )
   const data = matter(content.default)
 
   return {
     markdownFile: {
-      fileRelativePath: `data/angebot/prantal-und-geburts-therapie/${slug}.md`,
+      fileRelativePath: `data/angebot/systemische-arbeit/${slug}.md`,
       frontmatter: data.data,
       markdownBody: data.content,
     },

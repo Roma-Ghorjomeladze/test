@@ -6,7 +6,7 @@ import { Article } from '../../../components/Article'
 import styled from 'styled-components'
 import Meta from '../../../components/Meta'
 
-const PrantalUndGeburtsTherapie = ({ jsonFile, records }) => {
+const Kunst = ({ jsonFile, records }) => {
   const formOptions = {
     label: 'Site Config',
     fields: [
@@ -34,18 +34,16 @@ const PrantalUndGeburtsTherapie = ({ jsonFile, records }) => {
   usePlugin(form)
   return (
     <Wrapper data={data} title={jsonFile.data.frontmatter.title}>
-      {records.length &&
+      {records.length > 0 &&
         records.map(record => (
-          <ArticleCont key={record.slug}>
+          <ArticleCont>
             <Article
               isLink
               record={{
                 slug: record.slug,
                 content: record.document.content,
                 title: record.document.data.title,
-                list: record.document.data.list,
-                bottomText: record.document.data.bottomText,
-                dir: 'angebot/prantal-und-geburts-therapie',
+                dir: 'sonstiges/kunst',
               }}
             />
           </ArticleCont>
@@ -54,12 +52,10 @@ const PrantalUndGeburtsTherapie = ({ jsonFile, records }) => {
   )
 }
 
-export default PrantalUndGeburtsTherapie
+export default Kunst
 
-PrantalUndGeburtsTherapie.getInitialProps = async function() {
-  const content = await import(
-    '../../../data/angebot/prantal-und-geburts-therapie/config.json'
-  )
+Kunst.getInitialProps = async function() {
+  const content = await import('../../../data/sonstiges/kunst/config.json')
   let records = (context => {
     const keys = context.keys()
     const values = keys.map(context)
@@ -74,20 +70,14 @@ PrantalUndGeburtsTherapie.getInitialProps = async function() {
       return { document, slug }
     })
     return data
-  })(
-    require.context(
-      '../../../data/angebot/prantal-und-geburts-therapie',
-      true,
-      /\.md$/
-    )
-  )
+  })(require.context('../../../data/sonstiges/kunst', true, /\.md$/))
   return {
     jsonFile: {
-      fileRelativePath: `data/angebot/prantal-und-geburts-therapie/config.json`,
+      fileRelativePath: `data/sonstiges/kunst/config.json`,
       data: content.default,
     },
     records: records.sort((p1, p2) =>
-      p1.document.data.date > p2.document.data.date ? -1 : 1
+      p1.document.data.date > p2.document.data.date ? 1 : -1
     ),
   }
 }

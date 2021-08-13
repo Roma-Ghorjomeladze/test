@@ -6,7 +6,7 @@ import { Article } from '../../../components/Article'
 import styled from 'styled-components'
 import Meta from '../../../components/Meta'
 
-const Wasserfilter = ({ jsonFile, records }) => {
+const SystemischeAufstellungsarbeit = ({ jsonFile, records }) => {
   const formOptions = {
     label: 'Site Config',
     fields: [
@@ -37,14 +37,14 @@ const Wasserfilter = ({ jsonFile, records }) => {
       <Meta />
       {records.length &&
         records.map(record => (
-          <ArticleCont>
+          <ArticleCont key={record.slug}>
             <Article
               isLink
               record={{
                 slug: record.slug,
                 content: record.document.content,
                 title: record.document.data.title,
-                dir: 'wissenswertes/wasserfilter',
+                dir: 'angebot/systemische-arbeit',
               }}
             />
           </ArticleCont>
@@ -53,11 +53,11 @@ const Wasserfilter = ({ jsonFile, records }) => {
   )
 }
 
-export default Wasserfilter
+export default SystemischeAufstellungsarbeit
 
-Wasserfilter.getInitialProps = async function() {
+SystemischeAufstellungsarbeit.getInitialProps = async function() {
   const content = await import(
-    '../../../data/wissenswertes/wasserfilter/config.json'
+    '../../../data/angebot/systemische-arbeit/config.json'
   )
   let records = (context => {
     const keys = context.keys()
@@ -73,19 +73,26 @@ Wasserfilter.getInitialProps = async function() {
       return { document, slug }
     })
     return data
-  })(require.context('../../../data/wissenswertes/wasserfilter', true, /\.md$/))
+  })(require.context('../../../data/angebot/systemische-arbeit', true, /\.md$/))
   return {
     jsonFile: {
-      fileRelativePath: `data/wissenswertes/wasserfilter/config.json`,
+      fileRelativePath: `data/angebot/systemische-arbeit/config.json`,
       data: content.default,
     },
-    records: records.sort((p1, p2) => (p1.date > p2.date ? 1 : -1)),
+    records: records.sort((p1, p2) =>
+      p1.document.data.date > p2.document.data.date ? -1 : 1
+    ),
   }
 }
 
 const ArticleCont = styled.div`
   &:first-child {
     margin-top: 130px;
+  }
+  @media (max-width: 1080px) {
+    &:first-child {
+      margin-top: 39px;
+    }
   }
   margin-bottom: 60px;
 `

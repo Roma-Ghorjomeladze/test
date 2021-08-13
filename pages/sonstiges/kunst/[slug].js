@@ -47,17 +47,13 @@ export default function Gutschine(props) {
 
 Gutschine.getInitialProps = async function(ctx) {
   const { slug } = ctx.query
-  const content = await import(
-    `../../../data/wissenswertes/wasserfilter/${slug}.md`
-  )
-  const config = await import(
-    `../../../data/wissenswertes/wasserfilter/config.json`
-  )
+  const content = await import(`../../../data/sonstiges/kunst/${slug}.md`)
+  const config = await import(`../../../data/sonstiges/kunst/config.json`)
   const data = matter(content.default)
 
   return {
     markdownFile: {
-      fileRelativePath: `data/wissenswertes/wasserfilter/${slug}.md`,
+      fileRelativePath: `data/sonstiges/kunst/${slug}.md`,
       frontmatter: data.data,
       markdownBody: data.content,
     },

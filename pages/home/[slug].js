@@ -75,10 +75,12 @@ export default function HomePostItem(props) {
       <HomePost
         article={{
           ...record.frontmatter,
+          button: record.frontmatter.button,
           content: record.markdownBody,
           slug: '',
           dir: '',
         }}
+        isLink={!!record.frontmatter.button}
       />
     </Wrapper>
   )

@@ -13,14 +13,14 @@
 }
 
 @font-face {
-  font-family: 'Sana';
+  font-family: 'SanaThin';
   src: url('/public/fonts/Sana-Thin.ttf');
   font-style: normal;
   font-weight: 100;
 }
 
 @font-face {
-  font-family: 'SanaMedium';
+  font-family: 'Sana';
   src: url('/public/fonts/Sana-Medium.ttf');
   font-style: normal;
   font-weight: 300;

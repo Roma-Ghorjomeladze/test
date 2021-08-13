@@ -47,6 +47,7 @@ export default function Meta(props) {
             padding-top: 0;
             list-style-position: outside;
             list-style-image: none;
+            color: #3a4b6d;
           }
           ol {
             padding-bottom: 0;
@@ -55,11 +56,13 @@ export default function Meta(props) {
             padding-top: 0;
             list-style-position: outside;
             list-style-image: none;
+            color: #3a4b6d;
           }
           ul,
           ol,
           p {
             margin-bottom: 1.45rem;
+            color: #3a4b6d;
           }
           img {
             max-width: 100%;
@@ -75,6 +78,7 @@ export default function Meta(props) {
             padding-left: 0;
             padding-right: 0;
             padding-top: 0;
+            color: #3a4b6d;
           }
           pre {
             margin-left: 0;
@@ -88,6 +92,7 @@ export default function Meta(props) {
             overflow: auto;
             word-wrap: normal;
             padding: 1.45rem;
+            color: #3a4b6d;
           }
 
           h2 {

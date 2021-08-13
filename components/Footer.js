@@ -98,13 +98,15 @@ const Footer_ = styled.div`
 `
 
 const NavHeader = styled.h2`
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 22px;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
   letter-spacing: 0.05em;
   text-transform: capitalize;
   color: #fff5f5;
   cursor: pointer;
+  margin-bottom: 2px;
+  font-family: 'Sana';
 `
 
 const NavHeaderCont = styled.div`
@@ -145,6 +147,7 @@ let CopyRight = styled.p`
   margin-left: 30px;
   margin-top: 20px;
   color: #fff;
+  font-family: 'Sana';
   @media (max-width: 1080px) {
     margin-left: 0;
   }
@@ -154,4 +157,5 @@ let A = styled.span`
   line-height: 22px;
   color: #fff5f5;
   cursor: pointer;
+  font-family: 'Sana';
 `

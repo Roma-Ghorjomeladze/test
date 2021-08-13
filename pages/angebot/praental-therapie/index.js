@@ -6,7 +6,7 @@ import { Article } from '../../../components/Article'
 import styled from 'styled-components'
 import Meta from '../../../components/Meta'
 
-const Kunst = ({ jsonFile, records }) => {
+const PrantalUndGeburtsTherapie = ({ jsonFile, records }) => {
   const formOptions = {
     label: 'Site Config',
     fields: [
@@ -34,16 +34,18 @@ const Kunst = ({ jsonFile, records }) => {
   usePlugin(form)
   return (
     <Wrapper data={data} title={jsonFile.data.frontmatter.title}>
-      {records.length > 0 &&
+      {records.length &&
         records.map(record => (
-          <ArticleCont>
+          <ArticleCont key={record.slug}>
             <Article
               isLink
               record={{
                 slug: record.slug,
                 content: record.document.content,
                 title: record.document.data.title,
-                dir: 'wissenswertes/kunst',
+                list: record.document.data.list,
+                bottomText: record.document.data.bottomText,
+                dir: 'angebot/praental-therapie',
               }}
             />
           </ArticleCont>
@@ -52,10 +54,12 @@ const Kunst = ({ jsonFile, records }) => {
   )
 }
 
-export default Kunst
+export default PrantalUndGeburtsTherapie
 
-Kunst.getInitialProps = async function() {
-  const content = await import('../../../data/wissenswertes/kunst/config.json')
+PrantalUndGeburtsTherapie.getInitialProps = async function() {
+  const content = await import(
+    '../../../data/angebot/praental-therapie/config.json'
+  )
   let records = (context => {
     const keys = context.keys()
     const values = keys.map(context)
@@ -70,14 +74,14 @@ Kunst.getInitialProps = async function() {
       return { document, slug }
     })
     return data
-  })(require.context('../../../data/wissenswertes/kunst', true, /\.md$/))
+  })(require.context('../../../data/angebot/praental-therapie', true, /\.md$/))
   return {
     jsonFile: {
-      fileRelativePath: `data/wissenswertes/kunst/config.json`,
+      fileRelativePath: `data/angebot/praental-therapie/config.json`,
       data: content.default,
     },
     records: records.sort((p1, p2) =>
-      p1.document.data.date > p2.document.data.date ? 1 : -1
+      p1.document.data.date > p2.document.data.date ? -1 : 1
     ),
   }
 }
