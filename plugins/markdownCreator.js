@@ -59,15 +59,19 @@ export class MarkdownCreatorPlugin {
     const fileRelativePath = await this.filename(form)
     const frontmatter = await this.frontmatter(form)
     const markdownBody = await this.body(form)
-
-    cms.api.git.onChange({
+    cms.api.github.commit(fileRelativePath, {
       fileRelativePath,
-      content: toMarkdownString({
-        fileRelativePath,
-        frontmatter,
-        markdownBody,
-      }),
+      frontmatter,
+      markdownBody,
     })
+    // cms.api.git.onChange({
+    //   fileRelativePath,
+    //   content: toMarkdownString({
+    //     fileRelativePath,
+    //     frontmatter,
+    //     markdownBody,
+    //   }),
+    // })
     cms.alerts.success('saved successfully')
   }
 }
